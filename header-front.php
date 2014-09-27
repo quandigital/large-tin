@@ -1,4 +1,4 @@
-<?php include( WP_CONTENT_FOLDERNAME . '/lang.php' ); ?>
+<?php include( __DIR__ . '/lang.php' ); ?>
 	
 <!DOCTYPE html>
 <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
@@ -16,9 +16,7 @@
 			$( 'html' ).removeClass( 'no-touch' ).addClass( 'touch' );
 		}
 	</script>
-	<!--script src="http://192.168.2.50:8080/target/target-script-min.js#anonymous"></script-->
 </head>
 <body <?php body_class(); ?>>
-	
 
 	<div id="main" class="main-container">	

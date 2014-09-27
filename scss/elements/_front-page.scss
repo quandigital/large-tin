@@ -1,0 +1,70 @@
+.intro {
+    display: inline-block;
+    position: relative;
+    // @include grid-column();
+    // margin: auto;
+    // &:after {
+    //     content: '';
+    //     display: block;
+    //     @include grid-column(12);
+    //     width: 1000%;
+    //     height: 1px;
+    // }
+}
+.dark-corner {
+    height: 20000px;
+    width: 10000px;
+    background-color: rgba($purple-dark, .65);
+    position: fixed;
+    left: 30.7%;
+    top: -50%;
+    z-index: 3;
+    @include transform(rotate(-30deg));
+    @include transform-origin(top left);
+}
+.light-corner-1 {
+    height: 20000px;
+    width: 10000px;
+    background-color: rgba(lighten($purple-dark, 25), .85);
+    position: absolute;
+    left: -24.6%;
+    top: -50%;
+    z-index: 2;
+    @include transform(rotate(-30deg));
+    @include transform-origin(top left);
+}
+.light-corner-2 {
+    height: 20000px;
+    width: 255px;
+    background-color: rgba(lighten($purple-dark, 25), .85);
+    position: absolute;
+    left: -80%;
+    top: -50%;
+    z-index: 1;
+    @include transform(rotate(-30deg));
+    @include transform-origin(top left);
+}
+.background-corner {
+    height: 20000px;
+    width: 10000px;
+    background-color: rgba($white, .85);
+    position: absolute;
+    left: -500%;
+    top: -100%;
+}
+
+
+.notlang {
+    display: none;
+}
+
+.front-navigation {
+    z-index: 4;
+}
+
+.home .main-container img {
+    position: fixed;
+    left: 50%;
+    margin-left: -265px;
+    z-index: 1;
+}

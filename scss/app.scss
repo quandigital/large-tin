@@ -12,6 +12,8 @@
 		"modernizr-fixes",
 		"frame";
 
+@import "elements/inc";
+
 .admin-bar {
 		.border {
 			color:green;
@@ -43,15 +45,13 @@ html {
 body {
 	-webkit-font-smoothing: antialiased;
 	background: {
-		color: $sky;
-		image: url(../images/aperile.png);
-		repeat: repeat;
-		attachment:scroll;
+		image: url(https://unsplash.imgix.net/37/tEREUy1vSfuSu8LzTop3_IMG_2538.jpg?q=75&fm=jpg&auto=format&s=6846cdba675a5f321566bb85b4d61966);
+		repeat: no-repeat;
+		size: contain;
 	}
 	min-height:100%;
-	border:1px solid $quan;
 	font-family: nexa_lightregular, sans-serif;
-	padding: 14px;
+    overflow-x: hidden;
 }
 
 *, *:before, *:after {

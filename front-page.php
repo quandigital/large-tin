@@ -7,9 +7,16 @@
 	$jobs = wp_count_posts( 'quan_jobs' );
 	$jobs_open = $jobs->publish;
 ?>
-	<img src="<?php echo get_stylesheet_directory_uri() . '/images/QuanDigital.svg'; ?>" alt="" height="339" width="530" />
+    <div class="intro">
+        <div class="dark-corner"></div>
+        <div class="light-corner-1"></div>
+        <div class="light-corner-2"></div>
+        <div class="background-corner"></div>
+        <img src="<?php echo get_stylesheet_directory_uri() . '/images/QuanDigital.svg'; ?>" alt="" height="339" width="530" />
+        <div style="height:800px;width:530px"></div>
+    </div>
 
-	<nav>
+	<nav class="front-navigation">
 		<ul>
 			<li><a href="./blog"><?php _e( 'Blog', 'quan' ); ?></a></li>
 			<li><a href="./team"><?php _e( 'Team', 'quan' ); ?></a></li>
@@ -26,6 +33,8 @@
 	</nav>
 
 		<?php
+            $lang = $lang;
+
 			if( $lang == 'de' ) {
 				$notlang = 'German';
 			}
@@ -43,8 +52,9 @@
 			}
 
 			function select_lang( $value, $lang ) {
-				if( $lang == $value ) 
+				if( $lang == $value ) {
 					echo 'selected';
+                }
 			}
 		?>
 
