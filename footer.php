@@ -1,17 +1,5 @@
 		</div> <?php //main container ?>
 
-		<?php
-		//the border or frame
-		//shame on presentational markup
-	?>
-		<div id="left"></div>
-		<div id="right"></div>
-		<div id="top"></div>
-		<div id="bottom"></div>
-
-		<div id="frame"></div>
-		<div id="inner-frame"></div>
-
 		<footer>
 			<div class="legal">
 				<span>&copy; 2013 <a href="<?php bloginfo( 'wpurl' ); ?>"><?php bloginfo( 'name' ); ?></a></span>
