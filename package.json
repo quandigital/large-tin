@@ -1,5 +1,9 @@
 {
-  "name": "foundation-libsass-template",
+  "name": "wp-theme-quan-v2",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:quandigital/wp-theme-quan-v2.git"
+  },
   "version": "0.0.1",
   "devDependencies": {
     "node-sass": "~0.7.0",

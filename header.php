@@ -1,5 +1,5 @@
 <?php 	
-	include( WP_CONTENT_FOLDERNAME . '/lang.php' );
+	include( __DIR__ . '/lang.php' );
 
 	global $postlang;
 	if( is_single() && $post->post_type == 'post' ) {
@@ -18,14 +18,7 @@
 <head>
 	<meta charset="utf-8" />
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-	<title><?php 
-
-		if( is_single() ) {
-			single_post_title();
-		} else {
-			bloginfo( 'name' ); 
-		}
-	?></title>
+	<title><?php trim(wp_title('')); ?></title>
 	
 	<?php wp_head(); ?>
 	<script>
