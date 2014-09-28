@@ -1,0 +1,208 @@
+.main-navigation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    @include transform(rotate(0deg));
+    @include transition-duration(1s);
+    ul {
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        margin: 0;
+        padding: 0;
+        text-align: right;
+        list-style-type: none;
+        @include transition-duration(1s);
+        a {
+            font: {
+                family: nexa_lightregular,sans-serif;
+                size: 2.3em;
+            }
+            color: $white;
+            border-bottom: none;
+            @include transition-duration(.3s);
+            &:hover {
+                color: $green;
+                @include transition-duration(.5s);
+                .job-count {
+                    border-right-color: desaturate($red, 25);
+                    @include transition-duration(.5s);
+                }
+            }
+        }
+        li {
+            position: relative;
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                    right: $i * -150px;
+                    @include transition-delay((14 - ($i + $i)) * .1s);
+                    @include transition-duration(.3s);
+                }
+            }
+        }
+    }
+    &.active {
+        .navigation-corner {
+            @include transition-delay(0s);
+            @include transition-duration(1s);
+            margin-left: -110%;
+            @media #{$large-up} {
+                margin-left: -80%;
+            }
+        }
+        li {
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                    @include transition-delay(($i * .2s) + .2s);
+                    @include transition-duration(.3s);
+                    right: 0;
+                }
+            }
+        }
+        .menu-trigger {
+            &:before { //open
+                right: -101px;
+                @include transition-duration(.5s);
+            }
+            &:after { //close
+                right: 0;
+                visibility: visible;
+                @include transition-duration(.5s);
+            }
+            @media #{$background-fix} {
+                right: -81px;
+                &:after {
+                    right: 81px;
+                    padding-right: 20px;
+                }
+                &:hover {
+                    right: 20px;
+                    &:after {
+                        right: 81px;
+                        padding-right: 20px;
+                        @include transition-duration(.5s);
+                    }
+                }
+            }
+            &.triggered {
+                right: -120px;
+                @include transition-duration(.5s);
+                &:after {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}
+
+.job-count {
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 0;
+    border: {
+        right: 25px solid $red;
+        bottom: 38px solid transparent;
+    }
+    font-size: 12px;
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    color: $white;
+    width: 25px;
+    @include transition-duration(.5s);
+    &:before {
+        content: attr(data-jobcount);
+        position: absolute;
+        left: 14px;
+        top: 1px;
+    }
+}
+
+.menu-trigger {
+    color: $green;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 4;
+    font: {
+        family: nexa_lightregular, sans-serif;
+        size: 2em;
+    }
+    visibility: hidden;
+    @include transition-duration(.5s);
+    &:before { // open
+        content: "\f1b4";
+        font-family: Ionicons;
+        position: absolute;
+        right: 0;
+        visibility: visible;
+        @include transition-delay(1s);
+        @include transition-duration(.5s);
+    }
+    &:after { // close
+        content: "\f2bb"; 
+        font-family: Ionicons;
+        position: absolute;
+        right: -101px;
+        @include transition-duration(.5s);
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    @media #{$background-fix} {
+        visibility: visible;
+        @include transition-duration(.5s);
+        &:before {
+            right: -100%;
+            @include transition-delay(0);
+        }
+        &:hover {
+            cursor: pointer;
+            right: -20px;
+            @include transition-duration(.5s);
+            &:before {
+                right: 81px;
+                padding-right: 10px;
+                @include transition-duration(.5s);
+            }
+        }
+        &.triggered {
+            right: -120px;
+            @include transition-duration(.5s);
+        }
+    }
+}
+
+.navigation-corner {
+    height: 1000%;
+    width: 100%;
+    background-color: rgba($purple-dark, .95);
+    margin-left: -85px;
+    border-left: 1px solid rgb(72,66,86);
+    @include transition-duration(1s);
+    @include transition-delay(1s);
+    @include transform(translateX(100%) rotate(-30deg));
+    @include transform-origin(0 0);
+    &:after {
+        content: "";
+        position: absolute;
+        left: 139px;
+        height: 100%;
+        width: 15px;
+        border-left: 1px solid $purple-border;
+        border-right: 4px solid $purple-border;
+        outline: 1px solid $purple-border;
+        outline-offset: 10px
+    }
+    @media #{$background-fix} {
+        margin-left: -150px;
+    }
+}

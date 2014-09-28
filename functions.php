@@ -73,7 +73,7 @@ function quan_add_scripts() {
     wp_register_script( 'livequery', get_template_directory_uri() .  '/js/livequery.js', array( 'jquery' ), '', true );
     wp_register_script( 'smartresize', get_template_directory_uri() .  '/js/smartresize.js', array( 'jquery' ), '0.1', true );
     wp_register_script( 'smoothscroll', get_template_directory_uri() .  '/js/smoothscroll.js', array( 'jquery' ), '', true );
-    wp_register_script( 'app', get_template_directory_uri() .  '/js/app.js', array( 'jquery', 'smartresize', 'fittext', 'lang' ), '', true );
+    wp_register_script( 'app-js', get_template_directory_uri() .  '/js/app.js', array( 'jquery', 'smartresize', 'fittext', 'lang' ), '', true );
     wp_register_script( 'ajaxposts_home', get_template_directory_uri() .  '/js/ajaxposts-home.js', array( 'jquery' ), '', true );
     wp_register_script( 'spin', get_template_directory_uri() .  '/js/spin.min.js', '', '', true );
     wp_register_script( 'ajaxposts', get_template_directory_uri() .  '/js/ajaxposts.js', array( 'jquery' ), '', true );
@@ -81,10 +81,11 @@ function quan_add_scripts() {
     wp_register_script( 'fittext', get_template_directory_uri() .  '/js/fittext.js', array( 'jquery' ), '', true );
     wp_register_script( 'send-message', get_template_directory_uri() .  '/js/send.js', array( 'jquery' ), '', true );
     wp_register_script( 'frontpage', get_template_directory_uri() .  '/js/frontpage-lang.js', array( 'jquery' ), '', true );
+    wp_register_script( 'front', get_template_directory_uri() .  '/js/_front.js', array( 'jquery' ), '', true );
 
     //styles
     wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css' );
-    wp_enqueue_style( 'app', get_template_directory_uri() . '/css/app.css', 'normalize' );
+    wp_enqueue_style( 'app-css', get_template_directory_uri() . '/css/app.css', 'normalize' );
     
 	wp_enqueue_script( array(
 		'jquery',
@@ -95,15 +96,16 @@ function quan_add_scripts() {
 		'app',
 		'cookie',
 		'lang',
-		'fittext'
+        'front',
+		// 'fittext'
 	) );
 
 	if( is_single() ) {
 		wp_enqueue_script( array(
-			'scrollspy',
-			'livequery',
-			'quan_scrollspy',
-			'comment-reply'
+			// 'scrollspy',
+			// 'livequery',
+			// 'quan_scrollspy',
+			// 'comment-reply'
 			)
 		);
 	}
@@ -132,7 +134,7 @@ function quan_add_scripts() {
 
 	if( is_front_page() ) {
 		wp_enqueue_script( array(
-			'frontpage'
+			// 'frontpage'
 			)
 		);	
 	}
