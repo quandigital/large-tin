@@ -1,23 +1,19 @@
 .main-navigation {
     position: fixed;
+    pointer-events: none;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 4;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     @include transform(rotate(0deg));
     @include transition-duration(1s);
     ul {
         position: absolute;
         top: 80px;
-        right: 20px;
+        left: 20px;
         margin: 0;
         padding: 0;
-        text-align: right;
         list-style-type: none;
         @include transition-duration(1s);
         a {
@@ -32,16 +28,16 @@
                 color: $green;
                 @include transition-duration(.5s);
                 .job-count {
-                    border-right-color: desaturate($red, 25);
+                    border-left-color: desaturate($red, 25);
                     @include transition-duration(.5s);
                 }
             }
         }
         li {
             position: relative;
-            @for $i from 1 through 5 {
+            @for $i from 1 through 10 {
                 &:nth-child(#{$i}) {
-                    right: $i * -150px;
+                    left: $i * -150px;
                     @include transition-delay((14 - ($i + $i)) * .1s);
                     @include transition-duration(.3s);
                 }
@@ -52,77 +48,98 @@
         .navigation-corner {
             @include transition-delay(0s);
             @include transition-duration(1s);
-            margin-left: -110%;
+            margin-left: 110%;
             @media #{$large-up} {
-                margin-left: -80%;
+                margin-left: 80%;
             }
         }
+        ul {
+            pointer-events: auto;
+        }
         li {
-            @for $i from 1 through 5 {
+            @for $i from 1 through 10 {
                 &:nth-child(#{$i}) {
                     @include transition-delay(($i * .2s) + .2s);
                     @include transition-duration(.3s);
-                    right: 0;
+                    left: 0;
                 }
             }
         }
         .menu-trigger {
             &:before { //open
-                right: -101px;
+                left: -101px;
                 @include transition-duration(.5s);
             }
             &:after { //close
-                right: 0;
+                left: 0;
                 visibility: visible;
                 @include transition-duration(.5s);
             }
             @media #{$background-fix} {
-                right: -81px;
+                left: -81px;
                 &:after {
-                    right: 81px;
-                    padding-right: 20px;
+                    left: 81px;
+                    padding-left: 20px;
                 }
                 &:hover {
-                    right: 20px;
+                    left: 20px;
                     &:after {
-                        right: 81px;
-                        padding-right: 20px;
+                        left: 81px;
+                        padding-left: 20px;
                         @include transition-duration(.5s);
                     }
                 }
             }
             &.triggered {
-                right: -120px;
+                left: -120px;
                 @include transition-duration(.5s);
                 &:after {
-                    padding-right: 0;
+                    padding-left: 0;
                 }
             }
         }
     }
 }
 
+.menu-jobs {
+    margin-top: -6px;
+}
+
 .job-count {
-    display: block;
-    position: absolute;
-    top: 8px;
-    right: 0;
     border: {
-        right: 25px solid $red;
-        bottom: 38px solid transparent;
+        left: 15px solid $red;
+        bottom: 31px solid transparent;
     }
-    font-size: 12px;
-    position: relative;
     display: inline-block;
-    font-weight: bold;
+    font: {
+        size: 12px;
+        weight: bold;
+    }
+    position: relative;
+    top: 8px;
+    left: 12px;
     color: $white;
-    width: 25px;
+    width: 15px;
     @include transition-duration(.5s);
     &:before {
         content: attr(data-jobcount);
         position: absolute;
-        left: 14px;
+        right: 5px;
         top: 1px;
+        @media #{$medium-up} {
+            right: 14px;
+        }
+    }
+    @media #{$medium-up} {
+        border: {
+            left: {
+                width: 25px;
+            }
+            bottom: {
+                width: 38px;
+            }
+        }
+        width: 25px;
     }
 }
 
@@ -130,8 +147,9 @@
     color: $green;
     position: fixed;
     top: 20px;
-    right: 20px;
+    left: 20px;
     z-index: 4;
+    pointer-events: auto;
     font: {
         family: nexa_lightregular, sans-serif;
         size: 2em;
@@ -142,7 +160,7 @@
         content: "\f1b4";
         font-family: Ionicons;
         position: absolute;
-        right: 0;
+        left: 0;
         visibility: visible;
         @include transition-delay(1s);
         @include transition-duration(.5s);
@@ -151,7 +169,7 @@
         content: "\f2bb"; 
         font-family: Ionicons;
         position: absolute;
-        right: -101px;
+        left: -101px;
         @include transition-duration(.5s);
     }
     &:hover {
@@ -161,21 +179,21 @@
         visibility: visible;
         @include transition-duration(.5s);
         &:before {
-            right: -100%;
+            left: -100%;
             @include transition-delay(0);
         }
         &:hover {
             cursor: pointer;
-            right: -20px;
+            left: -20px;
             @include transition-duration(.5s);
             &:before {
-                right: 81px;
-                padding-right: 10px;
+                left: 81px;
+                padding-left: 10px;
                 @include transition-duration(.5s);
             }
         }
         &.triggered {
-            right: -120px;
+            left: -120px;
             @include transition-duration(.5s);
         }
     }
@@ -185,16 +203,17 @@
     height: 1000%;
     width: 100%;
     background-color: rgba($purple-dark, .95);
-    margin-left: -85px;
-    border-left: 1px solid rgb(72,66,86);
+    margin-left: 85px;
+    border-right: 1px solid rgb(72,66,86);
+    pointer-events: auto;
     @include transition-duration(1s);
     @include transition-delay(1s);
-    @include transform(translateX(100%) rotate(-30deg));
-    @include transform-origin(0 0);
+    @include transform(translateX(-100%) rotate(30deg));
+    @include transform-origin(100% 0);
     &:after {
         content: "";
         position: absolute;
-        left: 139px;
+        right: 139px;
         height: 100%;
         width: 15px;
         border-left: 1px solid $purple-border;
@@ -203,6 +222,42 @@
         outline-offset: 10px
     }
     @media #{$background-fix} {
-        margin-left: -150px;
+        margin-left: 150px;
     }
 }
+
+.notlang {
+    display: none;
+}
+.notlang {
+        @include grid-row();
+        margin-top: 60px;
+        font-size:1.2em;
+        text-align:center;  
+        span {
+            float:none;
+            width:auto;
+            padding-right: 0;
+        }
+        select {
+            @include grid-column(12);
+            background: {
+                color: $sky;
+                image: url(../images/aperile.png);
+                repeat: repeat;
+            }
+            &::-ms-expand {
+                display: none;
+            }
+            float:none;
+            width:auto;
+            margin-top: 20px;
+        }
+    }
+    @media #{$medium-up} {
+        .notlang {
+            .select {
+                display:inline;
+            }
+        }   
+    }

@@ -3,9 +3,6 @@
 	/* Front Page Template */
 
 	get_header( 'front' );	
-
-	$jobs = wp_count_posts( 'quan_jobs' );
-	$jobs_open = $jobs->publish;
 ?>
     <div class="intro-layout">
         <div class="dark-corner"></div>
@@ -16,66 +13,58 @@
         <img class="home-logo" src="<?php echo get_stylesheet_directory_uri() . '/images/QuanDigital.svg'; ?>" alt="" height="339" width="530" />
     </div>
 
-	<nav class="main-navigation">
-        <div class="navigation-corner"></div>
-        <div class="menu-trigger"><?php _e('Menu', 'quan'); ?></div>
-		<ul>
-			<li><a href="./blog"><?php _e( 'Blog', 'quan' ); ?></a></li>
-			<li><a href="./team"><?php _e( 'Team', 'quan' ); ?></a></li>
-			<li><a href="./tour"><?php _e( 'Take the Tour', 'quan' ); ?></a></li>
-			<?php
-				if( $jobs_open > 0 ) : 
-			?>
-				<li><a href="./jobs"><?php _e( 'Jobs', 'quan' ); ?><span class="job-count" data-jobcount="<?php echo $jobs_open; ?>"></span></a></li>	
-			<?php
-				endif;
-			?>
-			<li><a href="./contact"><?php _e( 'Contact', 'quan' ); ?></a></li>
-
-        <?php
-            $lang = $lang;
-
-            if( $lang == 'de' ) {
-                $notlang = 'German';
-            } else if( $lang == 'fr' ) {
-                $notlang = 'French';
-            } else if( $lang == 'en' ) {
-                $notlang = 'English';
-            } else if( $lang == 'it' ) {
-                $notlang = 'Italian';
-            } else if( $lang == 'es' ) {
-                $notlang = 'Spanish';
-            }
-
-            function select_lang( $value, $lang ) {
-                if( $lang == $value ) {
-                    echo 'selected';
-                }
-            }
-        ?>
-
-        <div class="notlang">
-            <span><?php echo $notlang; ?> is not your language? Change it here: </span>
-            <div class="select">
-                <select id="lang-change">
-                    <option value="en" <?php select_lang( 'en', $lang ); ?>>English</option>
-                    <option value="fr" <?php select_lang( 'fr', $lang ); ?>>French</option>
-                    <option value="de" <?php select_lang( 'de', $lang ); ?>>German</option>
-                    <option value="it" <?php select_lang( 'it', $lang ); ?>>Italian</option>
-                    <option value="es" <?php select_lang( 'es', $lang ); ?>>Spanish</option>
-                </select>
-            </div>
-        </div>
-		</ul>
-	</nav>
-
     <article class="frontpage-text">
-        <h2>idea</h2>
+
         <section class="intro">
-            Quan Digital started off with the idea of providing<br />better online marketing through innovative technology,<br /> digital strategies and a passion for our customers.
+            <p>Quan Digital started off with the idea of providing better online marketing through innovative technology, digital strategies and a passion for our customers.</p>
+            <p class="unique-story">Every brand has its own unique story.<br />We tell it.</p>
         </section>
-        <section class="story">
-            Every brand has its own unique story. We tell it.
+
+        <section class="concept">
+            <h2>concept &amp; idea.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam repellendus ducimus, rem adipisci cum, pariatur perspiciatis odio assumenda?</p>
+            <section class="relaunch">
+                <h3>Relaunch Concept</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime id incidunt, soluta quas odit suscipit! Ex eos placeat, eius atque delectus totam soluta in magni!</p>
+            </section>
+            <section class="optimization">
+                <h3>Ranking &amp; Conversion Optimization</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime id incidunt, soluta quas odit suscipit! Ex eos placeat, eius atque delectus totam soluta in magni!</p>
+            </section>
+            <section class="analysis">
+                <h3>Case-Based Data Acquisition and Evaluation</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime id incidunt, soluta quas odit suscipit! Ex eos placeat, eius atque delectus totam soluta in magni!</p>
+            </section>
+        </section>
+
+        <section class="growth">
+            <h2>growth &amp; progress.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi iusto incidunt quasi laborum expedita? Odio hic incidunt, obcaecati dolore nisi! Sed, aliquid!</p>
+            <section class="brand">
+                <h3>Brand Building</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime id incidunt, soluta quas odit suscipit! Ex eos placeat, eius atque delectus totam soluta in magni!</p>
+            </section>
+            <section class="content">
+                <h3>Content Marketing</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime id incidunt, soluta quas odit suscipit! Ex eos placeat, eius atque delectus totam soluta in magni!</p>
+            </section>
+        </section>
+
+        <section class="trust">
+            <h2>commitment &amp; trust.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat minus, quis quae.</p>
+            <section class="commitment">
+                <h3>Commitment</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime id incidunt, soluta quas odit suscipit! Ex eos placeat, eius atque delectus totam soluta in magni!</p>
+            </section>
+            <section class="direct">
+                <h3>Immediate &amp; Personal Contact</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime id incidunt, soluta quas odit suscipit! Ex eos placeat, eius atque delectus totam soluta in magni!</p>
+            </section>
+            <section class="cost-benefit">
+                <h3>Cost-Benefit Awareness</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime id incidunt, soluta quas odit suscipit! Ex eos placeat, eius atque delectus totam soluta in magni!</p>
+            </section>
         </section>
     </article>
 

@@ -1,0 +1,12 @@
+body {
+    font-size: .6;
+    @media #{$small-up} {
+        font-size: .7em;
+    }
+    @media #{$medium-up} {
+        font-size: .85em;
+    }
+    @media #{$large-up} {
+        font-size: 1em;
+    }
+}
