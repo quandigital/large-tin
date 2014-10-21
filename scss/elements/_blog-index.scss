@@ -1,0 +1,80 @@
+// container and general
+.main-loop-container {
+    @include grid-row();
+    padding-left: .9375em;
+}
+
+    .main-loop {
+        @include grid-row();
+        @media #{$medium-up} {
+            @include display(flex);
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+            overflow-x: hidden;
+        }
+        article {
+            @include grid-column(12);
+            margin-bottom: .9375em;
+            padding: {
+                left: 0;
+                right: .9375em;
+            }
+            @media #{$medium-up} {
+                width: 49.9%;
+                float: left;
+            }
+            @media #{$large-up} {
+                width: 33.2%;
+            }
+        }
+    }
+
+
+// animate only if js is loaded
+
+.js {
+    .main-loop {
+        article {
+            &:not(.shown) {
+                opacity: 0!important;
+            }
+        }
+    }
+}
+    article {
+        @include transition-duration(.5s);
+        &.shown {
+            @include animation(fadeIn 1.5s ease-in);
+            &.unfocus { // we need this specifity
+                opacity: .3!important;
+                @include transition-duration(.2s);
+                &:before {
+                    content: "";
+                    display: block;
+                    background-color: $green;//$quan;
+                    opacity: .06!important;
+                    position: absolute;
+                    top: 0;
+                    right: .9375em;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 1;
+                }
+            }
+            &.focus {
+                @include transition-duration(.5s);
+            }
+        }
+    }
+
+
+@include keyframes(fadeIn) {
+  from {
+    // @include transform();
+    opacity: 0;
+  }
+  to {
+    // @include transform();
+    opacity: 1;
+  }
+}
