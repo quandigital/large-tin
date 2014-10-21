@@ -1,12 +1,24 @@
 body {
     font-size: .6;
     @media #{$small-up} {
-        font-size: .7em;
+        font-size: .8em;
     }
     @media #{$medium-up} {
         font-size: .85em;
     }
     @media #{$large-up} {
         font-size: 1em;
+    }
+}
+
+a {
+    text-decoration:none;
+    border-bottom:1px dotted $gray;
+    color: $gray;
+    @include transition-duration(.2s);
+    &:hover {
+        border-bottom: 1px solid $quan;
+        color: $quan;
+        @include transition-duration(.5s);
     }
 }

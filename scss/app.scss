@@ -62,18 +62,7 @@ body {
 	box-sizing: border-box;
 }
 
-a {
-	$color: $wheat; //lighten($quan, 20%);
-	text-decoration:none;
-	border-bottom:1px dotted $color;
-	color: $color;
-	@include transition-duration(.2s);
-	&:hover {
-		border-bottom: 1px solid lighten($quan, 20%);
-		color: lighten($quan, 20%);
-		@include transition-duration(.5s);
-	}
-}
+
 
 h1, h2, h3 {
 	font: {
