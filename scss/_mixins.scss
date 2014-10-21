@@ -60,3 +60,11 @@
 @mixin std-border( $position:"" ) {
 	border#{$position}:1px solid rgba($quan, .5);
 }
+
+// not actually a mixin but a global class
+.preload {
+    * {
+        @include transition(none!important);
+        @include animation-duration(0!important);
+    }
+}

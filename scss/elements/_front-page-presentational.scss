@@ -1,0 +1,66 @@
+.dark-corner {
+    height: 20000px;
+    width: 10000px;
+    background-color: rgba($purple-dark, .65);
+    position: absolute;
+    // left: 72.5%;
+    left: 22.5%;
+    top: -50%;
+    z-index: 3;
+    @include transform(rotate(120deg));
+    @include transform-origin(top left);
+    display: none;
+    @media #{$large-up} {
+        display: block;
+    }
+}
+.light-corner-1 {
+    height: 1000%;
+    width: 100%;
+    background-color: rgba($purple-light, .85);
+    position: absolute;
+    left: 8%;
+    top: -100%;
+    z-index: 2;
+    @include transform(rotate(30deg));
+    @include transform-origin(top left);
+    @media #{$background-fix} {
+        width: 300%;
+        top: -300%;
+        left: -150%;
+    }
+}
+.light-corner-2 {
+    height: 20000px;
+    background-color: rgba($purple-light, .85);
+    position: absolute;
+    top: -60%;
+    right: -58%;
+    z-index: 1;
+    visibility: hidden;
+    @include transform(rotate(30deg));
+    @include transform-origin(top left);
+    @media #{$background-fix} {
+        width: 350px;
+        visibility: visible;
+    }
+}
+.background-corner {
+    height: 1000%;
+    width: 200px;
+    background-color: rgba($purple-light, .1);
+    position: absolute;
+    top: -50%;
+    z-index: 0;
+    @include transform(translateX(-73%) rotate(-37deg));
+    @include transform-origin(top right);
+    &:after {
+        content: "";
+        position: absolute;
+        right: 139px;
+        height: 100%;
+        width: 40px;
+        border-left: 5px solid $white;
+        border-right: 15px solid $white;
+    }
+}

@@ -1,0 +1,104 @@
+// twitter cards
+
+.index-tweet {
+    > div {
+        @include grid-column(12);
+        padding: .9375em;
+        background-color: #fff;
+    }
+}
+
+    .tweet-author {
+        vertical-align: middle;
+        &:hover {
+            .twitter-name {
+                border-bottom: 2px solid $quan;
+            }
+        }
+    }
+        .twitter-image {
+            display: inline-block;
+            vertical-align: inherit;
+            border: 0;
+            &:hover {
+                border: 0;
+            }
+        }
+    
+        .entry_author_image {
+            img {
+                border-radius: 50%;
+                padding: .9375em;
+            }
+        }
+
+        .display-name {
+            display: inline-block;
+            padding-left: 20px;
+            vertical-align: inherit;
+            br {
+                font-size: 1.3em;
+            }
+        }
+
+        .twitter-name {
+            border-bottom: 2px solid transparent;
+            color: $quan;
+            font: {
+                family: nexa_boldregular, sans-serif;
+                size: 1.3em;
+            }
+            line-height: 1.5;
+            &:hover {
+                color: $quan;
+                border-bottom: 2px solid $quan;
+            }
+        }
+
+        .twitter-screenname {
+            border-bottom: 0;
+            color: $gray;
+            &:hover {
+                border-bottom: 0;
+            }
+        }
+
+    .tweet-attachment {
+         background: {
+             size: cover;
+             position: 0;
+         }
+         min-height:175px;
+         width:100%;
+         margin-bottom: 10px;
+     }
+    
+    .tweet-content {
+        border-bottom: 1px solid $light;
+        font-size: 1.4em;
+    }
+
+    // actions/intents
+    .intents {
+        @include grid-column();
+        float: right;
+        padding-top: .9375em;
+    }
+
+    .intent {
+        @include grid-column();
+        padding: {
+            left: .375em;
+            right: .375em;
+        }
+        float: right;
+        a {
+            color: $gray;
+            font-size: 1.5em;
+            border-bottom: 0;
+            &:hover {
+                color: $quan;
+                border-bottom: 0;
+            }
+        }
+    }

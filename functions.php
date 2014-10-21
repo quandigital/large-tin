@@ -73,7 +73,7 @@ function quan_add_scripts() {
     wp_register_script( 'livequery', get_template_directory_uri() .  '/js/livequery.js', array( 'jquery' ), '', true );
     wp_register_script( 'smartresize', get_template_directory_uri() .  '/js/smartresize.js', array( 'jquery' ), '0.1', true );
     wp_register_script( 'smoothscroll', get_template_directory_uri() .  '/js/smoothscroll.js', array( 'jquery' ), '', true );
-    wp_register_script( 'app', get_template_directory_uri() .  '/js/app.js', array( 'jquery', 'smartresize', 'fittext', 'lang' ), '', true );
+    wp_register_script( 'app-js', get_template_directory_uri() .  '/js/app.js', array( 'jquery', 'smartresize', 'fittext', 'lang' ), '', true );
     wp_register_script( 'ajaxposts_home', get_template_directory_uri() .  '/js/ajaxposts-home.js', array( 'jquery' ), '', true );
     wp_register_script( 'spin', get_template_directory_uri() .  '/js/spin.min.js', '', '', true );
     wp_register_script( 'ajaxposts', get_template_directory_uri() .  '/js/ajaxposts.js', array( 'jquery' ), '', true );
@@ -81,10 +81,15 @@ function quan_add_scripts() {
     wp_register_script( 'fittext', get_template_directory_uri() .  '/js/fittext.js', array( 'jquery' ), '', true );
     wp_register_script( 'send-message', get_template_directory_uri() .  '/js/send.js', array( 'jquery' ), '', true );
     wp_register_script( 'frontpage', get_template_directory_uri() .  '/js/frontpage-lang.js', array( 'jquery' ), '', true );
+    wp_register_script( 'front', get_template_directory_uri() .  '/js/_front.js', array( 'jquery' ), '', true );
+    wp_register_script( 'blog', get_template_directory_uri() .  '/js/_blog-index.js', array( 'jquery', 'isotope' ), '', true );
+    wp_register_script( 'isotope', get_template_directory_uri() .  '/js/isotope.min.js', array( 'jquery' ), '', true );
+    wp_register_script( 'anim-on-scroll', get_template_directory_uri() .  '/js/AnimOnScroll.js', array(), '', true );
+    wp_register_script( 'images-loaded', get_template_directory_uri() .  '/js/imagesLoaded.js', array(), '', true );
 
     //styles
     wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css' );
-    wp_enqueue_style( 'app', get_template_directory_uri() . '/css/app.css', 'normalize' );
+    wp_enqueue_style( 'app-css', get_template_directory_uri() . '/css/app.css', 'normalize' );
     
 	wp_enqueue_script( array(
 		'jquery',
@@ -95,15 +100,18 @@ function quan_add_scripts() {
 		'app',
 		'cookie',
 		'lang',
-		'fittext'
+        'front',
+        'blog',
+        'isotope',
+		// 'fittext'
 	) );
 
 	if( is_single() ) {
 		wp_enqueue_script( array(
-			'scrollspy',
-			'livequery',
-			'quan_scrollspy',
-			'comment-reply'
+			// 'scrollspy',
+			// 'livequery',
+			// 'quan_scrollspy',
+			// 'comment-reply'
 			)
 		);
 	}
@@ -132,7 +140,7 @@ function quan_add_scripts() {
 
 	if( is_front_page() ) {
 		wp_enqueue_script( array(
-			'frontpage'
+			// 'frontpage'
 			)
 		);	
 	}
@@ -357,6 +365,180 @@ function quan_load_posts() {
 
 	die();
 
+}
+
+// use this tp get more blog content on an ajax call
+
+add_action( 'wp_ajax_nopriv_quan_get_all_posts', 'quan_all_posts' );
+add_action( 'wp_ajax_quan_get_all_posts', 'quan_all_posts' );
+
+function quan_all_posts() {
+
+    global $post;
+
+    // get the posts that are already on the page, i.e. the first 9
+    $already_showing_query = new WP_Query( array(
+        'post_type'      => array( 'post', 'quan_tweets' ),
+        'post_status'         => 'publish',
+        'order'          => 'DESC',
+        'orderby'        => 'date',
+        'posts_per_page' => 9,
+        )
+    );
+
+    $already_showing = array();
+
+    foreach ($already_showing_query->posts as $already_showing_post ) {
+        $already_showing[] = $already_showing_post->ID;
+    }
+
+    //get the remaining posts
+    $quan_query = new WP_Query( array(
+        'post_type'      => array( 'post', 'quan_tweets' ),
+        'post_status'    => 'publish',
+        'order'          => 'DESC',
+        'orderby'        => 'date',
+        'posts_per_page' => -1,
+        'post__not_in'   => $already_showing
+        )
+    );
+        
+
+    ob_start();
+    // if( $quan_query->have_posts() ) :
+    //     while( $quan_query->have_posts() ) :
+    //         $quan_query->the_post();
+    //         var_dump($post);
+    //     endwhile;
+    // endif;
+    // die();
+
+    if( $quan_query->have_posts() ) :
+        while( $quan_query->have_posts() ) :
+            $quan_query->the_post();
+
+            require_once('resolution.php');
+
+            //write all ids to an array, we'll then use to filter the list
+            $ids[] = get_the_ID();
+
+            $posttype = $quan_query->post->post_type;
+
+            //post container
+            echo '<article id="post-' . get_the_ID() . '" ' . ( $posttype == 'quan_tweets' ? 'class="index-tweet">' : 'class="index-post">' );
+            echo '<div>';
+
+            //only do the whole image thing when the post is an actual post and not a tweet
+            if( $posttype == 'post' ) :
+        ?>          
+
+                <div class="post-image">
+                    <?php
+                        if( has_post_thumbnail() ) {
+                            echo '<img src="' . aq_resize( wp_get_attachment_url( get_post_thumbnail_id($quan_query->post->ID) ), $GLOBALS['width'], $GLOBALS['height'], true ) . '" alt="" class="index-post-img" />';
+                        } else {
+                            echo '<img src="' . get_stylesheet_directory_uri() . '/images/dummy-' . $dummy_size . '.png" alt="" class="index-post-img" />';
+                        }
+
+                    ?>
+                </div>
+
+                <div class="index-post-text">
+                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    <p>
+                        <?php
+                            if( get_field( 'quan_excerpt' ) ) {
+                                the_field( 'quan_excerpt' );
+                            }
+                        ?>
+                    </p>
+                </div>
+        <?php
+            else : //if posttype is tweet
+                $twitterName = get_post_meta( $quan_query->post->ID, 'quan_tweet_author_twitter_name', true );
+                $twitterScreenName = get_post_meta( $quan_query->post->ID, 'quan_tweet_author_twitter', true );
+                //check if we have this author in the database
+                $tweetauthor = get_users( array( 'meta_key' => 'twitter', 'meta_value' => $twitterScreenName ) );
+                
+                //if this still does not return an author, get the tweet author
+                if( empty( $tweetauthor ) ) {
+                    $tweetauthor = $twitterScreenName; 
+                }
+
+                //if the tweet has an image
+                $attachment = get_post_meta( $quan_query->post->ID, 'quan_tweet_media_attachment', true );
+
+                // get the tweet content
+                $content = get_the_content();
+            ?>
+                
+                <div class="index-author tweet-author">
+                    <a class="twitter-image" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank">
+                        <?php
+                            if( is_array( $tweetauthor ) ) :
+                                //get their author image
+                                the_author_image_size( 100, 100, $tweetauthor[0]->ID ); 
+                            else :
+                            //get their twitter image (retain the stupid class name of the author image plugin)
+                        ?>
+                            <div class="entry_author_image"><img src="<?= get_post_meta( $quan_query->post->ID, 'quan_tweet_avatar_url', true ); ?>" alt="" /></div>    
+                        <?php 
+                            endif; 
+                        ?>
+                    </a>
+
+                    <div class="display-name">
+                    <?php if( is_array( $tweetauthor ) ) : ?>
+                        <a class="twitter-name" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank"><?= $tweetauthor[0]->display_name; ?></a>
+                    <?php else : ?>
+                        <a class="twitter-name" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank"><?= $twitterName; ?></a>
+                    <?php endif; ?>
+                        <br />
+                        <a class="twitter-screenname" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank">@<?= $twitterScreenName; ?></a>
+                    </div>
+
+                </div>
+
+                <div class="tweet-content">
+                <?php if( $attachment != '' ) : ?>
+                    <div class="tweet-attachment" style="background-image: url(<?= $attachment; ?>);"></div>
+                <?php endif; ?>
+                
+                   <p><?= $content; ?></p>
+
+                </div>
+
+                <div class="intents">
+                    <div class="intent" data-intent="<?= __( 'Favorite', 'quan' ); ?>">
+                        <a href="https://twitter.com/intent/favorite?tweet_id=<?= get_post_meta( $quan_query->post->ID, 'quan_tweet_tweet_id', true ); ?>" target="_blank"><i class="ion-star"></i></a>
+                    </div>
+                    
+                    <div class="intent" data-intent="<?= __( 'Retweet', 'quan' ); ?>">
+                        <a href="https://twitter.com/intent/retweet?tweet_id=<?= get_post_meta( $quan_query->post->ID, 'quan_tweet_tweet_id', true ); ?>" target="_blank"><i class="ion-loop"></i></a>
+                    </div>
+                    
+                    <div class="intent" data-intent="<?= __( 'Reply', 'quan' ); ?>">
+                        <a href="https://twitter.com/intent/tweet?in_reply_to=<?= get_post_meta( $quan_query->post->ID, 'quan_tweet_tweet_id', true ); ?>" target="_blank"><i class="ion-reply"></i></a>
+                    </div>
+                </div>
+
+            <?php                   
+                //unset the tweetauthor, so it gets newly created on each iteration
+                unset( $tweetauthor );
+                unset( $twitterScreenName );
+            endif; // posttype post or tweet
+
+        echo '</div></article>';
+
+        endwhile;
+        echo '</div></div>';
+    else :
+        echo -1;
+    endif;
+
+    ob_end_flush();
+
+    die();
 }
 
 add_action( 'personal_options_update', 'quan_transfer_gplus_authorurl' );
@@ -588,3 +770,11 @@ function my_admin_add_page() {
 		var_dump($status);
 	echo '</pre></code>';
 }
+
+
+function updateTweet() {
+    update_post_meta( '3739', 'quan_tweet_author_twitter_name', 'Michael Arestad' );
+    update_post_meta( '3740', 'quan_tweet_author_twitter_name', 'Michael Scheuner' );
+}
+
+// add_action('init', 'updateTweet');

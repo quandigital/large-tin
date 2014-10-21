@@ -1,0 +1,64 @@
+// icon stuff here
+.concept, 
+.growth,
+.trust {
+    section{
+        &:before {
+            font: {
+                family: Ionicons;
+            }
+            font-size: 3em;
+            text-align: center;
+            position: relative;
+            display: block;
+        }
+    }
+}
+
+.relaunch {
+    &:before {
+        content: "\f201";
+    }
+}
+
+.optimization {
+    &:before {
+        content: "\f298";
+    }   
+}
+
+.analysis {
+    &:before {
+        content: "\f2a5";
+    }
+}
+
+.brand {
+    &:before {
+        content: "\f2ab";
+    }
+}
+
+.content {
+    &:before {
+        content: "\f262";
+    }
+}
+
+.commitment {
+    &:before {
+        content: "\f1fe";
+    }
+}
+
+.direct {
+    &:before {
+        content: "\f11c";
+    }
+}
+
+.cost-benefit {
+    &:before {
+        content: "\f2b5";
+    }
+}

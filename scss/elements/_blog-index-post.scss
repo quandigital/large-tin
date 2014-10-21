@@ -1,0 +1,54 @@
+// image and attribution
+.post-image {
+    
+}
+
+    .index-post-img {
+        @include grid-column(12);           
+    }
+
+    .attribution {
+        @include grid-column(12);
+        padding-top: .9375em;
+        text-align: right;
+        vertical-align: middle;
+        a {
+            color: $quan;
+            border-bottom: 1px solid $quan;
+            vertical-align: inherit;
+        }
+        .license { 
+            border-bottom: 0;
+        }
+    }
+
+        .cc {
+            margin-left: .9375em;
+            width: 20px;
+            vertical-align: inherit;
+        }
+
+
+// heading and text
+.index-post-text {
+    @include grid-column($columns: 12, $collapse: false);
+    background-color: #fff;
+    h2 {
+        @include grid-column(12);
+        margin-bottom: .3em;
+        font-family: nexa_boldregular, sans-serif;
+        a {
+            border-bottom: none;
+            color: $quan;
+            font-size: 1.4em;
+            &:hover {
+                color: $gray;
+            }
+        }
+    }
+    p {
+        @include grid-column(12);
+        margin-top: 0;
+        font-size: 1.2em;
+    }
+}

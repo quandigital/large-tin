@@ -1,4 +1,6 @@
-
+body {
+    // min-height: 5000px;
+}
 .main-loop {
 	.type {
 		z-index: -1;
@@ -10,4 +12,9 @@
 			opacity: .6;
 		}
 	}
+}
+
+footer, 
+.social-menu {
+    position: relative;
 }
