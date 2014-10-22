@@ -27,7 +27,7 @@
         <div class="main-loop-container">
             <?php require_once('home-filter.php'); ?>
             <div class="main-loop preload" id="loop">
-                <?php require_once('main-query.php'); ?>
+                <?php require_once('home-query.php'); ?>
             </div>
             <div class="pagenavi">
                 <?php posts_nav_link(); ?>

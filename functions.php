@@ -406,7 +406,7 @@ function quan_all_posts() {
 
     ob_start();
 
-    require_once('main-query.php');
+    require_once('home-query.php');
 
     ob_end_flush();
 
