@@ -118,8 +118,8 @@ function quan_add_scripts() {
 
 	if( is_home() ) {
 		wp_enqueue_script( array(
-			'ajaxposts_home',
-			'spin'
+			// 'ajaxposts_home',
+			// 'spin'
 			)
 		);	
 	}
@@ -405,136 +405,8 @@ function quan_all_posts() {
         
 
     ob_start();
-    // if( $quan_query->have_posts() ) :
-    //     while( $quan_query->have_posts() ) :
-    //         $quan_query->the_post();
-    //         var_dump($post);
-    //     endwhile;
-    // endif;
-    // die();
 
-    if( $quan_query->have_posts() ) :
-        while( $quan_query->have_posts() ) :
-            $quan_query->the_post();
-
-            require_once('resolution.php');
-
-            //write all ids to an array, we'll then use to filter the list
-            $ids[] = get_the_ID();
-
-            $posttype = $quan_query->post->post_type;
-
-            //post container
-            echo '<article id="post-' . get_the_ID() . '" ' . ( $posttype == 'quan_tweets' ? 'class="index-tweet">' : 'class="index-post">' );
-            echo '<div>';
-
-            //only do the whole image thing when the post is an actual post and not a tweet
-            if( $posttype == 'post' ) :
-        ?>          
-
-                <div class="post-image">
-                    <?php
-                        if( has_post_thumbnail() ) {
-                            echo '<img src="' . aq_resize( wp_get_attachment_url( get_post_thumbnail_id($quan_query->post->ID) ), $GLOBALS['width'], $GLOBALS['height'], true ) . '" alt="" class="index-post-img" />';
-                        } else {
-                            echo '<img src="' . get_stylesheet_directory_uri() . '/images/dummy-' . $dummy_size . '.png" alt="" class="index-post-img" />';
-                        }
-
-                    ?>
-                </div>
-
-                <div class="index-post-text">
-                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                    <p>
-                        <?php
-                            if( get_field( 'quan_excerpt' ) ) {
-                                the_field( 'quan_excerpt' );
-                            }
-                        ?>
-                    </p>
-                </div>
-        <?php
-            else : //if posttype is tweet
-                $twitterName = get_post_meta( $quan_query->post->ID, 'quan_tweet_author_twitter_name', true );
-                $twitterScreenName = get_post_meta( $quan_query->post->ID, 'quan_tweet_author_twitter', true );
-                //check if we have this author in the database
-                $tweetauthor = get_users( array( 'meta_key' => 'twitter', 'meta_value' => $twitterScreenName ) );
-                
-                //if this still does not return an author, get the tweet author
-                if( empty( $tweetauthor ) ) {
-                    $tweetauthor = $twitterScreenName; 
-                }
-
-                //if the tweet has an image
-                $attachment = get_post_meta( $quan_query->post->ID, 'quan_tweet_media_attachment', true );
-
-                // get the tweet content
-                $content = get_the_content();
-            ?>
-                
-                <div class="index-author tweet-author">
-                    <a class="twitter-image" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank">
-                        <?php
-                            if( is_array( $tweetauthor ) ) :
-                                //get their author image
-                                the_author_image_size( 100, 100, $tweetauthor[0]->ID ); 
-                            else :
-                            //get their twitter image (retain the stupid class name of the author image plugin)
-                        ?>
-                            <div class="entry_author_image"><img src="<?= get_post_meta( $quan_query->post->ID, 'quan_tweet_avatar_url', true ); ?>" alt="" /></div>    
-                        <?php 
-                            endif; 
-                        ?>
-                    </a>
-
-                    <div class="display-name">
-                    <?php if( is_array( $tweetauthor ) ) : ?>
-                        <a class="twitter-name" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank"><?= $tweetauthor[0]->display_name; ?></a>
-                    <?php else : ?>
-                        <a class="twitter-name" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank"><?= $twitterName; ?></a>
-                    <?php endif; ?>
-                        <br />
-                        <a class="twitter-screenname" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank">@<?= $twitterScreenName; ?></a>
-                    </div>
-
-                </div>
-
-                <div class="tweet-content">
-                <?php if( $attachment != '' ) : ?>
-                    <div class="tweet-attachment" style="background-image: url(<?= $attachment; ?>);"></div>
-                <?php endif; ?>
-                
-                   <p><?= $content; ?></p>
-
-                </div>
-
-                <div class="intents">
-                    <div class="intent" data-intent="<?= __( 'Favorite', 'quan' ); ?>">
-                        <a href="https://twitter.com/intent/favorite?tweet_id=<?= get_post_meta( $quan_query->post->ID, 'quan_tweet_tweet_id', true ); ?>" target="_blank"><i class="ion-star"></i></a>
-                    </div>
-                    
-                    <div class="intent" data-intent="<?= __( 'Retweet', 'quan' ); ?>">
-                        <a href="https://twitter.com/intent/retweet?tweet_id=<?= get_post_meta( $quan_query->post->ID, 'quan_tweet_tweet_id', true ); ?>" target="_blank"><i class="ion-loop"></i></a>
-                    </div>
-                    
-                    <div class="intent" data-intent="<?= __( 'Reply', 'quan' ); ?>">
-                        <a href="https://twitter.com/intent/tweet?in_reply_to=<?= get_post_meta( $quan_query->post->ID, 'quan_tweet_tweet_id', true ); ?>" target="_blank"><i class="ion-reply"></i></a>
-                    </div>
-                </div>
-
-            <?php                   
-                //unset the tweetauthor, so it gets newly created on each iteration
-                unset( $tweetauthor );
-                unset( $twitterScreenName );
-            endif; // posttype post or tweet
-
-        echo '</div></article>';
-
-        endwhile;
-        echo '</div></div>';
-    else :
-        echo -1;
-    endif;
+    require_once('main-query.php');
 
     ob_end_flush();
 

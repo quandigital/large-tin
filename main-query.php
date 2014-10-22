@@ -1,62 +1,45 @@
 <?php
 
-    // main query (we'll use it a couple of times)
+    /**
+     * main query output (we'll use it a couple of times)
+     */
 
-    //the main query
-    $quan_query = new WP_Query( array(
-            'post_type'      => array( 'post', 'quan_tweets' ),
-            'order'          => 'DESC',
-            'orderby'        => 'date',
-            'posts_per_page' => 9,
-            )
-        );
+?>
+        
     
-    // create the array that holds the ids, to filter them in the ajax call later on
-    $ids = array();
-
+        <?php
+            //output the posts 
+            if( $quan_query->have_posts() ) :
+        
+            
+            
                 while( $quan_query->have_posts() ) :
-                $quan_query->the_post();
+                    $quan_query->the_post();
 
-                //write all ids to an array, we'll then use to filter the list
-                $ids[] = get_the_ID();
+                    require_once('resolution.php');
 
-                $posttype = $quan_query->post->post_type;
+                    //write all ids to an array, we'll then use to filter the list
+                    $ids[] = get_the_ID();
 
-                //post container
-                echo '<article id="post-' . get_the_ID() . '" ' . ( $posttype == 'quan_tweets' ? 'class="index-tweet">' : 'class="index-post">' );
-                echo '<div>';
+                    $posttype = $quan_query->post->post_type;
+                    $postlang = wp_get_post_terms($quan_query->post->ID, 'language');
+                    $postlang = $postlang[0];
 
-                //only do the whole image thing when the post is an actual post and not a tweet
-                if( $posttype == 'post' ) :
-            ?>          
+                    //post container
+                    echo '<article id="post-' . get_the_ID() . '" class="' . ( $posttype == 'quan_tweets' ? 'index-tweet' : 'index-post' ) . ' lang-' . $postlang->slug . '">';
+                    echo '<div>';
 
-                    <div class="post-image">
-                        <?php
-                            if( has_post_thumbnail() ) {
-                                echo '<img src="' . aq_resize( wp_get_attachment_url( get_post_thumbnail_id($post->ID) ), $width, $height, true ) . '" alt="" class="index-post-img" />';
-                            } else {
-                                echo '<img src="' . get_stylesheet_directory_uri() . '/images/dummy-' . $dummy_size . '.png" alt="" class="index-post-img" />';
-                            }
+                    //only do the whole image thing when the post is an actual post and not a tweet
+                    if( $posttype == 'post' ) :
+                
+                        include('index-post.php');
 
-                        ?>
-                    </div>
+                        else : //if posttype is tweet
+                            include('index-tweet.php');
+                        endif; // posttype post or tweet
 
-                    <div class="index-post-text">
-                        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                        <p>
-                            <?php
-                                if( get_field( 'quan_excerpt' ) ) {
-                                    the_field( 'quan_excerpt' );
-                                }
-                            ?>
-                        </p>
-                    </div>
-            <?php
-                else : //if posttype is tweet
-                    include('index-tweet.php');
-                endif; // posttype post or tweet
+                echo '</div></article>';
 
-            echo '</div></article>';
-
-            endwhile;
-            echo '</div></div>';
+                endwhile;
+                // echo '</div></div>';
+            endif; 
