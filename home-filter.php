@@ -9,7 +9,7 @@
         'style'      => 'none',
         'hide_empty' => 0
         );
-    $langs = get_terms( 'language', $args );  
+    $langs = get_terms( 'language', $args );
 ?>
     <div class="filter">
             <div> <?php //container 1 ?>
@@ -17,7 +17,7 @@
                     <div class="heading"><?= __( 'Filter Posts:', 'quan' ); ?></div>
 
                     <div class="tweet-filter">
-                        <input type="checkbox" name="tweetfilter" id="tweetfilter" checked  />
+                        <input type="checkbox" name="tweetfilter" id="tweet-filter" checked  />
                         <div class="popup" data-checked="<?php _e( 'Hide Tweets', 'quan' ); ?>" data-unchecked="<?= __( 'Show Tweets', 'quan' ); ?>" ></div>
                         <div class="replacement"></div> 
                     </div>
@@ -31,7 +31,7 @@
                             }
                             $slugs = implode( ', ', $slugs );
 
-                            echo '<option value="' . $slugs . '">' . __( 'All Langagues', 'quan' ) . '</option>';
+                            echo '<option value="all">' . __( 'All Langagues', 'quan' ) . '</option>';
                             foreach( $langs as $lang ) {
                                 echo '<option value="' . $lang->slug . '">' . $lang->name . '</option>';
                             }

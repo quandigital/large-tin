@@ -2,13 +2,12 @@
 $(window).on('load', function(){
     // add isotope
     $('#loop').isotope({
-        itemSelector: 'article'
+        itemSelector: 'article',
     });
 
     setTimeout(function(){
         //check if the post is in the viewport
         inViewport();
-        console.log($(window).scrollTop());
         // remove the preload class to animate the posts
         $('#loop').removeClass('preload');
     }, 200);
@@ -33,14 +32,16 @@ $(window).on('load', function(){
     });
 });
 
+// hover effect
 $(document).on('mouseover', 'article', function(){
-        $(this).addClass('focus');
-        $(this).siblings().addClass('unfocus');
-    }).on('mouseleave', 'article', function() {
-        $(this).removeClass('focus');
-        $(this).siblings().removeClass('unfocus');
-    });
+    $(this).addClass('focus');
+    $(this).siblings().addClass('unfocus');
+}).on('mouseleave', 'article', function() {
+    $(this).removeClass('focus');
+    $(this).siblings().removeClass('unfocus');
+});
 
+// after resize has finished
 $(window).smartresize(function(){
     $('#loop').isotope({
         itemSelector: 'article'
@@ -48,12 +49,40 @@ $(window).smartresize(function(){
     inViewport();
 });
 
+// dont show the hover effect when the page is scrolled
 $(document).on('scroll', function(){
     inViewport();
     $('#loop article').each(function(){
         $(this).removeClass('unfocus');
     });
 });
+
+// filter the posts
+// hide/show tweets
+$('#language-filter').on('change', function(){
+    // if($(this).val() !== 'all') {
+    //     // $('#loop').isotope({
+    //     //     filter: '.lang-' + $(this).val(),
+    //     // });
+    //     console.log('.lang-' + $(this).val());
+    // }
+    filterPosts();
+});
+
+$('#tweet-filter').on('change', function(){
+    // if($(this).prop('checked')) {
+    //     $('#loop').isotope({
+    //         filter: 'article',
+    //     });
+    // } else {
+    //     $('#loop').isotope({
+    //         filter: '.index-post'
+    //     });
+    // }
+    filterPosts();
+});
+
+
 
 function inViewport() {
     var vwOffset = $(window).innerHeight() + $(window).scrollTop();
@@ -63,5 +92,29 @@ function inViewport() {
         if (elemOffset + 100 < vwOffset) {
             $(this).addClass('shown');
         };
+    });
+}
+
+function filterPosts() {
+    var langF = $('#language-filter').val();
+
+    if(langF !== 'all') {
+        var lang = '.lang-' + langF; 
+    } else {
+        var lang = 'article';
+    }
+
+    var twitterF = $('#tweet-filter').prop('checked');
+
+    if(twitterF) {
+        var twitter = '';
+    } else {
+        var twitter = ':not(.index-tweet)';
+    }
+
+    console.log(lang + ',' + twitter);
+    $('#loop').isotope({
+        // filter: twitter + ', .lang-de',
+        filter: lang + twitter
     });
 }
