@@ -3362,16 +3362,30 @@ article {
 
 .filter {
   position: relative;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
   float: left;
+  float: right;
   vertical-align: middle;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  display: none; }
+  @media only screen and (min-width:64.063em) {
+    .filter {
+      padding-right: 21px; } }
+  .filter .heading {
+    text-align: right;
+    font-size: 1.2em; }
+    @media only screen and (min-width:40.063em) {
+      .filter .heading {
+        margin-bottom: 10px; } }
   .filter .tweet-filter {
     vertical-align: middle;
-    float: left;
-    margin-right: 20px;
-    position: relative; }
+    position: relative;
+    height: 38px; }
+    @media only screen and (min-width:40.063em) {
+      .filter .tweet-filter {
+        float: left;
+        margin-right: 20px; } }
     .filter .tweet-filter:hover {
       cursor: pointer; }
     .filter .tweet-filter input[type=checkbox] {
@@ -3382,12 +3396,15 @@ article {
       line-height: 38px;
       vertical-align: inherit;
       position: absolute;
+      right: 0;
       z-index: 2; }
       .filter .tweet-filter input[type=checkbox]:hover {
         cursor: pointer; }
     .filter .tweet-filter .replacement {
       width: 38px;
-      vertical-align: inherit; }
+      vertical-align: inherit;
+      position: absolute;
+      right: 0; }
       .filter .tweet-filter .replacement:before {
         content: "\f242";
         font-family: ionicons;
@@ -3400,253 +3417,263 @@ article {
       z-index: 0; }
     .filter .tweet-filter input[type=checkbox]:checked ~ .replacement:before {
       content: "\f243";
-      color: #36363d; }
-    .filter .tweet-filter input[type=checkbox]:checked:hover ~ .popup:before {
-      content: attr(data-checked); }
-    .filter .tweet-filter input[type=checkbox]:hover ~ .popup:before {
-      content: attr(data-unchecked);
-      position: absolute;
-      top: -35px;
-      left: -75%;
-      z-index: 10;
-      font-size: 0.8em;
-      line-height: 0.8em;
-      padding: 8px;
-      background-color: rgba(54, 54, 61, 0.85);
-      border-radius: 4px;
-      color: #d4ccae;
-      white-space: nowrap; }
-    .filter .tweet-filter input[type=checkbox]:hover ~ .popup:after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: -9px;
-      left: 5px;
-      border-top: 8px solid rgba(54, 54, 61, 0.85);
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent; }
+      color: #271f3d; }
   .filter .language {
     position: relative;
     padding-left: 0;
     padding-right: 0;
     float: left; }
+    .filter .language.active .handle:after {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition-duration: 0.3s;
+      -moz-transition-duration: 0.3s;
+      transition-duration: 0.3s; }
+    .filter .language.active .options {
+      -webkit-transition-duration: 0.5s;
+      -moz-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+      height: auto;
+      z-index: 7; }
+    .filter .language.active .option:nth-child(1) {
+      -webkit-transform: rotateX(25deg);
+      -moz-transform: rotateX(25deg);
+      -ms-transform: rotateX(25deg);
+      -o-transform: rotateX(25deg);
+      transform: rotateX(25deg);
+      -webkit-transition-property: -webkit-transform;
+      -moz-transition-property: -moz-transform;
+      transition-property: transform;
+      -webkit-transition-duration: 0.2s;
+      -moz-transition-duration: 0.2s;
+      transition-duration: 0.2s;
+      -webkit-transition-delay: 0s;
+      -moz-transition-delay: 0s;
+      transition-delay: 0s; }
+      .filter .language.active .option:nth-child(1):hover {
+        background-color: #494159;
+        color: #ecf0f1;
+        cursor: pointer;
+        -webkit-transition-property: background-color;
+        -moz-transition-property: background-color;
+        transition-property: background-color;
+        -webkit-transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        -webkit-transition-delay: 0;
+        -moz-transition-delay: 0;
+        transition-delay: 0; }
+    .filter .language.active .option:nth-child(2) {
+      -webkit-transform: rotateX(25deg);
+      -moz-transform: rotateX(25deg);
+      -ms-transform: rotateX(25deg);
+      -o-transform: rotateX(25deg);
+      transform: rotateX(25deg);
+      -webkit-transition-property: -webkit-transform;
+      -moz-transition-property: -moz-transform;
+      transition-property: transform;
+      -webkit-transition-duration: 0.4s;
+      -moz-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+      -webkit-transition-delay: 0.1s;
+      -moz-transition-delay: 0.1s;
+      transition-delay: 0.1s; }
+      .filter .language.active .option:nth-child(2):hover {
+        background-color: #494159;
+        color: #ecf0f1;
+        cursor: pointer;
+        -webkit-transition-property: background-color;
+        -moz-transition-property: background-color;
+        transition-property: background-color;
+        -webkit-transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        -webkit-transition-delay: 0;
+        -moz-transition-delay: 0;
+        transition-delay: 0; }
+    .filter .language.active .option:nth-child(3) {
+      -webkit-transform: rotateX(25deg);
+      -moz-transform: rotateX(25deg);
+      -ms-transform: rotateX(25deg);
+      -o-transform: rotateX(25deg);
+      transform: rotateX(25deg);
+      -webkit-transition-property: -webkit-transform;
+      -moz-transition-property: -moz-transform;
+      transition-property: transform;
+      -webkit-transition-duration: 0.6s;
+      -moz-transition-duration: 0.6s;
+      transition-duration: 0.6s;
+      -webkit-transition-delay: 0.2s;
+      -moz-transition-delay: 0.2s;
+      transition-delay: 0.2s; }
+      .filter .language.active .option:nth-child(3):hover {
+        background-color: #494159;
+        color: #ecf0f1;
+        cursor: pointer;
+        -webkit-transition-property: background-color;
+        -moz-transition-property: background-color;
+        transition-property: background-color;
+        -webkit-transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        -webkit-transition-delay: 0;
+        -moz-transition-delay: 0;
+        transition-delay: 0; }
+    .filter .language.active .option:nth-child(4) {
+      -webkit-transform: rotateX(25deg);
+      -moz-transform: rotateX(25deg);
+      -ms-transform: rotateX(25deg);
+      -o-transform: rotateX(25deg);
+      transform: rotateX(25deg);
+      -webkit-transition-property: -webkit-transform;
+      -moz-transition-property: -moz-transform;
+      transition-property: transform;
+      -webkit-transition-duration: 0.8s;
+      -moz-transition-duration: 0.8s;
+      transition-duration: 0.8s;
+      -webkit-transition-delay: 0.3s;
+      -moz-transition-delay: 0.3s;
+      transition-delay: 0.3s; }
+      .filter .language.active .option:nth-child(4):hover {
+        background-color: #494159;
+        color: #ecf0f1;
+        cursor: pointer;
+        -webkit-transition-property: background-color;
+        -moz-transition-property: background-color;
+        transition-property: background-color;
+        -webkit-transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        -webkit-transition-delay: 0;
+        -moz-transition-delay: 0;
+        transition-delay: 0; }
+    .filter .language.active .option:nth-child(5) {
+      -webkit-transform: rotateX(25deg);
+      -moz-transform: rotateX(25deg);
+      -ms-transform: rotateX(25deg);
+      -o-transform: rotateX(25deg);
+      transform: rotateX(25deg);
+      -webkit-transition-property: -webkit-transform;
+      -moz-transition-property: -moz-transform;
+      transition-property: transform;
+      -webkit-transition-duration: 1s;
+      -moz-transition-duration: 1s;
+      transition-duration: 1s;
+      -webkit-transition-delay: 0.4s;
+      -moz-transition-delay: 0.4s;
+      transition-delay: 0.4s; }
+      .filter .language.active .option:nth-child(5):hover {
+        background-color: #494159;
+        color: #ecf0f1;
+        cursor: pointer;
+        -webkit-transition-property: background-color;
+        -moz-transition-property: background-color;
+        transition-property: background-color;
+        -webkit-transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        -webkit-transition-delay: 0;
+        -moz-transition-delay: 0;
+        transition-delay: 0; }
+    .filter .language.active .option:nth-child(6) {
+      -webkit-transform: rotateX(25deg);
+      -moz-transform: rotateX(25deg);
+      -ms-transform: rotateX(25deg);
+      -o-transform: rotateX(25deg);
+      transform: rotateX(25deg);
+      -webkit-transition-property: -webkit-transform;
+      -moz-transition-property: -moz-transform;
+      transition-property: transform;
+      -webkit-transition-duration: 1.2s;
+      -moz-transition-duration: 1.2s;
+      transition-duration: 1.2s;
+      -webkit-transition-delay: 0.5s;
+      -moz-transition-delay: 0.5s;
+      transition-delay: 0.5s; }
+      .filter .language.active .option:nth-child(6):hover {
+        background-color: #494159;
+        color: #ecf0f1;
+        cursor: pointer;
+        -webkit-transition-property: background-color;
+        -moz-transition-property: background-color;
+        transition-property: background-color;
+        -webkit-transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        -webkit-transition-delay: 0;
+        -moz-transition-delay: 0;
+        transition-delay: 0; }
   .filter .handle {
     position: relative;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 116.66667%;
     float: left;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     height: 40px;
     width: 155px;
     background-color: #271f3d;
     color: #8ac876;
     line-height: 40px;
     position: relative;
-    z-index: 8; }
+    z-index: 8;
+    vertical-align: middle; }
+    .filter .handle:hover {
+      cursor: pointer; }
+    .filter .handle:after {
+      content: "\f151";
+      font-family: "Ionicons";
+      position: absolute;
+      right: 0.9375em;
+      vertical-align: inherit;
+      line-height: 40px;
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+      -webkit-transition-duration: 0.3s;
+      -moz-transition-duration: 0.3s;
+      transition-duration: 0.3s; }
   .filter .options {
     text-align: right;
     width: 100%;
     position: absolute;
     padding-top: 40px; }
-    .filter .options.active {
-      -webkit-transition-duration: 0.5s;
-      -moz-transition-duration: 0.5s;
-      transition-duration: 0.5s;
-      height: auto;
-      z-index: 7; }
-      .filter .options.active .option:nth-child(1) {
-        -webkit-transform: translateY(37px);
-        -moz-transform: translateY(37px);
-        -ms-transform: translateY(37px);
-        -o-transform: translateY(37px);
-        transform: translateY(37px);
-        -webkit-transition-property: -webkit-transform;
-        -moz-transition-property: -moz-transform;
-        transition-property: transform;
-        -webkit-transition-duration: 0.3s;
-        -moz-transition-duration: 0.3s;
-        transition-duration: 0.3s;
-        -webkit-transition-delay: 0.1s;
-        -moz-transition-delay: 0.1s;
-        transition-delay: 0.1s;
-        z-index: 5; }
-        .filter .options.active .option:nth-child(1):hover {
-          background-color: #494159;
-          color: #ecf0f1;
-          cursor: pointer;
-          -webkit-transition-property: background-color;
-          -moz-transition-property: background-color;
-          transition-property: background-color;
-          -webkit-transition-duration: 0.5s;
-          -moz-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-          -webkit-transition-delay: 0;
-          -moz-transition-delay: 0;
-          transition-delay: 0; }
-      .filter .options.active .option:nth-child(2) {
-        -webkit-transform: translateY(73px);
-        -moz-transform: translateY(73px);
-        -ms-transform: translateY(73px);
-        -o-transform: translateY(73px);
-        transform: translateY(73px);
-        -webkit-transition-property: -webkit-transform;
-        -moz-transition-property: -moz-transform;
-        transition-property: transform;
-        -webkit-transition-duration: 0.3s;
-        -moz-transition-duration: 0.3s;
-        transition-duration: 0.3s;
-        -webkit-transition-delay: 0.2s;
-        -moz-transition-delay: 0.2s;
-        transition-delay: 0.2s;
-        z-index: 4; }
-        .filter .options.active .option:nth-child(2):hover {
-          background-color: #494159;
-          color: #ecf0f1;
-          cursor: pointer;
-          -webkit-transition-property: background-color;
-          -moz-transition-property: background-color;
-          transition-property: background-color;
-          -webkit-transition-duration: 0.5s;
-          -moz-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-          -webkit-transition-delay: 0;
-          -moz-transition-delay: 0;
-          transition-delay: 0; }
-      .filter .options.active .option:nth-child(3) {
-        -webkit-transform: translateY(109px);
-        -moz-transform: translateY(109px);
-        -ms-transform: translateY(109px);
-        -o-transform: translateY(109px);
-        transform: translateY(109px);
-        -webkit-transition-property: -webkit-transform;
-        -moz-transition-property: -moz-transform;
-        transition-property: transform;
-        -webkit-transition-duration: 0.3s;
-        -moz-transition-duration: 0.3s;
-        transition-duration: 0.3s;
-        -webkit-transition-delay: 0.3s;
-        -moz-transition-delay: 0.3s;
-        transition-delay: 0.3s;
-        z-index: 3; }
-        .filter .options.active .option:nth-child(3):hover {
-          background-color: #494159;
-          color: #ecf0f1;
-          cursor: pointer;
-          -webkit-transition-property: background-color;
-          -moz-transition-property: background-color;
-          transition-property: background-color;
-          -webkit-transition-duration: 0.5s;
-          -moz-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-          -webkit-transition-delay: 0;
-          -moz-transition-delay: 0;
-          transition-delay: 0; }
-      .filter .options.active .option:nth-child(4) {
-        -webkit-transform: translateY(145px);
-        -moz-transform: translateY(145px);
-        -ms-transform: translateY(145px);
-        -o-transform: translateY(145px);
-        transform: translateY(145px);
-        -webkit-transition-property: -webkit-transform;
-        -moz-transition-property: -moz-transform;
-        transition-property: transform;
-        -webkit-transition-duration: 0.3s;
-        -moz-transition-duration: 0.3s;
-        transition-duration: 0.3s;
-        -webkit-transition-delay: 0.4s;
-        -moz-transition-delay: 0.4s;
-        transition-delay: 0.4s;
-        z-index: 2; }
-        .filter .options.active .option:nth-child(4):hover {
-          background-color: #494159;
-          color: #ecf0f1;
-          cursor: pointer;
-          -webkit-transition-property: background-color;
-          -moz-transition-property: background-color;
-          transition-property: background-color;
-          -webkit-transition-duration: 0.5s;
-          -moz-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-          -webkit-transition-delay: 0;
-          -moz-transition-delay: 0;
-          transition-delay: 0; }
-      .filter .options.active .option:nth-child(5) {
-        -webkit-transform: translateY(181px);
-        -moz-transform: translateY(181px);
-        -ms-transform: translateY(181px);
-        -o-transform: translateY(181px);
-        transform: translateY(181px);
-        -webkit-transition-property: -webkit-transform;
-        -moz-transition-property: -moz-transform;
-        transition-property: transform;
-        -webkit-transition-duration: 0.3s;
-        -moz-transition-duration: 0.3s;
-        transition-duration: 0.3s;
-        -webkit-transition-delay: 0.5s;
-        -moz-transition-delay: 0.5s;
-        transition-delay: 0.5s;
-        z-index: 1; }
-        .filter .options.active .option:nth-child(5):hover {
-          background-color: #494159;
-          color: #ecf0f1;
-          cursor: pointer;
-          -webkit-transition-property: background-color;
-          -moz-transition-property: background-color;
-          transition-property: background-color;
-          -webkit-transition-duration: 0.5s;
-          -moz-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-          -webkit-transition-delay: 0;
-          -moz-transition-delay: 0;
-          transition-delay: 0; }
-      .filter .options.active .option:nth-child(6) {
-        -webkit-transform: translateY(217px);
-        -moz-transform: translateY(217px);
-        -ms-transform: translateY(217px);
-        -o-transform: translateY(217px);
-        transform: translateY(217px);
-        -webkit-transition-property: -webkit-transform;
-        -moz-transition-property: -moz-transform;
-        transition-property: transform;
-        -webkit-transition-duration: 0.3s;
-        -moz-transition-duration: 0.3s;
-        transition-duration: 0.3s;
-        -webkit-transition-delay: 0.6s;
-        -moz-transition-delay: 0.6s;
-        transition-delay: 0.6s;
-        z-index: 0; }
-        .filter .options.active .option:nth-child(6):hover {
-          background-color: #494159;
-          color: #ecf0f1;
-          cursor: pointer;
-          -webkit-transition-property: background-color;
-          -moz-transition-property: background-color;
-          transition-property: background-color;
-          -webkit-transition-duration: 0.5s;
-          -moz-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-          -webkit-transition-delay: 0;
-          -moz-transition-delay: 0;
-          transition-delay: 0; }
   .filter .option {
-    background-color: #d0d0d5;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+    -ms-transform: rotateX(90deg);
+    -o-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+    background-color: #271f3d;
+    color: #ecf0f1;
+    border-top: 1px solid rgba(0, 0, 0, 0);
     padding-left: 0.9375em;
     padding-right: 0.9375em;
-    line-height: 2;
-    position: relative;
-    border-top: 4px solid #8ac876; }
+    line-height: 2.3;
+    position: relative; }
     .filter .option:nth-child(1) {
-      top: -37px; }
+      z-index: 5; }
     .filter .option:nth-child(2) {
-      top: -73px; }
+      z-index: 4; }
     .filter .option:nth-child(3) {
-      top: -109px; }
+      z-index: 3; }
     .filter .option:nth-child(4) {
-      top: -145px; }
+      z-index: 2; }
     .filter .option:nth-child(5) {
-      top: -181px; }
+      z-index: 1; }
     .filter .option:nth-child(6) {
-      top: -217px; }
+      z-index: 0; }
+    .filter .option:active {
+      color: #8ac876; }
 
 
 .index-post-img {

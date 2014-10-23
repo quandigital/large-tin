@@ -59,20 +59,23 @@ $(document).on('scroll', function(){
 
 // filter the posts based on language and/or hide tweets
 
-$('#language-handle').text($('#language-options div:first-of-type').text()).data('lang', 'all')
-    .on('click', function() {
-        $('#language-options').toggleClass('active');
+$(document).ready(function(){
+    $('.filter').show();
+    $('#language-handle').text($('#language-options div:first-of-type').text()).data('lang', 'all')
+        .on('click', function() {
+            $('#language-filter').toggleClass('active');
+        });
+
+    $('#language-options .option').on('click', function(){
+        $('#language-handle').data('lang', $(this).data('lang'));
+        $('#language-handle').text($(this).text());    
+        filterPosts();
+        $('#language-filter').toggleClass('active');
     });
 
-$('#language-options .option').on('click', function(){
-    $('#language-handle').data('lang', $(this).data('lang'));
-    $('#language-handle').text($(this).text());    
-    filterPosts();
-    $('#language-options').toggleClass('active');
-});
-
-$('#tweet-filter').on('change', function(){
-    filterPosts();
+    $('#tweet-filter').on('change', function(){
+        filterPosts();
+    });
 });
 
 

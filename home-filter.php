@@ -20,7 +20,7 @@
             <div class="replacement"></div> 
         </div>
 
-        <div class="language">
+        <div class="language" id="language-filter">
             <div class="handle" id="language-handle"></div>
             <div class="options" id="language-options">
                 <div class="option" data-lang="all"><?= __( 'All Langagues', 'quan' ); ?></div>
