@@ -1,0 +1,163 @@
+.filter {
+    @include grid-column($collapse: false);
+    float: right;
+    vertical-align: middle;
+    margin-bottom: 20px;
+    @media #{$large-up} {
+        padding-right: 21px;
+    }
+    display: none; // don't display this as it won't work without js, show it with js
+    .heading {
+        text-align: right;
+        font-size: 1.2em;
+        @media #{$medium-up} {
+            margin-bottom: 10px;
+        }
+    }
+    .tweet-filter {
+        vertical-align: middle;
+        position: relative;
+        height: 38px;
+        @media #{$medium-up} {
+            float: left;
+            margin-right: 20px;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+        input[type=checkbox] {
+            opacity:0;
+            width: 38px;
+            height: 38px;
+            margin-bottom: 0;
+            line-height: 38px;
+            vertical-align: inherit;
+            position:absolute;
+            right: 0;
+            z-index: 2;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .replacement {
+            width: 38px;
+            vertical-align: inherit;
+            position: absolute;
+            right: 0;
+            &:before {
+                content:"\f242";
+                font: {
+                    family: ionicons;
+                    size: 38px;
+                }
+                color: lighten( $quan, 25% );
+            }
+        }
+        .popup {
+            width: 38px;
+            height: 38px;
+            position:absolute;
+            z-index:0;
+        }
+        input[type=checkbox] {
+            &:checked {
+                ~ .replacement {
+                    &:before {
+                        content:"\f243";
+                        color: $purple-dark;
+                    }
+                }
+            }
+        }
+    }
+    .language {
+        @include grid-column();
+        &.active {
+            .handle {
+                &:after {
+                    @include transform(rotate(0deg));
+                    @include transition-duration(.3s);
+                }
+            }
+            .options {
+                @include transition-duration(.5s);
+                height: auto;
+                z-index: 7;
+            }
+            .option {
+                @for $i from 1 through 6 {
+                    &:nth-child(#{$i}) {
+                        @include transform(/* translateY((34 + (33 * ($i - 1))) * 1px) */ rotateX(25deg));
+                        // @include transform-origin(0 0);
+                        @include transition-property(transform);
+                        @include transition-duration($i * .2s);
+                        @include transition-delay(($i - 1) * .1s);
+                        &:hover {
+                            background-color: $purple-light;
+                            color: $white;
+                            cursor: pointer;
+                            @include transition-property(background-color);
+                            @include transition-duration(.5s);
+                            @include transition-delay(0);
+                        }
+                    }
+                }
+            }
+        }
+    }
+        .handle {
+            @include grid-column($columns: 14, $collapse: false);
+            @include backface-visibility;
+            height: 40px;
+            width: 155px;
+            background-color: $purple-dark;
+            color: $green;
+            line-height: 40px;
+            position: relative;
+            z-index: 8;
+            vertical-align: middle;
+            &:hover {
+                cursor: pointer;
+            }
+            &:after {
+                content: "\f151";
+                font-family: "Ionicons";
+                position: absolute;
+                right: .9375em;
+                vertical-align: inherit;
+                line-height: 40px;
+                @include transform(rotate(-90deg));
+                @include transition-duration(.3s);
+            }
+        }
+
+        .options {
+            text-align: right;
+            width: 100%;
+            position: absolute;
+            padding-top: 40px;
+        }
+
+            .option {
+                @include background-clip(padding-box);
+                @include transform(rotateX(90deg));
+                background-color: $purple-dark;
+                color: $white;
+                border-top: 1px solid rgba(0,0,0,0);
+                padding: {
+                    left: .9375em;
+                    right: .9375em;
+                }
+                line-height: 2.3;
+                position: relative;
+                @for $i from 1 through 6 {
+                    &:nth-child(#{$i}) {
+                        // top: (34 + (33 * ($i - 1))) * -1px;
+                        z-index: 6 - $i;
+                    }
+                }
+                &:active {
+                    color: $green;
+                }
+            }
+}
