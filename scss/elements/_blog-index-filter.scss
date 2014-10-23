@@ -1,0 +1,162 @@
+.filter {
+    @include grid-column();
+    vertical-align: middle;
+    margin-bottom: 20px;
+    .heading {
+        // @include grid-column(12);
+        // @media #{$medium-up} {
+        //     @include grid-column( $collapse:true );
+        //     float:left;
+        //     padding-right: 20px;
+        //     font-size: 1.5em;
+        //     line-height: 38px;
+        //     width:auto;
+        // }
+    }
+    .tweet-filter {
+        vertical-align: middle;
+        float: left;
+        margin-right: 20px;
+        position: relative;
+        &:hover {
+            cursor: pointer;
+        }
+        input[type=checkbox] {
+            opacity:0;
+            width: 38px;
+            height: 38px;
+            margin-bottom: 0;
+            line-height: 38px;
+            vertical-align: inherit;
+            position:absolute;
+            z-index: 2;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .replacement {
+            width: 38px;
+            vertical-align: inherit;
+            &:before {
+                content:"\f242";
+                font: {
+                    family: ionicons;
+                    size: 38px;
+                }
+                color: lighten( $quan, 25% );
+            }
+        }
+        .popup {
+            width: 38px;
+            height: 38px;
+            position:absolute;
+            z-index:0;
+        }
+        input[type=checkbox] {
+            &:checked {
+                ~ .replacement {
+                    &:before {
+                        content:"\f243";
+                        color: $quan;
+                    }
+                }
+                &:hover {
+                    ~ .popup {
+                        &:before {
+                            content: attr( data-checked );
+                        }
+                    }
+                }
+            }
+            &:hover {
+                ~ .popup {
+                    &:before {
+                        content: attr( data-unchecked );
+                        position:absolute; 
+                        top:-35px;
+                        left:-75%;
+                        z-index:10;
+                        font-size:.8em;
+                        line-height:.8em;
+                        padding:8px;
+                        background-color:rgba( $quan, .85 );
+                        border-radius:4px;
+                        color:$wheat;
+                        white-space: nowrap;
+                    }
+                    &:after {
+                        content:"";
+                        display:block;
+                        position:absolute;
+                        top:-9px;
+                        left:5px;
+                        border-top: 8px solid rgba( $quan, .85 );
+                        border-left:8px solid transparent;
+                        border-right:8px solid transparent;
+                    }
+                }
+            }
+        }
+    }
+    .language {
+        @include grid-column();
+    }
+        .handle {
+            @include grid-column($columns: 14, $collapse: false);
+            height: 40px;
+            width: 155px;
+            background-color: $purple-dark;
+            color: $green;
+            line-height: 40px;
+            position: relative;
+            z-index: 8;
+        }
+
+        .options {
+            text-align: right;
+            width: 100%;
+            position: absolute;
+            padding-top: 40px;
+            &.active {
+                @include transition-duration(.5s);
+                height: auto;
+                z-index: 7;
+                .option {
+                    @for $i from 1 through 6 {
+                        &:nth-child(#{$i}) {
+                            @include transform(translateY((37 + (36 * ($i - 1))) * 1px));
+                            @include transition-property(transform);
+                            @include transition-duration(.3s);
+                            @include transition-delay($i * .1s);
+                            z-index: 6 - $i;
+                            &:hover {
+                                background-color: $purple-light;
+                                color: $white;
+                                cursor: pointer;
+                                @include transition-property(background-color);
+                                @include transition-duration(.5s);
+                                @include transition-delay(0);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+            .option {
+                background-color: $light;
+                padding: {
+                    left: .9375em;
+                    right: .9375em;
+                }
+                line-height: 2;
+                position: relative;
+                @for $i from 1 through 6 {
+                    &:nth-child(#{$i}) {
+                        top: (37 + (36 * ($i - 1))) * -1px;
+                    }
+                }
+
+                border-top: 4px solid $green;
+            }
+}

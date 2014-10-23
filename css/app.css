@@ -3360,6 +3360,294 @@ article {
   to {
     opacity: 1; } }
 
+.filter {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  float: left;
+  vertical-align: middle;
+  margin-bottom: 20px; }
+  .filter .tweet-filter {
+    vertical-align: middle;
+    float: left;
+    margin-right: 20px;
+    position: relative; }
+    .filter .tweet-filter:hover {
+      cursor: pointer; }
+    .filter .tweet-filter input[type=checkbox] {
+      opacity: 0;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 0;
+      line-height: 38px;
+      vertical-align: inherit;
+      position: absolute;
+      z-index: 2; }
+      .filter .tweet-filter input[type=checkbox]:hover {
+        cursor: pointer; }
+    .filter .tweet-filter .replacement {
+      width: 38px;
+      vertical-align: inherit; }
+      .filter .tweet-filter .replacement:before {
+        content: "\f242";
+        font-family: ionicons;
+        font-size: 38px;
+        color: #727281; }
+    .filter .tweet-filter .popup {
+      width: 38px;
+      height: 38px;
+      position: absolute;
+      z-index: 0; }
+    .filter .tweet-filter input[type=checkbox]:checked ~ .replacement:before {
+      content: "\f243";
+      color: #36363d; }
+    .filter .tweet-filter input[type=checkbox]:checked:hover ~ .popup:before {
+      content: attr(data-checked); }
+    .filter .tweet-filter input[type=checkbox]:hover ~ .popup:before {
+      content: attr(data-unchecked);
+      position: absolute;
+      top: -35px;
+      left: -75%;
+      z-index: 10;
+      font-size: 0.8em;
+      line-height: 0.8em;
+      padding: 8px;
+      background-color: rgba(54, 54, 61, 0.85);
+      border-radius: 4px;
+      color: #d4ccae;
+      white-space: nowrap; }
+    .filter .tweet-filter input[type=checkbox]:hover ~ .popup:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -9px;
+      left: 5px;
+      border-top: 8px solid rgba(54, 54, 61, 0.85);
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent; }
+  .filter .language {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    float: left; }
+  .filter .handle {
+    position: relative;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 116.66667%;
+    float: left;
+    height: 40px;
+    width: 155px;
+    background-color: #271f3d;
+    color: #8ac876;
+    line-height: 40px;
+    position: relative;
+    z-index: 8; }
+  .filter .options {
+    text-align: right;
+    width: 100%;
+    position: absolute;
+    padding-top: 40px; }
+    .filter .options.active {
+      -webkit-transition-duration: 0.5s;
+      -moz-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+      height: auto;
+      z-index: 7; }
+      .filter .options.active .option:nth-child(1) {
+        -webkit-transform: translateY(37px);
+        -moz-transform: translateY(37px);
+        -ms-transform: translateY(37px);
+        -o-transform: translateY(37px);
+        transform: translateY(37px);
+        -webkit-transition-property: -webkit-transform;
+        -moz-transition-property: -moz-transform;
+        transition-property: transform;
+        -webkit-transition-duration: 0.3s;
+        -moz-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-delay: 0.1s;
+        -moz-transition-delay: 0.1s;
+        transition-delay: 0.1s;
+        z-index: 5; }
+        .filter .options.active .option:nth-child(1):hover {
+          background-color: #494159;
+          color: #ecf0f1;
+          cursor: pointer;
+          -webkit-transition-property: background-color;
+          -moz-transition-property: background-color;
+          transition-property: background-color;
+          -webkit-transition-duration: 0.5s;
+          -moz-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+          -webkit-transition-delay: 0;
+          -moz-transition-delay: 0;
+          transition-delay: 0; }
+      .filter .options.active .option:nth-child(2) {
+        -webkit-transform: translateY(73px);
+        -moz-transform: translateY(73px);
+        -ms-transform: translateY(73px);
+        -o-transform: translateY(73px);
+        transform: translateY(73px);
+        -webkit-transition-property: -webkit-transform;
+        -moz-transition-property: -moz-transform;
+        transition-property: transform;
+        -webkit-transition-duration: 0.3s;
+        -moz-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-delay: 0.2s;
+        -moz-transition-delay: 0.2s;
+        transition-delay: 0.2s;
+        z-index: 4; }
+        .filter .options.active .option:nth-child(2):hover {
+          background-color: #494159;
+          color: #ecf0f1;
+          cursor: pointer;
+          -webkit-transition-property: background-color;
+          -moz-transition-property: background-color;
+          transition-property: background-color;
+          -webkit-transition-duration: 0.5s;
+          -moz-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+          -webkit-transition-delay: 0;
+          -moz-transition-delay: 0;
+          transition-delay: 0; }
+      .filter .options.active .option:nth-child(3) {
+        -webkit-transform: translateY(109px);
+        -moz-transform: translateY(109px);
+        -ms-transform: translateY(109px);
+        -o-transform: translateY(109px);
+        transform: translateY(109px);
+        -webkit-transition-property: -webkit-transform;
+        -moz-transition-property: -moz-transform;
+        transition-property: transform;
+        -webkit-transition-duration: 0.3s;
+        -moz-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-delay: 0.3s;
+        -moz-transition-delay: 0.3s;
+        transition-delay: 0.3s;
+        z-index: 3; }
+        .filter .options.active .option:nth-child(3):hover {
+          background-color: #494159;
+          color: #ecf0f1;
+          cursor: pointer;
+          -webkit-transition-property: background-color;
+          -moz-transition-property: background-color;
+          transition-property: background-color;
+          -webkit-transition-duration: 0.5s;
+          -moz-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+          -webkit-transition-delay: 0;
+          -moz-transition-delay: 0;
+          transition-delay: 0; }
+      .filter .options.active .option:nth-child(4) {
+        -webkit-transform: translateY(145px);
+        -moz-transform: translateY(145px);
+        -ms-transform: translateY(145px);
+        -o-transform: translateY(145px);
+        transform: translateY(145px);
+        -webkit-transition-property: -webkit-transform;
+        -moz-transition-property: -moz-transform;
+        transition-property: transform;
+        -webkit-transition-duration: 0.3s;
+        -moz-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-delay: 0.4s;
+        -moz-transition-delay: 0.4s;
+        transition-delay: 0.4s;
+        z-index: 2; }
+        .filter .options.active .option:nth-child(4):hover {
+          background-color: #494159;
+          color: #ecf0f1;
+          cursor: pointer;
+          -webkit-transition-property: background-color;
+          -moz-transition-property: background-color;
+          transition-property: background-color;
+          -webkit-transition-duration: 0.5s;
+          -moz-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+          -webkit-transition-delay: 0;
+          -moz-transition-delay: 0;
+          transition-delay: 0; }
+      .filter .options.active .option:nth-child(5) {
+        -webkit-transform: translateY(181px);
+        -moz-transform: translateY(181px);
+        -ms-transform: translateY(181px);
+        -o-transform: translateY(181px);
+        transform: translateY(181px);
+        -webkit-transition-property: -webkit-transform;
+        -moz-transition-property: -moz-transform;
+        transition-property: transform;
+        -webkit-transition-duration: 0.3s;
+        -moz-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-delay: 0.5s;
+        -moz-transition-delay: 0.5s;
+        transition-delay: 0.5s;
+        z-index: 1; }
+        .filter .options.active .option:nth-child(5):hover {
+          background-color: #494159;
+          color: #ecf0f1;
+          cursor: pointer;
+          -webkit-transition-property: background-color;
+          -moz-transition-property: background-color;
+          transition-property: background-color;
+          -webkit-transition-duration: 0.5s;
+          -moz-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+          -webkit-transition-delay: 0;
+          -moz-transition-delay: 0;
+          transition-delay: 0; }
+      .filter .options.active .option:nth-child(6) {
+        -webkit-transform: translateY(217px);
+        -moz-transform: translateY(217px);
+        -ms-transform: translateY(217px);
+        -o-transform: translateY(217px);
+        transform: translateY(217px);
+        -webkit-transition-property: -webkit-transform;
+        -moz-transition-property: -moz-transform;
+        transition-property: transform;
+        -webkit-transition-duration: 0.3s;
+        -moz-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-delay: 0.6s;
+        -moz-transition-delay: 0.6s;
+        transition-delay: 0.6s;
+        z-index: 0; }
+        .filter .options.active .option:nth-child(6):hover {
+          background-color: #494159;
+          color: #ecf0f1;
+          cursor: pointer;
+          -webkit-transition-property: background-color;
+          -moz-transition-property: background-color;
+          transition-property: background-color;
+          -webkit-transition-duration: 0.5s;
+          -moz-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+          -webkit-transition-delay: 0;
+          -moz-transition-delay: 0;
+          transition-delay: 0; }
+  .filter .option {
+    background-color: #d0d0d5;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    line-height: 2;
+    position: relative;
+    border-top: 4px solid #8ac876; }
+    .filter .option:nth-child(1) {
+      top: -37px; }
+    .filter .option:nth-child(2) {
+      top: -73px; }
+    .filter .option:nth-child(3) {
+      top: -109px; }
+    .filter .option:nth-child(4) {
+      top: -145px; }
+    .filter .option:nth-child(5) {
+      top: -181px; }
+    .filter .option:nth-child(6) {
+      top: -217px; }
+
 
 .index-post-img {
   position: relative;
@@ -3814,128 +4102,6 @@ footer {
   .job-listings .job-details {
     float: right;
     margin-top: -1em; }
-
-.filter {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: 1160px;
-  vertical-align: middle;
-  margin-bottom: 20px; }
-  .filter:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0; }
-  .filter > div {
-    position: relative;
-    padding-left: 0;
-    padding-right: 0;
-    float: left; }
-    .filter > div > div {
-      position: relative;
-      padding-left: 0;
-      padding-right: 0;
-      float: left;
-      padding-bottom: 0.9375em;
-      border-bottom: 1px solid rgba(54, 54, 61, 0.5); }
-  .filter .heading {
-    position: relative;
-    padding-left: 0;
-    padding-right: 0;
-    width: 100%;
-    float: left; }
-    @media only screen and (min-width:40.063em) {
-      .filter .heading {
-        position: relative;
-        padding-left: 0;
-        padding-right: 0;
-        float: left;
-        float: left;
-        padding-right: 20px;
-        font-size: 1.5em;
-        line-height: 38px;
-        width: auto; } }
-  .filter .tweet-filter {
-    vertical-align: middle;
-    float: left;
-    margin-right: 20px;
-    position: relative; }
-    .filter .tweet-filter:hover {
-      cursor: pointer; }
-    .filter .tweet-filter input[type=checkbox] {
-      opacity: 0;
-      width: 38px;
-      height: 38px;
-      margin-bottom: 0;
-      line-height: 38px;
-      vertical-align: inherit;
-      position: absolute;
-      z-index: 2; }
-      .filter .tweet-filter input[type=checkbox]:hover {
-        cursor: pointer; }
-    .filter .tweet-filter .replacement {
-      width: 38px;
-      vertical-align: inherit; }
-      .filter .tweet-filter .replacement:before {
-        content: "\f242";
-        font-family: ionicons;
-        font-size: 38px;
-        color: #727281; }
-    .filter .tweet-filter .popup {
-      width: 38px;
-      height: 38px;
-      position: absolute;
-      z-index: 0; }
-    .filter .tweet-filter input[type=checkbox]:checked ~ .replacement:before {
-      content: "\f243";
-      color: #36363d; }
-    .filter .tweet-filter input[type=checkbox]:checked:hover ~ .popup:before {
-      content: attr(data-checked); }
-    .filter .tweet-filter input[type=checkbox]:hover ~ .popup:before {
-      content: attr(data-unchecked);
-      position: absolute;
-      top: -35px;
-      left: -75%;
-      z-index: 10;
-      font-size: 0.8em;
-      line-height: 0.8em;
-      padding: 8px;
-      background-color: rgba(54, 54, 61, 0.85);
-      border-radius: 4px;
-      color: #d4ccae;
-      white-space: nowrap; }
-    .filter .tweet-filter input[type=checkbox]:hover ~ .popup:after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: -9px;
-      left: 5px;
-      border-top: 8px solid rgba(54, 54, 61, 0.85);
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent; }
-  .filter .language {
-    position: relative;
-    padding-left: 0;
-    padding-right: 0;
-    float: left;
-    height: 100%; }
-    .filter .language select {
-      position: relative;
-      padding-left: 0;
-      padding-right: 0;
-      width: 100%;
-      float: left;
-      background-color: #d4ccae;
-      float: none;
-      width: auto;
-      display: inline; }
-      .filter .language select::-ms-expand {
-        display: none; }
 
 .author {
   position: relative;

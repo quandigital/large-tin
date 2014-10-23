@@ -57,28 +57,21 @@ $(document).on('scroll', function(){
     });
 });
 
-// filter the posts
-// hide/show tweets
-$('#language-filter').on('change', function(){
-    // if($(this).val() !== 'all') {
-    //     // $('#loop').isotope({
-    //     //     filter: '.lang-' + $(this).val(),
-    //     // });
-    //     console.log('.lang-' + $(this).val());
-    // }
+// filter the posts based on language and/or hide tweets
+
+$('#language-handle').text($('#language-options div:first-of-type').text()).data('lang', 'all')
+    .on('click', function() {
+        $('#language-options').toggleClass('active');
+    });
+
+$('#language-options .option').on('click', function(){
+    $('#language-handle').data('lang', $(this).data('lang'));
+    $('#language-handle').text($(this).text());    
     filterPosts();
+    $('#language-options').toggleClass('active');
 });
 
 $('#tweet-filter').on('change', function(){
-    // if($(this).prop('checked')) {
-    //     $('#loop').isotope({
-    //         filter: 'article',
-    //     });
-    // } else {
-    //     $('#loop').isotope({
-    //         filter: '.index-post'
-    //     });
-    // }
     filterPosts();
 });
 
@@ -96,7 +89,10 @@ function inViewport() {
 }
 
 function filterPosts() {
-    var langF = $('#language-filter').val();
+    // language
+    var langF = $('#language-handle').data('lang');
+
+    console.log(langF);
 
     if(langF !== 'all') {
         var lang = '.lang-' + langF; 
@@ -104,6 +100,7 @@ function filterPosts() {
         var lang = 'article';
     }
 
+    // twitter
     var twitterF = $('#tweet-filter').prop('checked');
 
     if(twitterF) {
@@ -112,9 +109,12 @@ function filterPosts() {
         var twitter = ':not(.index-tweet)';
     }
 
-    console.log(lang + ',' + twitter);
+    // filter isotope
     $('#loop').isotope({
-        // filter: twitter + ', .lang-de',
         filter: lang + twitter
     });
+
+    inViewport();
+
+    return false;
 }
