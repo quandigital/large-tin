@@ -44,7 +44,7 @@
     article {
         @include transition-duration(.5s);
         &.shown {
-            @include animation(fadeIn 1.5s ease-in);
+            @include animation(fadeIn .7s ease-in);
             &.unfocus { // we need this specifity
                 opacity: .3!important;
                 @include transition-duration(.2s);

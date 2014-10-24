@@ -3308,9 +3308,9 @@ article {
   -moz-transition-duration: 0.5s;
   transition-duration: 0.5s; }
   article.shown {
-    -webkit-animation: fadeIn 1.5s ease-in;
-    -moz-animation: fadeIn 1.5s ease-in;
-    animation: fadeIn 1.5s ease-in; }
+    -webkit-animation: fadeIn 0.7s ease-in;
+    -moz-animation: fadeIn 0.7s ease-in;
+    animation: fadeIn 0.7s ease-in; }
     article.shown.unfocus {
       opacity: 0.3 !important;
       -webkit-transition-duration: 0.2s;
