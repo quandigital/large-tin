@@ -7,6 +7,7 @@
 		</footer>
 		
         <nav class="main-navigation">
+        <input type="checkbox" name="mt-checkbox" class="menu-trigger-checkbox" />
             <div class="navigation-corner"></div>
             <div class="menu-trigger"><?php _e('Menu', 'quan'); ?></div>
             <ul>
