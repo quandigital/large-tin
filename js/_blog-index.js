@@ -1,3 +1,12 @@
+// check if the blog is paged (unlikely but can happen); if yes redirect to /blog
+var pathname = window.location.pathname; // returns path only
+var tagID = $.urlParam('tag');
+
+if(pathname.match("^/blog") && ! pathname.match("blog/$")) {
+    window.location.href = '/blog/';
+} else if(tagID) {
+    window.history.replaceState( history.state, 'BOO', './' );
+}
 
 $(window).on('load', function(){
     // add isotope
