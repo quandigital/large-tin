@@ -8,6 +8,7 @@ $(window).on('load', function(){
     setTimeout(function(){
         //check if the post is in the viewport
         inViewport();
+
         // remove the preload class to animate the posts
         $('#loop').removeClass('preload');
     }, 200);
@@ -23,13 +24,29 @@ $(window).on('load', function(){
             var insert = $('#loop').isotope('insert', $(response));
 
             setTimeout(function(){
+                // redo isotope
                 $('#loop').isotope({
                     itemSelector: 'article'
                 });
-            inViewport();
-            },500);
+
+                // show all posts in the viewport
+                inViewport();
+
+                // if we have a previous scroll position
+                if($.cookie('scrollTop')) {
+                    
+                    // scroll there (duration relative to offset top)
+                    $('html, body').animate({
+                        scrollTop: $.cookie('scrollTop')
+                    }, $.cookie('scrollTop') * .1);
+
+                    // and remove the cookie
+                    $.removeCookie('scrollTop');
+                }
+            }, 300);
         }
     });
+
 });
 
 // hover effect
@@ -56,6 +73,11 @@ $(document).on('scroll', function(){
         $(this).removeClass('unfocus');
     });
 });
+
+// save the current scroll position to a cookie
+window.onbeforeunload = function() {
+    $.cookie('scrollTop', $(window).scrollTop());
+}
 
 // filter the posts based on language and/or hide tweets
 $(document).ready(function(){
@@ -118,7 +140,7 @@ function filterPosts() {
 
     setTimeout(function() {
         inViewport();
-    }, 500);
+    }, 200);
 
     return false;
 }
