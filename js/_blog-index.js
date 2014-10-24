@@ -58,14 +58,46 @@ $(window).on('load', function(){
 
 });
 
-// hover effect
-$(document).on('mouseover', 'article', function(){
-    $(this).addClass('focus');
-    $(this).siblings().addClass('unfocus');
-}).on('mouseleave', 'article', function() {
-    $(this).removeClass('focus');
-    $(this).siblings().removeClass('unfocus');
+$(document).ready(function(){
+    // filter the posts based on language and/or hide tweets
+    $('.filter').show();
+
+    // add the currently selected language to the handle
+    $('#language-handle').text($('#language-options div:first-of-type').text()).data('lang', 'all')
+        .on('click', function() {
+            $('#language-filter').toggleClass('active');
+        });
+
+    // change the handle and filter the posts when a language is clicked
+    $('#language-options .option').on('click', function(){
+        $('#language-handle').data('lang', $(this).data('lang'));
+        $('#language-handle').text($(this).text());    
+        filterPosts();
+        $('#language-filter').toggleClass('active');
+    });
+
+    // show/hide tweets
+    $('#tweet-filter').on('change', function(){
+        filterPosts();
+    });
 });
+
+
+$(document)
+    // hover effect
+    .on('mouseover', 'article', function(){
+        $(this).addClass('focus').css('cursor', 'pointer');
+        $(this).siblings().addClass('unfocus');
+    })
+    // unhover
+    .on('mouseleave', 'article', function() {
+        $(this).removeClass('focus');
+        $(this).siblings().removeClass('unfocus');
+    })
+    // when element is clicked (anywhere) go to article
+    .on('click', 'article', function() {
+        window.location = $(this).find('.postlink').attr('href');
+    });
 
 // after resize has finished
 $(window).smartresize(function(){
@@ -75,7 +107,7 @@ $(window).smartresize(function(){
     inViewport();
 });
 
-// dont show the hover effect when the page is scrolled
+// don't show the hover effect when the page is scrolled
 $(document).on('scroll', function(){
     inViewport();
     $('#loop article').each(function(){
@@ -88,28 +120,10 @@ window.onbeforeunload = function() {
     $.cookie('scrollTop', $(window).scrollTop());
 }
 
-// filter the posts based on language and/or hide tweets
-$(document).ready(function(){
-    $('.filter').show();
-    $('#language-handle').text($('#language-options div:first-of-type').text()).data('lang', 'all')
-        .on('click', function() {
-            $('#language-filter').toggleClass('active');
-        });
-
-    $('#language-options .option').on('click', function(){
-        $('#language-handle').data('lang', $(this).data('lang'));
-        $('#language-handle').text($(this).text());    
-        filterPosts();
-        $('#language-filter').toggleClass('active');
-    });
-
-    $('#tweet-filter').on('change', function(){
-        filterPosts();
-    });
-});
-
-
-
+/**
+ * check whether the post is already in the viewport, if yes add a class to show it
+ * @return void
+ */
 function inViewport() {
     var vwOffset = $(window).innerHeight() + $(window).scrollTop();
     $.each($('#loop article'), function() {
@@ -123,6 +137,10 @@ function inViewport() {
     });
 }
 
+/**
+ * filter the posts based on clicks on filter elements
+ * @return false
+ */
 function filterPosts() {
     // language
     var langF = $('#language-handle').data('lang');
