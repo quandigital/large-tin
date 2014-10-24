@@ -5,7 +5,7 @@ var tagID = $.urlParam('tag');
 if(pathname.match("^/blog") && ! pathname.match("blog/$")) {
     window.location.href = '/blog/';
 } else if(tagID) {
-    window.history.replaceState( history.state, 'BOO', './' );
+    window.location.replace('./' );
 }
 
 $(window).on('load', function(){
