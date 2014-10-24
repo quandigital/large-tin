@@ -143,6 +143,10 @@
     }
 }
 
+.menu-trigger-checkbox {
+    display: none;
+}
+
 .menu-trigger {
     color: $green;
     position: fixed;
@@ -229,6 +233,7 @@
 .notlang {
     display: none;
 }
+
 .notlang {
         @include grid-row();
         margin-top: 60px;
@@ -261,3 +266,43 @@
             }
         }   
     }
+
+// replicate the navigation functionality with css checkbox
+.no-js { 
+    .menu-trigger-checkbox {
+        opacity: 0;
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        height: 40px;
+        width: 82px;
+        z-index: 100;
+        pointer-events: all;
+        &:hover {
+            cursor: pointer;
+        }
+        &:checked {
+            ~ .navigation-corner {
+                @include transition-delay(0s);
+                @include transition-duration(1s);
+                margin-left: 110%;
+                @media #{$large-up} {
+                    margin-left: 80%;
+                }
+            }
+            ~ ul {
+                pointer-events: auto;
+                li {
+                    @for $i from 1 through 10 {
+                        &:nth-child(#{$i}) {
+                            @include transition-delay(($i * .2s) + .2s);
+                            @include transition-duration(.3s);
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}    
