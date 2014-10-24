@@ -51,7 +51,7 @@ $(window).smartresize(function(){
 
 // dont show the hover effect when the page is scrolled
 $(document).on('scroll', function(){
-    inViewport()
+    inViewport();
     $('#loop article').each(function(){
         $(this).removeClass('unfocus');
     });
@@ -86,15 +86,15 @@ function inViewport() {
 
         if (elemOffset < vwOffset) {
             $(this).addClass('shown');
-        };
+        } else {
+            $(this).removeClass('shown');
+        }
     });
 }
 
 function filterPosts() {
     // language
     var langF = $('#language-handle').data('lang');
-
-    console.log(langF);
 
     if(langF !== 'all') {
         var lang = '.lang-' + langF; 
@@ -116,7 +116,9 @@ function filterPosts() {
         filter: lang + twitter
     });
 
-    console.log(inViewport());
+    setTimeout(function() {
+        inViewport();
+    }, 500);
 
     return false;
 }
