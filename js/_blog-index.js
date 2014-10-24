@@ -8,6 +8,7 @@ $(window).on('load', function(){
     setTimeout(function(){
         //check if the post is in the viewport
         inViewport();
+
         // remove the preload class to animate the posts
         $('#loop').removeClass('preload');
     }, 200);
@@ -20,16 +21,32 @@ $(window).on('load', function(){
             action: 'quan_get_all_posts',
         },
         success: function(response) {
-            $('#loop').isotope('insert', $(response));
+            var insert = $('#loop').isotope('insert', $(response));
 
             setTimeout(function(){
+                // redo isotope
                 $('#loop').isotope({
                     itemSelector: 'article'
                 });
-            },500);
-            inViewport();
+
+                // show all posts in the viewport
+                inViewport();
+
+                // if we have a previous scroll position
+                if($.cookie('scrollTop')) {
+                    
+                    // scroll there (duration relative to offset top)
+                    $('html, body').animate({
+                        scrollTop: $.cookie('scrollTop')
+                    }, $.cookie('scrollTop') * .1);
+
+                    // and remove the cookie
+                    $.removeCookie('scrollTop');
+                }
+            }, 300);
         }
     });
+
 });
 
 // hover effect
@@ -57,8 +74,12 @@ $(document).on('scroll', function(){
     });
 });
 
-// filter the posts based on language and/or hide tweets
+// save the current scroll position to a cookie
+window.onbeforeunload = function() {
+    $.cookie('scrollTop', $(window).scrollTop());
+}
 
+// filter the posts based on language and/or hide tweets
 $(document).ready(function(){
     $('.filter').show();
     $('#language-handle').text($('#language-options div:first-of-type').text()).data('lang', 'all')
@@ -85,17 +106,17 @@ function inViewport() {
     $.each($('#loop article'), function() {
         var elemOffset = parseInt($(this).offset().top,10);
 
-        if (elemOffset + 100 < vwOffset) {
+        if (elemOffset < vwOffset) {
             $(this).addClass('shown');
-        };
+        } else {
+            $(this).removeClass('shown');
+        }
     });
 }
 
 function filterPosts() {
     // language
     var langF = $('#language-handle').data('lang');
-
-    console.log(langF);
 
     if(langF !== 'all') {
         var lang = '.lang-' + langF; 
@@ -117,7 +138,9 @@ function filterPosts() {
         filter: lang + twitter
     });
 
-    inViewport();
+    setTimeout(function() {
+        inViewport();
+    }, 200);
 
     return false;
 }
