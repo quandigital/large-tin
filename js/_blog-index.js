@@ -20,14 +20,14 @@ $(window).on('load', function(){
             action: 'quan_get_all_posts',
         },
         success: function(response) {
-            $('#loop').isotope('insert', $(response));
+            var insert = $('#loop').isotope('insert', $(response));
 
             setTimeout(function(){
                 $('#loop').isotope({
                     itemSelector: 'article'
                 });
-            },500);
             inViewport();
+            },500);
         }
     });
 });
@@ -51,14 +51,13 @@ $(window).smartresize(function(){
 
 // dont show the hover effect when the page is scrolled
 $(document).on('scroll', function(){
-    inViewport();
+    inViewport()
     $('#loop article').each(function(){
         $(this).removeClass('unfocus');
     });
 });
 
 // filter the posts based on language and/or hide tweets
-
 $(document).ready(function(){
     $('.filter').show();
     $('#language-handle').text($('#language-options div:first-of-type').text()).data('lang', 'all')
@@ -85,7 +84,7 @@ function inViewport() {
     $.each($('#loop article'), function() {
         var elemOffset = parseInt($(this).offset().top,10);
 
-        if (elemOffset + 100 < vwOffset) {
+        if (elemOffset < vwOffset) {
             $(this).addClass('shown');
         };
     });
@@ -117,7 +116,7 @@ function filterPosts() {
         filter: lang + twitter
     });
 
-    inViewport();
+    console.log(inViewport());
 
     return false;
 }
