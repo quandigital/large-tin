@@ -2462,69 +2462,6 @@ ul.off-canvas-list {
 		}
 	}
 } */
-#top, #bottom, #left, #right {
-  background: white;
-  position: fixed;
-  z-index: 6; }
-  #top .inner, #bottom .inner, #left .inner, #right .inner {
-    z-index: 5; }
-
-#left, #right {
-  top: 0;
-  bottom: 0;
-  width: 15px; }
-
-#left {
-  left: 0; }
-
-#right {
-  right: 0; }
-
-#top, #bottom {
-  left: 0;
-  right: 0;
-  height: 15px; }
-
-#top {
-  top: 0; }
-
-#bottom {
-  bottom: 0; }
-
-#frame {
-  position: fixed;
-  top: 7px;
-  bottom: 7px;
-  right: 7px;
-  left: 7px;
-  border: 2px solid #36363d;
-  z-index: 7;
-  pointer-events: none; }
-
-#inner-frame {
-  position: fixed;
-  top: 14px;
-  bottom: 14px;
-  right: 14px;
-  left: 14px;
-  border: 1px solid #36363d;
-  z-index: 7;
-  pointer-events: none; }
-
-.admin-bar #top {
-  top: 32px; }
-.admin-bar #frame {
-  top: 39px; }
-.admin-bar #inner-frame {
-  top: 46px; }
-@media screen and (max-width: 782px) {
-  .admin-bar #top {
-    top: 46px; }
-  .admin-bar #frame {
-    top: 53px; }
-  .admin-bar #inner-frame {
-    top: 60px; } }
-
 body {
   font-size: 0.6; }
   @media only screen {
@@ -2551,9 +2488,23 @@ a {
     -moz-transition-duration: 0.5s;
     transition-duration: 0.5s; }
 
+@media only screen and (max-width: 40em) {
+  body:before {
+    content: "small";
+    display: none; } }
+
+@media only screen and (min-width:40.063em) and (max-width:64em) {
+  body:before {
+    content: "medium";
+    display: none; } }
+
+@media only screen and (min-width:64.063em) {
+  body:before {
+    content: "large";
+    display: none; } }
+
 .home .main-container {
   text-align: center;
-  margin-top: 10px;
   max-width: 100%;
   padding-left: 0.9375em;
   padding-right: 0.9375em; }
@@ -2574,36 +2525,17 @@ a {
       width: 530px;
       height: 400px; } }
 
-.home-logo {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  margin-left: 0;
-  max-width: 100%;
-  fill: white; }
-  @media only screen and (min-width: 33.125em) {
-    .home-logo {
-      top: 60px;
-      left: 50%;
-      margin-left: -265px; } }
-
 .frontpage-text {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: 1160px;
   position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  float: left;
+  position: relative;
+  top: -300px;
   z-index: 3; }
-  .frontpage-text:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0; }
+  @media only screen and (min-width: 33.125em) {
+    .frontpage-text {
+      top: -400px; } }
   .frontpage-text h2 {
     font-size: 3em;
     color: #8ac876;
@@ -2638,9 +2570,27 @@ a {
         margin-left: 12.5%;
         float: left;
         text-align: justify; } }
-  .intro .unique-story {
-    font-size: 1.45em;
-    text-align: center; }
+
+.unique-story {
+  font-size: 1.45em;
+  text-align: center; }
+
+.home-logo {
+  position: relative;
+  z-index: 1;
+  margin-left: 0; }
+  .home-logo svg {
+    max-width: 100%;
+    max-width: 100vw;
+    fill: #271f3d; }
+    @media only screen and (min-width:64.063em) {
+      .home-logo svg {
+        display: block;
+        max-height: 50vh;
+        padding-top: 5%;
+        fill: #36363d;
+        margin-left: auto;
+        margin-right: auto; } }
 
 .concept, .growth, .trust {
   position: relative;
@@ -2674,6 +2624,50 @@ a {
     padding-right: 0;
     margin-left: 16.66667%;
     float: left; } }
+
+@media only screen and (min-width:64.063em) {
+  .full-screen {
+    position: relative;
+    top: -35px;
+    left: -15px;
+    height: 100vh;
+    width: 100vw;
+    padding-bottom: 0; }
+    .full-screen.intro p {
+      padding-top: 5%;
+      font-size: 1.2em; }
+    .full-screen.intro .unique-story {
+      font-size: 2em;
+      text-align: center;
+      padding-top: 1%; } }
+
+@-webkit-keyframes svgColor {
+  0% {
+    fill: #ecf0f1; }
+
+  100% {
+    fill: #36363d; } }
+
+@-moz-keyframes svgColor {
+  0% {
+    fill: #ecf0f1; }
+
+  100% {
+    fill: #36363d; } }
+
+@-o-keyframes svgColor {
+  0% {
+    fill: #ecf0f1; }
+
+  100% {
+    fill: #36363d; } }
+
+@keyframes svgColor {
+  0% {
+    fill: #ecf0f1; }
+
+  100% {
+    fill: #36363d; } }
 
 .concept section:before, .growth section:before, .trust section:before {
   font-family: Ionicons;
@@ -2713,7 +2707,7 @@ a {
   position: absolute;
   left: 22.5%;
   top: -50%;
-  z-index: 3;
+  z-index: 5;
   -webkit-transform: rotate(120deg);
   -moz-transform: rotate(120deg);
   -ms-transform: rotate(120deg);
@@ -2736,7 +2730,7 @@ a {
   position: absolute;
   left: 8%;
   top: -100%;
-  z-index: 2;
+  z-index: 4;
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
   -ms-transform: rotate(30deg);
@@ -2758,7 +2752,7 @@ a {
   background-color: rgba(73, 65, 89, 0.85);
   position: absolute;
   top: -60%;
-  right: -58%;
+  right: -57.9%;
   z-index: 1;
   visibility: hidden;
   -webkit-transform: rotate(30deg);
@@ -2802,6 +2796,13 @@ a {
     border-left: 5px solid #ecf0f1;
     border-right: 15px solid #ecf0f1; }
 
+.already-seen .dark-corner {
+  background-color: rgba(39, 31, 61, 0.05); }
+.already-seen .light-corner-1, .already-seen .light-corner-2 {
+  background-color: rgba(73, 65, 89, 0.05); }
+.already-seen .background-corner {
+  background-color: rgba(73, 65, 89, 0.05); }
+
 .main-navigation {
   position: fixed;
   pointer-events: none;
@@ -2809,7 +2810,7 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 4;
+  z-index: 5;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
@@ -3899,7 +3900,7 @@ article {
   margin-bottom: 10px; }
 
 .tweet-content {
-  border-bottom: 1px solid #d0d0d5;
+  border-bottom: 1px solid nexa_lightregular, Helvetica, Arial, sans-serif;
   font-size: 1.4em; }
 
 .intents {
@@ -3942,8 +3943,7 @@ article {
 
 html {
   height: 100%;
-  min-height: 100%;
-  overflow-y: scroll; }
+  min-height: 100%; }
 
 body {
   background-color: rgba(236, 240, 241, 0.85);
@@ -4717,8 +4717,6 @@ footer {
     position: fixed; }
     header > div .menu {
       text-align: left; }
-  .main-container {
-    margin-top: 119px; }
   .content {
     position: relative; }
     .content > h1 {

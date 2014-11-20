@@ -9,10 +9,11 @@
 		"functions",
 		"bourbon/bourbon",
 		"mixins",
-		"modernizr-fixes",
-		"frame";
+		"modernizr-fixes";
+		// "frame";
 
 @import "general",
+        "breakpoints",
         "elements/inc";
 
 .admin-bar {
@@ -41,7 +42,7 @@
 html {
 	height:100%;
 	min-height:100%;
-	overflow-y: scroll;
+	// overflow-y: scroll;
 }
 body {
 	// -webkit-font-smoothing: antialiased;
@@ -740,9 +741,9 @@ footer {
 			}
 		}
 	}
-	.main-container {
-		margin-top: 119px;
-	}
+	// .main-container {
+	// 	margin-top: 119px;
+	// }
 	.content {
 		position:relative;
 		> h1 {
