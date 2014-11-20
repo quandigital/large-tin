@@ -9,18 +9,22 @@
         <div class="light-corner-1"></div>
         <div class="light-corner-2"></div>
         <div class="background-corner"></div>
-        <?php // note the width and height are needed for IE and Firefox to display the svg correctly ?>
-        <img class="home-logo" src="<?php echo get_stylesheet_directory_uri() . '/images/QuanDigital.svg'; ?>" alt="" height="339" width="530" />
     </div>
 
-    <article class="frontpage-text">
+    <article class="frontpage-text" id="frontpage">
 
-        <section class="intro">
+        <section class="intro" id="intro">
+            <?php // note the width and height are needed for IE and Firefox to display the svg correctly ?>
+            <!-- <img class="home-logo" src="<?php echo get_stylesheet_directory_uri() . '/images/QuanDigital.svg'; ?>" alt="" height="339" width="530" /> -->
+            <div class="home-logo">
+                <?php require_once(__DIR__ . '/images/QuanDigital.svg'); ?>
+            </div>
+            
             <p>Quan Digital started off with the idea of providing better online marketing through innovative technology, digital strategies and a passion for our customers.</p>
             <p class="unique-story">Every brand has its own unique story.<br />We tell it.</p>
         </section>
 
-        <section class="concept">
+        <section class="concept" id="concept">
             <h2>concept &amp; idea.</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam repellendus ducimus, rem adipisci cum, pariatur perspiciatis odio assumenda?</p>
             <section class="relaunch">
@@ -37,7 +41,7 @@
             </section>
         </section>
 
-        <section class="growth">
+        <section class="growth" id="growth">
             <h2>growth &amp; progress.</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi iusto incidunt quasi laborum expedita? Odio hic incidunt, obcaecati dolore nisi! Sed, aliquid!</p>
             <section class="brand">
@@ -50,7 +54,7 @@
             </section>
         </section>
 
-        <section class="trust">
+        <section class="trust" id="trust">
             <h2>commitment &amp; trust.</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat minus, quis quae.</p>
             <section class="commitment">
