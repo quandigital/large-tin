@@ -16,6 +16,7 @@ a {
     border-bottom:1px dotted $gray;
     color: $gray;
     @include transition-duration(.2s);
+    outline: 0;
     &:hover {
         border-bottom: 1px solid $quan;
         color: $quan;

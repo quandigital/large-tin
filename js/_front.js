@@ -20,13 +20,7 @@ $(document).ready(function(){
             section = $(hash);
         }
 
-        // get the previous and next section
-        var prevSection = (section.prev().length == 1 ) ? '#' + section.prev().attr('id') : '#' + section.attr('id');
-        var nextSection = (section.next().length == 1 ) ? '#' + section.next().attr('id') : '#' + section.attr('id');
-
-        // get the offset of the prev/next sections to scroll to them
-        var prevOffset = $(prevSection).offset();
-        var nextOffset = $(nextSection).offset();
+        findSections(section);
 
         // allow scroll
         var disableScroll = false
@@ -41,6 +35,11 @@ $(document).ready(function(){
             $('.intro-layout').css('top', '-4000px').addClass('already-seen');
         }
 
+        $('.frontnav-item').each(function() {
+            if ($(this).children('a').attr('href') == hash) {
+                $(this).addClass('active');
+            }
+        });
 
     /**
      * Smoothly move to the next section on "scroll"
@@ -67,10 +66,9 @@ $(document).ready(function(){
                         section = $(prevSection);
 
                         // if the scroll is back to intro
-                        console.log([prevSection, section.attr('id'), nextSection]);
                         if (prevSection == '#intro' && nextSection !== '#concept') {
                             if (!$('.intro-layout').hasClass('already-seen')) {
-                                $(this).addClass('already-seen');
+                                $('.intro-layout').addClass('already-seen');
                             };
 
                             // reset the initial view 
@@ -85,7 +83,6 @@ $(document).ready(function(){
 
                             $('.dark-corner').animate({
                                 top: '-50%',
-                                // left: '-5%'
                             }, 1000);
 
                             setTimeout(function() {
@@ -100,11 +97,7 @@ $(document).ready(function(){
                                 location.hash = '#' + section.attr('id');
                             });
                         }
-
-                        prevSection = (section.prev().length == 1 ) ? '#' + section.prev().attr('id') : '#' + section.attr('id');
-                        nextSection = (section.next().length == 1 ) ? '#' + section.next().attr('id') : '#' + section.attr('id');
-                        prevOffset = $(prevSection).offset();
-                        nextOffset = $(nextSection).offset();
+                        findSections(section);
                     } else {
                         // down
                         e.stopPropagation();
@@ -127,10 +120,7 @@ $(document).ready(function(){
                                     scrollTop: nextOffset.top,
                                 }, 2000, function() {
                                     location.hash = '#' + section.attr('id');
-                                    prevSection = (section.prev().length == 1 ) ? '#' + section.prev().attr('id') : '#' + section.attr('id');
-                                    nextSection = (section.next().length == 1 ) ? '#' + section.next().attr('id') : '#' + section.attr('id');
-                                    prevOffset = $(prevSection).offset();
-                                    nextOffset = $(nextSection).offset();
+                                    findSections(section);
                                 });
                             }, 2000);
                             initialView = false;
@@ -140,22 +130,114 @@ $(document).ready(function(){
                             }, 2000, function() {
                                 location.hash = '#' + section.attr('id');
                             });
-                            prevSection = (section.prev().length == 1 ) ? '#' + section.prev().attr('id') : '#' + section.attr('id');
-                            nextSection = (section.next().length == 1 ) ? '#' + section.next().attr('id') : '#' + section.attr('id');
-                            prevOffset = $(prevSection).offset();
-                            nextOffset = $(nextSection).offset();
+                            findSections(section);
                         }
                     }
 
-                    
                     // enable scrolling after 500ms
                     setTimeout(function(){
                         disableScroll = false;
                         $(window).disablescroll('undo');
+
+                        $('.frontnav-item').each(function() {
+                            $(this).removeClass('active');
+                            if ($(this).children('a').attr('href') == '#' + section.attr('id')) {
+                                $(this).addClass('active');
+                            }
+                        });
                     }, 1500);
                 }
             }
+        }); // scroll
+
+    /**
+     * Side Navigation clicks
+     */
+        $('.frontnav-item').on('click', function(e) {
+            e.preventDefault();
+            // disable scroll --> throttle
+            disableScroll = true;
+            $(window).disablescroll();
+
+            var goto = $(this).children('a').attr('href');
+            section = $(hash);
+
+            var clickedItem = $(this); // maintain scope within setTimeout
+            $(this).addClass('clicking');
+            $(this).siblings().each(function() {
+                $(this).removeClass('active');
+            });
+            setTimeout(function() {
+                clickedItem.addClass('active').removeClass('clicking');
+            }, 500);
+
+            if (initialView) {
+                initialView = false;
+
+                $('.dark-corner').animate({
+                    top: '-200%',
+                    // left: '-5%'
+                }, 1500);
+                setTimeout(function() {
+                    $('.intro-layout').animate({
+                        top: '-4000px',
+                    }, 4000);
+                }, 500);
+                
+                setTimeout(function() {
+                    $('html, body').animate({
+                        scrollTop: $(goto).offset().top,
+                    }, 2000, function() {
+                        location.hash = '#' + $(goto).attr('id');
+                        findSections($(goto));
+                    });
+                }, 2000);
+            } else {
+                if (goto == '#intro') {
+                    if (!$('.intro-layout').hasClass('already-seen')) {
+                        $('.intro-layout').addClass('already-seen');
+                    };
+
+                    // reset the initial view 
+                    initialView = true;
+
+                    // reverse the animation
+                    $('html, body').animate({
+                        scrollTop: $(goto).offset().top,
+                    }, 2000, function() {
+                        location.hash = '#' + section.attr('id');
+                        findSections($(goto));
+                    });
+
+                    $('.dark-corner').animate({
+                        top: '-50%',
+                    }, 1000);
+
+                    setTimeout(function() {
+                        $('.intro-layout').animate({
+                            top: '0',
+                        }, 3000);
+                    }, 500);
+                } else {
+                    setTimeout(function() {
+                        $('html, body').animate({
+                            scrollTop: $(goto).offset().top,
+                        }, 2000, function() {
+                            location.hash = '#' + $(goto).attr('id');
+                            findSections($(goto));
+                        });
+                    }, 100);
+                    initialView = false;
+                }
+            }
+
+            // enable scrolling after 1500ms
+            setTimeout(function(){
+                disableScroll = false;
+                $(window).disablescroll('undo');
+            }, 1500);
         });
+    
 });
 
 $(window).on('load', function(){
@@ -164,4 +246,14 @@ $(window).on('load', function(){
     setTimeout(function(){
         $(window).scrollTop(offset.top);
     }, 50);
-})
+});
+
+function findSections(section) {
+    // get the previous and next section
+    prevSection = (section.prev().length == 1 ) ? '#' + section.prev().attr('id') : '#' + section.attr('id');
+    nextSection = (section.next().length == 1 ) ? '#' + section.next().attr('id') : '#' + section.attr('id');
+
+    // get the offset of the prev/next sections to scroll to them
+    prevOffset = $(prevSection).offset();
+    nextOffset = $(nextSection).offset();
+}

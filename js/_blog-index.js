@@ -9,6 +9,11 @@ if(pathname.match("^/blog") && ! pathname.match("blog/$")) {
 }
 
 $(window).on('load', function(){
+    var refresh = false
+    if (document.referrer.match("^(https?:\/\/)(www.)?([a-zA-Z0-9-\.]*)(\/blog)(.*)")) {
+        refresh = true;
+    }
+
     // add isotope
     $('#loop').isotope({
         itemSelector: 'article',
@@ -42,7 +47,7 @@ $(window).on('load', function(){
                 inViewport();
 
                 // if we have a previous scroll position
-                if($.cookie('scrollTop')) {
+                if($.cookie('scrollTop') && refresh === true) {
                     
                     // scroll there (duration relative to offset top)
                     $('html, body').animate({
@@ -85,17 +90,17 @@ $(document).ready(function(){
 
 $(document)
     // hover effect
-    .on('mouseover', 'article', function(){
+    .on('mouseover', '#loop article', function(){
         $(this).addClass('focus').css('cursor', 'pointer');
         $(this).siblings().addClass('unfocus');
     })
     // unhover
-    .on('mouseleave', 'article', function() {
+    .on('mouseleave', '#loop article', function() {
         $(this).removeClass('focus');
         $(this).siblings().removeClass('unfocus');
     })
     // when element is clicked (anywhere) go to article
-    .on('click', 'article', function() {
+    .on('click', '#loop article', function() {
         window.location = $(this).find('.postlink').attr('href');
     });
 
@@ -167,7 +172,7 @@ function filterPosts() {
 
     setTimeout(function() {
         inViewport();
-    }, 200);
+    }, 300);
 
     return false;
 }

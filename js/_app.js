@@ -9,4 +9,3 @@ $('.menu-trigger').on('click', function(){
 $(document).ready(function() {
 
 });
-
