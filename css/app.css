@@ -2546,6 +2546,17 @@ a {
       .frontpage-text h2 {
         font-size: 3.5em; } }
 
+.contents {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  float: none !important;
+  float: left;
+  max-width: 1200px; }
+
 .intro {
   position: relative;
   padding-left: 0;
@@ -2790,7 +2801,13 @@ a {
     animation-fill-mode: forwards;
     -webkit-animation-iteration-count: 1;
     -moz-animation-iteration-count: 1;
-    animation-iteration-count: 1; }
+    animation-iteration-count: 1;
+    position: relative;
+    z-index: 10; }
+  .frontnav-item.active:hover:before, .frontnav-item.active:hover a {
+    -webkit-animation-duration: 0;
+    -moz-animation-duration: 0;
+    animation-duration: 0; }
   .frontnav-item.clicking:before {
     -webkit-animation-name: navBlobClick;
     -moz-animation-name: navBlobClick;

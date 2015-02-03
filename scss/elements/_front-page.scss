@@ -43,6 +43,12 @@
         }
     }
 
+    .contents {
+        @include grid-column($columns:12, $center: true);
+        max-width: 1200px;
+
+    }
+
     .intro {
         @include grid-column(12);
         font-size: 2em;
