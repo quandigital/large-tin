@@ -31,12 +31,13 @@
             box-sizing: content-box;
             background-clip: content-box;
             background-color: rgba($purple-dark, .9);
+            border-radius: 50%;
             border: 0;
             width: 10px;
             height: 10px;
             padding: 15px;
             margin: 0;
-            border-radius: 50%;
+            outline: 0;
             position: relative;
             z-index: 1;
         }

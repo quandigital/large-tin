@@ -166,7 +166,7 @@
         position: absolute;
         left: 0;
         visibility: visible;
-        @include transition-delay(1s);
+        @include transition-delay(.1s);
         @include transition-duration(.5s);
     }
     &:after { // close
