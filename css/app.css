@@ -2603,17 +2603,34 @@ a {
   .concept > p, .growth > p, .trust > p {
     font-size: 1.5em;
     margin-bottom: 48px; }
+  @media only screen and (min-width:40.063em) {
+    .concept .contents, .growth .contents, .trust .contents {
+      position: relative;
+      padding-left: 0;
+      padding-right: 0;
+      width: 66.66667%;
+      float: left;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); } }
   .concept section, .growth section, .trust section {
     text-align: left; }
     @media only screen and (min-width:40.063em) {
       .concept section, .growth section, .trust section {
         position: relative;
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 0.9375rem;
+        padding-right: 0.9375rem;
         width: 33.33333%;
         float: left; } }
     .concept section h3, .growth section h3, .trust section h3 {
-      margin-bottom: 0; }
+      margin-bottom: 0;
+      text-align: center;
+      margin-bottom: 0.9375em; }
     .concept section p, .growth section p, .trust section p {
       margin-top: 0; }
 
@@ -2668,37 +2685,6 @@ a {
 
   100% {
     fill: #36363d; } }
-
-.concept section:before, .growth section:before, .trust section:before {
-  font-family: Ionicons;
-  font-size: 3em;
-  text-align: center;
-  position: relative;
-  display: block; }
-
-.relaunch:before {
-  content: "\f201"; }
-
-.optimization:before {
-  content: "\f298"; }
-
-.analysis:before {
-  content: "\f2a5"; }
-
-.brand:before {
-  content: "\f2ab"; }
-
-.content:before {
-  content: "\f262"; }
-
-.commitment:before {
-  content: "\f1fe"; }
-
-.direct:before {
-  content: "\f11c"; }
-
-.cost-benefit:before {
-  content: "\f2b5"; }
 
 .dark-corner {
   height: 20000px;
@@ -2802,6 +2788,334 @@ a {
   background-color: rgba(73, 65, 89, 0.05); }
 .already-seen .background-corner {
   background-color: rgba(73, 65, 89, 0.05); }
+
+.concept section:before, .growth section:before, .trust section:before {
+  font-family: Ionicons;
+  font-size: 3em;
+  text-align: center;
+  position: relative;
+  display: block; }
+
+.relaunch:before {
+  content: "\f201"; }
+
+.optimization:before {
+  content: "\f298"; }
+
+.analysis:before {
+  content: "\f2a5"; }
+
+.brand:before {
+  content: "\f2ab"; }
+
+.content:before {
+  content: "\f262"; }
+
+.commitment:before {
+  content: "\f1fe"; }
+
+.direct:before {
+  content: "\f11c"; }
+
+.cost-benefit:before {
+  content: "\f2b5"; }
+
+<<<<<<< HEAD
+.dark-corner {
+  height: 20000px;
+  width: 10000px;
+  background-color: rgba(39, 31, 61, 0.65);
+  position: absolute;
+  left: 22.5%;
+  top: -50%;
+  z-index: 5;
+  -webkit-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  -o-transform: rotate(120deg);
+  transform: rotate(120deg);
+  -webkit-transform-origin: top left;
+  -moz-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -o-transform-origin: top left;
+  transform-origin: top left;
+  display: none; }
+  @media only screen and (min-width:64.063em) {
+    .dark-corner {
+      display: block; } }
+=======
+.front-navigation {
+  position: fixed;
+  display: none;
+  max-width: 40px;
+  z-index: 4; }
+  @media only screen and (min-width:40.063em) {
+    .front-navigation {
+      display: block; } }
+  @media only screen and (orientation: landscape) {
+    .front-navigation {
+      right: 50px;
+      top: 50%;
+      margin-top: -58.5px; } }
+
+.frontnav-item {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  float: left; }
+  .frontnav-item:before {
+    content: "";
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 13px;
+    left: 13px; }
+  .frontnav-item a {
+    -webkit-transition-duration: 0;
+    -moz-transition-duration: 0;
+    transition-duration: 0;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    display: block;
+    box-sizing: content-box;
+    background-clip: content-box;
+    background-color: rgba(39, 31, 61, 0.9);
+    border: 0;
+    width: 10px;
+    height: 10px;
+    padding: 15px;
+    margin: 0;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1; }
+  .frontnav-item:hover:before {
+    -webkit-animation-name: navBlobOutline;
+    -moz-animation-name: navBlobOutline;
+    animation-name: navBlobOutline;
+    -webkit-animation-duration: 0.8s;
+    -moz-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    border: 2px solid #8ac876;
+    cursor: pointer; }
+  .frontnav-item:hover a {
+    -webkit-animation-name: navBlob;
+    -moz-animation-name: navBlob;
+    animation-name: navBlob;
+    -webkit-animation-duration: 0.6s;
+    -moz-animation-duration: 0.6s;
+    animation-duration: 0.6s;
+    -webkit-animation-delay: 0.1s;
+    -moz-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    position: relative;
+    z-index: 10; }
+  .frontnav-item.active a {
+    -webkit-animation: noAnimation;
+    -moz-animation: noAnimation;
+    animation: noAnimation;
+    background-color: transparent; }
+  .frontnav-item.active:before {
+    border: 2px solid #8ac876;
+    cursor: pointer; }
+  .frontnav-item.active:hover:before, .frontnav-item.active:hover a {
+    -webkit-animation: noAnimation;
+    -moz-animation: noAnimation;
+    animation: noAnimation;
+    background-color: transparent;
+    cursor: default; }
+  .frontnav-item.active.clicking:before {
+    -webkit-animation-name: noAnimation;
+    -moz-animation-name: noAnimation;
+    animation-name: noAnimation; }
+  .frontnav-item.clicking:before {
+    -webkit-animation-name: navBlobClick;
+    -moz-animation-name: navBlobClick;
+    animation-name: navBlobClick;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    animation-iteration-count: 1; }
+
+@-webkit-keyframes navBlob {
+  0% {
+    -webkit-transform: scale(1);
+    -webkit-transform-origin: center center; }
+
+  99% {
+    -webkit-transform: scale(0);
+    -webkit-transform-origin: center center;
+    background-color: rgba(39, 31, 61, 0.9); }
+
+  100% {
+    -webkit-transform: scale(1);
+    -webkit-transform-origin: center center;
+    background-color: rgba(39, 31, 61, 0); } }
+
+@-moz-keyframes navBlob {
+  0% {
+    -moz-transform: scale(1);
+    -moz-transform-origin: center center; }
+
+  99% {
+    -moz-transform: scale(0);
+    -moz-transform-origin: center center;
+    background-color: rgba(39, 31, 61, 0.9); }
+
+  100% {
+    -moz-transform: scale(1);
+    -moz-transform-origin: center center;
+    background-color: rgba(39, 31, 61, 0); } }
+
+@-o-keyframes navBlob {
+  0% {
+    -o-transform: scale(1);
+    -o-transform-origin: center center; }
+
+  99% {
+    -o-transform: scale(0);
+    -o-transform-origin: center center;
+    background-color: rgba(39, 31, 61, 0.9); }
+
+  100% {
+    -o-transform: scale(1);
+    -o-transform-origin: center center;
+    background-color: rgba(39, 31, 61, 0); } }
+
+@keyframes navBlob {
+  0% {
+    transform: scale(1);
+    transform-origin: center center; }
+
+  99% {
+    transform: scale(0);
+    transform-origin: center center;
+    background-color: rgba(39, 31, 61, 0.9); }
+
+  100% {
+    transform: scale(1);
+    transform-origin: center center;
+    background-color: rgba(39, 31, 61, 0); } }
+
+@-webkit-keyframes navBlobOutline {
+  0% {
+    -webkit-transform: scale(0);
+    -webkit-transform-origin: center center; }
+
+  100% {
+    -webkit-transform: scale(1);
+    -webkit-transform-origin: center center; } }
+
+@-moz-keyframes navBlobOutline {
+  0% {
+    -moz-transform: scale(0);
+    -moz-transform-origin: center center; }
+
+  100% {
+    -moz-transform: scale(1);
+    -moz-transform-origin: center center; } }
+
+@-o-keyframes navBlobOutline {
+  0% {
+    -o-transform: scale(0);
+    -o-transform-origin: center center; }
+
+  100% {
+    -o-transform: scale(1);
+    -o-transform-origin: center center; } }
+
+@keyframes navBlobOutline {
+  0% {
+    transform: scale(0);
+    transform-origin: center center; }
+
+  100% {
+    transform: scale(1);
+    transform-origin: center center; } }
+
+@-webkit-keyframes navBlobClick {
+  0% {
+    -webkit-transform: scale(1);
+    opacity: 1; }
+
+  50% {
+    opacity: 0; }
+
+  99% {
+    -webkit-transform: scale(15); }
+
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 0; } }
+
+@-moz-keyframes navBlobClick {
+  0% {
+    -moz-transform: scale(1);
+    opacity: 1; }
+
+  50% {
+    opacity: 0; }
+
+  99% {
+    -moz-transform: scale(15); }
+
+  100% {
+    -moz-transform: scale(1);
+    opacity: 0; } }
+
+@-o-keyframes navBlobClick {
+  0% {
+    -o-transform: scale(1);
+    opacity: 1; }
+
+  50% {
+    opacity: 0; }
+
+  99% {
+    -o-transform: scale(15); }
+
+  100% {
+    -o-transform: scale(1);
+    opacity: 0; } }
+
+@keyframes navBlobClick {
+  0% {
+    transform: scale(1);
+    opacity: 1; }
+
+  50% {
+    opacity: 0; }
+
+  99% {
+    transform: scale(15); }
+
+  100% {
+    transform: scale(1);
+    opacity: 0; } }
+
+@-webkit-keyframes noAnimation {
+ }
+>>>>>>> 5df2b63... navigation on front page done for the moment, wait for content
+
+@-moz-keyframes noAnimation {
+ }
+
+@-o-keyframes noAnimation {
+ }
+
+@keyframes noAnimation {
+ }
 
 .main-navigation {
   position: fixed;

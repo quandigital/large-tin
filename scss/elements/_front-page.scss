@@ -96,13 +96,24 @@
             font-size: 1.5em;
             margin-bottom: 3*16px;
         } 
+        .contents {
+            @media #{$medium-up} {
+                @include grid-column(8);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                @include transform(translate(-50%, -50%));
+            }
+        }
         section {
             text-align: left;
             @media #{$medium-up} {
-                @include grid-column(4);
+                @include grid-column($columns:4, $collapse: false);
             }
             h3 {
                 margin-bottom: 0;
+                text-align: center;
+                margin-bottom: .9375em;
             }
             p {
                 margin-top: 0;
@@ -141,7 +152,6 @@
         }
     }
 }
-
 @include keyframes(svgColor) {
     0% {
         fill: $white;
