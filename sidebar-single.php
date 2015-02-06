@@ -1,33 +1,40 @@
 <?php
 	//the author sidebar
+	
+	$aut_id = get_the_author_meta( 'ID' );
+
+	$job           = get_user_meta( $aut_id, 'job', true );
+	$twitter       = get_user_meta( $aut_id, 'twitter', true );
+	$xing          = get_user_meta( $aut_id, 'xing', true );
+	$linkedin      = get_user_meta( $aut_id, 'linkedin', true );
+	$custom_1_url  = get_user_meta( $aut_id, 'quan_custom_1', true );
+	$custom_1_name = get_user_meta( $aut_id, 'quan_custom_1_name', true );
+	$custom_2_url  = get_user_meta( $aut_id, 'quan_custom_2', true );
+	$custom_2_name = get_user_meta( $aut_id, 'quan_custom_2_name', true );
 ?>
-	<aside id="sidebar">
+	<?php
+		if (has_post_thumbnail()) :
+	?>        
+	        <div class="cover-image" style="background-image: url('<?= wp_get_attachment_url(get_post_thumbnail_id()); ?>');"><div class="overlay"></div></div>
+	<?php
+	    endif;
+	?>
+	<aside id="sidebar" class="sidebar">
 		<div class="author">
-			<h3><?php _e( 'Written by', 'quan' ); ?></h3>
-				
-			<?php
-				$aut_id = get_the_author_meta( 'ID' );
+				<div class="image">
+					<?php the_author_image_size(200, 200); ?>
+				</div>
 
-				$job           = get_user_meta( $aut_id, 'job', true );
-				$twitter       = get_user_meta( $aut_id, 'twitter', true );
-				$xing          = get_user_meta( $aut_id, 'xing', true );
-				$linkedin      = get_user_meta( $aut_id, 'linkedin', true );
-				$custom_1_url  = get_user_meta( $aut_id, 'quan_custom_1', true );
-				$custom_1_name = get_user_meta( $aut_id, 'quan_custom_1_name', true );
-				$custom_2_url  = get_user_meta( $aut_id, 'quan_custom_2', true );
-				$custom_2_name = get_user_meta( $aut_id, 'quan_custom_2_name', true );
-			
-			the_author_image();
-			
-			echo '<div class="name">';
-				the_author();
-			echo '</div>';
+				<div class="name">
+					<?= get_the_author(); ?>
+					<div class="job">
+						<?= $job; ?>
+					</div>
+				</div>
 
-			echo '<div class="job">';
-				echo $job;
-			echo '</div>';
 
-			echo '<div class="socials">';
+			<div class="socials">
+		<?php
 			if( isset( $twitter ) && ! empty( $twitter ) ) :
 		?>			
 				<div class="social"><a href="https://www.twitter.com/<?php echo $twitter; ?>" target="_blank">@<?php echo $twitter; ?></a></div>
@@ -113,4 +120,12 @@
 		<?php
 			endif; 
 		?>
+
+		<?php /*if( get_field( 'quan_abstract' ) ) : ?>
+			<div class="abstract">
+				<h2>Abstract</h2>
+				<p><?= get_field( 'quan_abstract' ); ?></p>
+			</div>
+		<?php endif; */?>
+
 	</aside>

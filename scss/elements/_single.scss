@@ -1,0 +1,149 @@
+.single-wrapper {
+    // box-shadow: -1px -1px 40vh lighten($purple-light, 50);
+    background-color: rgb(238, 241, 242);
+    position: relative;
+    margin-top: -30px;
+}
+    .single-title {
+        @include grid-column(12);
+        text-align: center;
+        position: absolute;
+        top: 30vh;
+        font: {
+            family: $bold;
+        }
+        color: $purple-dark;
+        &:after {
+            content: "";
+            display: block;
+            width: 10%;
+            border-bottom: 2px solid $purple-dark;
+            margin: 0 auto;
+        }    
+    }
+
+    .single-content {
+        @include grid-row();
+        margin-top: 50vh;
+        article {
+            @media #{$medium-up} {
+                @include grid-column($center: true);
+                width: 800px;
+                padding-top: .9375em;
+                font-family: Georgia;
+                line-height: 1.5;
+            }
+            p {
+                &:first-of-type {
+                    font-size: 2.2em;
+                    color: $purple-dark;
+                }
+                font-size: 1.5em;
+                color: $quan;
+                img {
+                    max-width:100%;
+                }
+            }
+
+            ul {
+                font: {
+                    size:1em;
+                }
+                @media #{$medium-up} {
+                    padding-left: 20px
+                }
+            }
+            *[id^="attachment"], img {
+                max-width:100%;
+                padding: 20px 0;
+            }
+            .wp-caption-text {
+                font: {
+                    family: nexa_lightregular, sans-serif!important;
+                    size: .8em;
+                }
+            }
+            blockquote {
+                border-left:none;
+                p {
+                    font:{
+                        family: NexaSlabxBoldItalic, Georgia;
+                        size: 0.975em;
+                    }
+                    color:$wheat;
+                    @include grid-column(12);
+                    border-left: 2px solid $wheat;
+                }
+            }
+
+            ol, ul {
+                font-size: 1em;
+            }
+            dl {
+                ~ div {
+                    margin-top: -80px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+
+.single-content {
+    // @media #{$medium-only} {
+    //     padding-left: rem-calc(30) / 2;
+    //     padding-right: rem-calc(30) / 2;
+    // }
+    > h1 {
+        font: {
+            family: NexaSlab-Bold, Georgia;
+            size:2.513em;
+        }
+        @include grid-column(12);
+        margin-bottom: 1.5em;
+    }
+    .meta {
+        font: {
+            size:1em;
+        }
+        @include grid-column(12);
+        margin-top: -60px;
+    }
+    article {
+        // @include grid-column(12);
+        // font-size:1.2em;
+        .abstract {
+            h2 {
+                font-size:1.125em;
+            }
+            p {
+                &:after {
+                    content:"";
+                    display:block;
+                    padding:12px 0;
+                    margin: 0 auto;
+                    width:33%;
+                    border-bottom: 1px solid $quan;
+                }
+            }
+        }
+        // >p  {
+        //     font: {
+        //         size:1em;
+        //     }               
+        // }
+
+
+        .attribution {
+            text-align:right;
+            font-size:.8em;
+            .cc {
+                border:none;
+                img {
+                    width:20px;
+                }
+            }
+        }
+
+    }
+}
