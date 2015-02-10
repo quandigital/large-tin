@@ -82,7 +82,7 @@
             .options {
                 @include transition-duration(.5s);
                 height: auto;
-                z-index: 7;
+                z-index: 3;
             }
             .option {
                 @for $i from 1 through 6 {
@@ -114,7 +114,7 @@
             color: $green;
             line-height: 40px;
             position: relative;
-            z-index: 8;
+            z-index: 4;
             vertical-align: middle;
             &:hover {
                 cursor: pointer;
