@@ -10,26 +10,27 @@
     z-index: 4;
     pointer-events: auto;
     font: {
-        family: nexa_lightregular, sans-serif;
+        family: $light;
         size: 2em;
     }
     visibility: hidden;
     @include transition-duration(.5s);
-    &:before { // open
-        content: "\f46a"; 
+    &:before,
+    &:after {
         font-family: Ionicons;
         position: absolute;
+        line-height: 1.25;
+        @include transition-duration(.5s);
+    }
+    &:before { // open
+        content: "\f46a"; 
         left: 0;
         visibility: visible;
         @include transition-delay(.1s);
-        @include transition-duration(.5s);
     }
     &:after { // close
         content: "\f405";
-        font-family: Ionicons;
-        position: absolute;
         left: -101px;
-        @include transition-duration(.5s);
     }
     &:hover,
     &.hover {
