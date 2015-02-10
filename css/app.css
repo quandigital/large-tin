@@ -2859,7 +2859,7 @@ ul.off-canvas-list {
 	}
 } */
 body {
-  font-size: 0.6;
+  font-size: 0.6em;
   overflow-x: hidden; }
   @media only screen {
     body {
@@ -2932,16 +2932,14 @@ h6 {
   text-align: center;
   max-width: 100%;
   padding-left: 0.9375em;
-  padding-right: 0.9375em; }
+  padding-right: 0.9375em;
+  float: left; }
   .home .main-container img {
     -webkit-transform: scale(0.89);
     -moz-transform: scale(0.89);
     -ms-transform: scale(0.89);
     -o-transform: scale(0.89);
     transform: scale(0.89); }
-.home footer {
-  position: fixed;
-  bottom: 0; }
 
 .intro-layout {
   display: inline-block;
@@ -3874,7 +3872,6 @@ h6 {
   .navigation-corner:hover {
     cursor: pointer; }
   .navigation-corner:after {
-    content: "";
     position: absolute;
     right: 139px;
     height: 100%;
@@ -4090,13 +4087,16 @@ h6 {
   bottom: 0.9375em;
   left: -300px;
   z-index: 50;
-  font-size: 1.3em;
+  font-size: 1em;
   -webkit-transition-delay: 0.2s;
   -moz-transition-delay: 0.2s;
   transition-delay: 0.2s;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   transition-duration: 0.3s; }
+  @media only screen and (min-width:64.063em) {
+    .social-menu {
+      font-size: 1.3em; } }
   .social-menu > div {
     position: relative;
     padding-left: 0;
