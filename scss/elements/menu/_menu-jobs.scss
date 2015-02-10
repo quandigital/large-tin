@@ -1,0 +1,41 @@
+.menu-jobs {
+    margin-top: -6px;
+}
+
+.job-count {
+    border: {
+        left: 15px solid $red;
+        bottom: 31px solid transparent;
+    }
+    display: inline-block;
+    font: {
+        size: 12px;
+        weight: bold;
+    }
+    position: relative;
+    top: 8px;
+    left: 12px;
+    color: $white;
+    width: 15px;
+    @include transition-duration(.5s);
+    &:before {
+        content: attr(data-jobcount);
+        position: absolute;
+        right: 5px;
+        top: 1px;
+        @media #{$medium-up} {
+            right: 14px;
+        }
+    }
+    @media #{$medium-up} {
+        border: {
+            left: {
+                width: 25px;
+            }
+            bottom: {
+                width: 38px;
+            }
+        }
+        width: 25px;
+    }
+}

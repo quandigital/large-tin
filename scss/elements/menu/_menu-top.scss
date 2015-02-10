@@ -1,0 +1,36 @@
+.top-menu {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    @include transition-duration(1s);
+    a {
+        font: {
+            family: nexa_lightregular,sans-serif;
+            size: 2.3em;
+        }
+        color: $white;
+        border-bottom: none;
+        @include transition-duration(.3s);
+        &:hover {
+            color: $green;
+            @include transition-duration(.5s);
+            .job-count {
+                border-left-color: desaturate($red, 25);
+                @include transition-duration(.5s);
+            }
+        }
+    }
+    li {
+        position: relative;
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                left: $i * -150px;
+                @include transition-delay((14 - ($i + $i)) * .1s);
+                @include transition-duration(.3s);
+            }
+        }
+    }
+}

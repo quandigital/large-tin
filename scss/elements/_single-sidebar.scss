@@ -1,0 +1,211 @@
+// .author {
+//     @include grid-column(12);
+//     text-align:center;
+//     h3 {
+//         font-size:1.2em;
+//         padding-top: 1em;
+//         padding-bottom: .5em;
+//         @include std-border( -bottom );
+//         text-align:left;
+//         margin-bottom: 1em;
+//     }
+//     img {
+//         border-radius:50%;
+//         // border:4px solid $quan;
+//     }
+//     .name {
+//         @include grid-column(12);
+//         margin-top: 10px;
+//         font: {
+//             family: nexa_lightregular, sans-serif;
+//             size:1.8em;
+//             weight:bold;
+//         }
+//     }
+//     .job {
+//         @include grid-column(12);
+//         font-size:1.2em;
+//         padding: 5px 0;
+//     }
+//     .socials {
+//         @include grid-column(12);
+//         text-align:center;
+//     }
+//     .social {
+//         display:inline;
+//         font: {
+//             family: nexa_boldregular, sans-serif;
+//             size:1.2em;
+//         }
+//         a {
+//             border:none;
+//             .google {
+//                 font-family: Georgia, Times;
+//             }
+//         }
+//         &:after {
+//             content:"|";
+//             display: inline-block;
+//             padding: 0 5px;
+//             font-family: nexa_lightregular, sans-serif;
+//             // size:1em;
+//             color:$quan;
+//         }
+//         &:last-child {
+//             &:after {
+//                 content:"";
+//             }
+//         }
+//     }
+// }
+// 
+// .article-share {
+//     @include grid-column(12);
+//     h3 {
+//         font-size:1.2em;
+//         padding-top: 1em;
+//         padding-bottom: .5em;
+//         @include std-border( -bottom );
+//         text-align:left;
+//         margin-bottom: 1em;
+//     }
+//     > div {
+//         margin-bottom: 15px;
+//     }
+//     a {
+//         border-bottom:none;
+//         @include transition-duration(.3s);
+//         &:hover {
+//             color: $quan;
+//             @include transition-duration(.3s);
+//             i {
+//                 color: darken($wheat, 20%);
+//                 @include transition-duration(.3s);
+//             }
+//         }
+//         i {
+//             height: 34px;
+//             width: 34px;
+//             text-align:center;
+//             padding: 10px;
+//             margin-right: 5px;
+//             border-radius:50%;
+//             @include transition-duration(.3s);
+//         }
+//     }
+//     .facebook {
+//         a {
+//             i {
+//                 background-color: mix($facebook-color, $quan, 60%);
+//             }
+//         }
+//     }
+//     .twitter {
+//         a {
+//             i {
+//                 background-color: mix($twitter-color, $quan, 60%);
+//             }
+//         }
+//     }
+//     .gplus {
+//         a {
+//             i {
+//                 background-color: mix($gplus-color, $quan, 60%);
+//             }
+//         }
+//     }
+// }
+
+// .tags {
+//     @include grid-column(12);
+//     h3 {
+//         font-size:1.2em;
+//         padding-top: 1em;
+//         padding-bottom: .5em;
+//         @include std-border( -bottom );
+//         text-align:left;
+//         margin-bottom: 1em;
+//     }
+//     .single-tag {
+//         a {
+//             line-height: 2.3;
+//             border-radius:2px;
+//             color:$quan;
+//             padding: 5px;
+//             border:none;
+//             @include std-border;
+//             height: 100%;
+//             width: 100%;
+//             @include transition-timing-function(ease);
+//             @include transition-duration(.3s);
+//         }
+//         &:hover {
+//             a {
+//                 color:$wheat;
+//                 background-color: $quan;
+//                 @include transition-timing-function(ease);
+//                 @include transition-duration(.3s);
+//             }
+//         }
+//     }
+// }
+
+.sidebar {
+    position: fixed;
+    height: 50vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    &.fade {
+        .author {
+            .name {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.author {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 50%;
+    z-index: 100;
+    .image {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        float: right;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .name {
+        font: {
+            family: $bold;
+            size: 2em;
+        }
+        color: $purple-dark;
+        padding: .9375em * .5;
+        padding-bottom: 0;
+        text-align: right;
+        line-height: 70px;
+        opacity: 1;
+    }
+        .job {
+            font: {
+                family: $light;
+                size: .575em;
+            }           
+            margin-top: -50px;
+        }
+}
+
+.tags, 
+.article-share,
+.author .social {
+    display: none;
+}

@@ -1,0 +1,30 @@
+.main-navigation {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    @include transform(rotate(0deg));
+    @include transition-duration(1s);
+    &.active {
+        pointer-events: auto;
+        .top-menu {
+            li {
+                @for $i from 1 through 10 {
+                    &:nth-child(#{$i}) {
+                        @include transition-delay(($i * .2s) + .2s);
+                        @include transition-duration(.3s);
+                        left: 0;
+                    }
+                }
+            }
+        }
+        .social-menu {
+            left: .9375em * .5;
+            @include transition-delay(.6s);
+            @include transition-duration(.3s);
+        }
+    }
+}

@@ -1,0 +1,139 @@
+.menu-trigger-checkbox {
+    display: none;
+}
+
+.menu-trigger {
+    color: $green;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 4;
+    pointer-events: auto;
+    font: {
+        family: nexa_lightregular, sans-serif;
+        size: 2em;
+    }
+    visibility: hidden;
+    @include transition-duration(.5s);
+    &:before { // open
+        content: "\f46a"; 
+        font-family: Ionicons;
+        position: absolute;
+        left: 0;
+        visibility: visible;
+        @include transition-delay(.1s);
+        @include transition-duration(.5s);
+    }
+    &:after { // close
+        content: "\f405";
+        font-family: Ionicons;
+        position: absolute;
+        left: -101px;
+        @include transition-duration(.5s);
+    }
+    &:hover,
+    &.hover {
+        cursor: pointer;
+    }
+    @media #{$background-fix} {
+        visibility: visible;
+        @include transition-duration(.5s);
+        &:before {
+            left: -100%;
+            @include transition-delay(0);
+        }
+        &:hover,
+        &.hover {
+            cursor: pointer;
+            left: -20px;
+            @include transition-duration(.5s);
+            &:before {
+                left: 81px;
+                padding-left: 10px;
+                @include transition-duration(.5s);
+            }
+        }
+        &.triggered {
+            left: -120px;
+            @include transition-duration(.5s);
+        }
+    }
+}
+
+.main-navigation {
+    &.active {
+        .menu-trigger {
+            &:before { //open
+                left: -101px;
+                @include transition-duration(.5s);
+            }
+            &:after { //close
+                left: 0;
+                visibility: visible;
+                @include transition-duration(.5s);
+            }
+            @media #{$background-fix} {
+                left: -81px;
+                &:after {
+                    left: 81px;
+                    padding-left: 20px;
+                }
+                &:hover {
+                    left: 20px;
+                    &:after {
+                        left: 71px;
+                        padding-left: 20px;
+                        @include transition-duration(.5s);
+                    }
+                }
+            }
+            &.triggered {
+                left: -120px;
+                @include transition-duration(.5s);
+                &:after {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+}
+
+// replicate the navigation functionality with css checkbox
+.no-js { 
+    .menu-trigger-checkbox {
+        opacity: 0;
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        height: 40px;
+        width: 82px;
+        z-index: 100;
+        pointer-events: all;
+        &:hover {
+            cursor: pointer;
+        }
+        &:checked {
+            ~ .navigation-corner {
+                @include transition-delay(0s);
+                @include transition-duration(1s);
+                margin-left: 110%;
+                @media #{$large-up} {
+                    margin-left: 80%;
+                }
+            }
+            ~ ul {
+                pointer-events: auto;
+                li {
+                    @for $i from 1 through 10 {
+                        &:nth-child(#{$i}) {
+                            @include transition-delay(($i * .2s) + .2s);
+                            @include transition-duration(.3s);
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
