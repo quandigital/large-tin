@@ -9,10 +9,7 @@
     @include transform(rotate(0deg));
     @include transition-duration(1s);
     &.active {
-        .top-menu,
-        .social-menu {
-            pointer-events: auto;
-        }
+        pointer-events: auto;
         .top-menu {
             li {
                 @for $i from 1 through 10 {
