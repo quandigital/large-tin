@@ -5,16 +5,16 @@
         <ul class="top-menu">
             <li class="menu-home"><a href="<?= get_bloginfo( 'wpurl' ); ?>/#intro"><?php _e( 'Home', 'quan' ); ?></a></li>
             <li class="menu-blog"><a href="/blog"><?php _e( 'Blog', 'quan' ); ?></a></li>
-            <li><a href="/team"><?php _e( 'Team', 'quan' ); ?></a></li>
-            <li><a href="/tour"><?php _e( 'Take the Tour', 'quan' ); ?></a></li>
+            <li><a href="<?= get_bloginfo('wpurl'); ?>/team"><?php _e( 'Team', 'quan' ); ?></a></li>
+            <li><a href="<?= get_bloginfo('wpurl'); ?>/tour"><?php _e( 'Take the Tour', 'quan' ); ?></a></li>
             <?php
                 if( $GLOBALS['jobs_open'] > 0 ) : 
             ?>
-                <li class="menu-jobs"><a href="/jobs"><?php _e( 'Jobs', 'quan' ); ?><span class="job-count" data-jobcount="<?= $GLOBALS['jobs_open']; ?>"></span></a></li>   
+                <li class="menu-jobs"><a href="<?= get_bloginfo('wpurl'); ?>/jobs"><?php _e( 'Jobs', 'quan' ); ?><span class="job-count" data-jobcount="<?= $GLOBALS['jobs_open']; ?>"></span></a></li>   
             <?php
                 endif;
             ?>
-            <li><a href="/contact"><?php _e( 'Contact', 'quan' ); ?></a></li>
+            <li><a href="<?= get_bloginfo('wpurl'); ?>/contact"><?php _e( 'Contact', 'quan' ); ?></a></li>
         </ul>
 
         <?php
@@ -82,7 +82,7 @@
                 */
             ?>
             <div class="legal">
-                <a href="<?php echo get_bloginfo( 'wpurl' ) . '/impressum'; ?>"><?php _e( 'Read the legal stuff', 'quan' ); ?></a>
+                <a href="<?= get_bloginfo('wpurl'); ?>/impressum"><?php _e( 'Read the legal stuff', 'quan' ); ?></a>
             </div>
         </div>
     </nav>
