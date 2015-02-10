@@ -1,0 +1,33 @@
+.notlang {
+    display: none;
+}
+
+.notlang {
+    @include grid-row();
+    margin-top: 60px;
+    font-size:1.2em;
+    text-align:center;  
+    span {
+        float:none;
+        width:auto;
+        padding-right: 0;
+    }
+    select {
+        @include grid-column(12);
+        background: {
+            color: $sky;
+            image: url(../images/aperile.png);
+            repeat: repeat;
+        }
+        &::-ms-expand {
+            display: none;
+        }
+        float:none;
+        width:auto;
+        margin-top: 20px;
+        @media #{$medium-up} {
+            display:inline;
+        }
+    }
+}
+    

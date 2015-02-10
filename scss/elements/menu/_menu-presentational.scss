@@ -1,0 +1,39 @@
+.navigation-corner {
+    height: 1000%;
+    width: 100%;
+    background-color: rgba($purple-dark, .95);
+    margin-left: 85px;
+    border-right: 1px solid rgb(72,66,86);
+    pointer-events: auto;
+    @include transition-duration(1s);
+    @include transition-delay(1s);
+    @include transform(translateX(-100%) rotate(30deg));
+    @include transform-origin(100% 0);
+    &:after {
+        content: "";
+        position: absolute;
+        right: 139px;
+        height: 100%;
+        width: 15px;
+        border-left: 1px solid $purple-border;
+        border-right: 4px solid $purple-border;
+        outline: 1px solid $purple-border;
+        outline-offset: 10px
+    }
+    @media #{$background-fix} {
+        margin-left: 150px;
+    }
+}
+
+.main-navigation {
+    &.active {
+        .navigation-corner {
+            @include transition-delay(0s);
+            @include transition-duration(1s);
+            margin-left: 110%;
+            @media #{$large-up} {
+                margin-left: 80%;
+            }
+        }
+    }
+}
