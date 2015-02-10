@@ -31,7 +31,8 @@
         left: -101px;
         @include transition-duration(.5s);
     }
-    &:hover {
+    &:hover,
+    &.hover {
         cursor: pointer;
     }
     @media #{$background-fix} {
@@ -41,7 +42,8 @@
             left: -100%;
             @include transition-delay(0);
         }
-        &:hover {
+        &:hover,
+        &.hover {
             cursor: pointer;
             left: -20px;
             @include transition-duration(.5s);

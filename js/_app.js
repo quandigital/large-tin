@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+    // close the menu when the click occurs outside of the menu
     $(document).on('click', function(ev) {
         if ($('#menu').hasClass('active')) {
             var els = [];
@@ -9,12 +11,28 @@ $(document).ready(function() {
 
             if (els.length === 0) {
                 toggleClasses(1400);
+                return false;
             } 
-
-            return false;
         }   
     });
 
+    // let the user click the whole navigation corner and not only the link
+    $('.navigation-corner').on('mouseenter', function() {
+        if (!$('#menu').hasClass('active')) {
+            $('.menu-trigger').toggleClass('hover');
+        }
+    }).on('mouseleave', function() {
+        if (!$('#menu').hasClass('active')) {
+            $('.menu-trigger').toggleClass('hover');
+        }
+    }).on('click', function() {
+        if (!$('#menu').hasClass('active')) {
+            $('#menu').addClass('active');
+            $('.menu-trigger').toggleClass('hover');
+        }
+    });
+
+    // close animation after clicking on link
     $('#menu .top-menu a').on('click', function(event) {
         event.preventDefault();
         toggleClasses(2000);
@@ -30,6 +48,7 @@ $(document).ready(function() {
         }, 1900);
     });
 
+    // toggle the menu via clicks on the trigger
     $('.menu-trigger').on('click', function(){
         toggleClasses(1400);
     });
@@ -39,7 +58,7 @@ $(document).ready(function() {
 function toggleClasses(timeout)
 {
     $('#menu').toggleClass('active');
-    $('.menu-trigger').toggleClass('triggered');
+    $('.menu-trigger').toggleClass('triggered').removeClass('hover');
     setTimeout(function(){
         $('.menu-trigger').toggleClass('triggered');
     }, timeout); 

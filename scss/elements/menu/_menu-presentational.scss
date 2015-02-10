@@ -9,6 +9,9 @@
     @include transition-delay(1s);
     @include transform(translateX(-100%) rotate(30deg));
     @include transform-origin(100% 0);
+    &:hover {
+        cursor: pointer;
+    }
     &:after {
         content: "";
         position: absolute;
@@ -31,6 +34,9 @@
             @include transition-delay(0s);
             @include transition-duration(1s);
             margin-left: 110%;
+            &:hover {
+                cursor: default;
+            }
             @media #{$large-up} {
                 margin-left: 80%;
             }
