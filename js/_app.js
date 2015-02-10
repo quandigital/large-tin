@@ -1,14 +1,24 @@
-$('.menu-trigger').on('click', function(){
-    $('#menu').toggleClass('active');
-    $('.menu-trigger').toggleClass('triggered');
-    setTimeout(function(){
-        $('.menu-trigger').toggleClass('triggered');
-    }, 1400);
+$(document).ready(function() {
+    $(document).on('click', function(ev) {
+        if ($('#menu').hasClass('active')) {
+            var els = [];
+
+            $.each($(ev.target).parents('#menu').children(), function(index, val) {
+                els.push($(this)[0].className);
+            });
+
+            if (els.length === 0) {
+                toggleClasses(1400);
+            } 
+
+            return false;
+        }   
+    });
 
     $('#menu .top-menu a').on('click', function(event) {
         event.preventDefault();
-        $('#menu').toggleClass('active');
-        // console.log([location.pathname, window.location, $(this).attr('href')]);
+        toggleClasses(2000);
+
         var thisA = $(this);
         setTimeout(function() {
             if (thisA.attr('href').match(new RegExp('^'+location.origin))) {
@@ -17,10 +27,20 @@ $('.menu-trigger').on('click', function(){
                 var link = location.origin + thisA.attr('href');
             }
             location.href = link;
-        }, 1700);
+        }, 1900);
     });
+
+    $('.menu-trigger').on('click', function(){
+        toggleClasses(1400);
+    });
+    
 });
 
-$(document).ready(function() {
-
-});
+function toggleClasses(timeout)
+{
+    $('#menu').toggleClass('active');
+    $('.menu-trigger').toggleClass('triggered');
+    setTimeout(function(){
+        $('.menu-trigger').toggleClass('triggered');
+    }, timeout); 
+}
