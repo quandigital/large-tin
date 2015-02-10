@@ -5,7 +5,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 4;
+    z-index: 5;
     @include transform(rotate(0deg));
     @include transition-duration(1s);
     ul {
@@ -166,7 +166,7 @@
         position: absolute;
         left: 0;
         visibility: visible;
-        @include transition-delay(1s);
+        @include transition-delay(.1s);
         @include transition-duration(.5s);
     }
     &:after { // close

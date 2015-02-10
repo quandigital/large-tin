@@ -1,0 +1,26 @@
+@media #{$small-only} {
+    body {
+        &:before {
+            content: "small";
+            display: none;
+        }
+    }
+}
+
+@media #{$medium-only} {
+    body {
+        &:before {
+            content: "medium";
+            display: none;
+        }
+    }
+}
+
+@media #{$large-up} {
+    body {
+        &:before {
+            content: "large";
+            display: none;
+        }
+    }
+}

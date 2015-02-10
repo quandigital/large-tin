@@ -6,7 +6,7 @@
     // left: 72.5%;
     left: 22.5%;
     top: -50%;
-    z-index: 3;
+    z-index: 5;
     @include transform(rotate(120deg));
     @include transform-origin(top left);
     display: none;
@@ -21,7 +21,7 @@
     position: absolute;
     left: 8%;
     top: -100%;
-    z-index: 2;
+    z-index: 4;
     @include transform(rotate(30deg));
     @include transform-origin(top left);
     @media #{$background-fix} {
@@ -35,7 +35,7 @@
     background-color: rgba($purple-light, .85);
     position: absolute;
     top: -60%;
-    right: -58%;
+    right: -57.9%;
     z-index: 1;
     visibility: hidden;
     @include transform(rotate(30deg));
@@ -62,5 +62,18 @@
         width: 40px;
         border-left: 5px solid $white;
         border-right: 15px solid $white;
+    }
+}
+
+.already-seen {
+    .dark-corner {
+        background-color: rgba($purple-dark, .05);
+    }
+    .light-corner-1, 
+    .light-corner-2 {
+        background-color: rgba($purple-light, .05);
+    }
+    .background-corner {
+        background-color: rgba($purple-light, .05);
     }
 }
