@@ -1,0 +1,42 @@
+.single-content {
+    ul {
+        font: {
+            size:1em;
+        }
+        @media #{$medium-up} {
+            padding-left: 20px
+        }
+    }
+    *[id^="attachment"], img {
+        max-width:100%;
+        padding: 20px 0;
+    }
+    .wp-caption-text {
+        font: {
+            family: nexa_lightregular, sans-serif!important;
+            size: .8em;
+        }
+    }
+    blockquote {
+        border-left:none;
+        p {
+            font:{
+                family: NexaSlabxBoldItalic, Georgia;
+                size: 0.975em;
+            }
+            color:$wheat;
+            @include grid-column(12);
+            border-left: 2px solid $wheat;
+        }
+    }
+
+    ol, ul {
+        font-size: 1em;
+    }
+    dl {
+        ~ div {
+            margin-top: -80px;
+            margin-bottom: 20px;
+        }
+    }
+}
