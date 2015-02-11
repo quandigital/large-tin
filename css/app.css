@@ -4215,6 +4215,8 @@ h6 {
 
 .js .main-loop article:not(.shown) {
   opacity: 0 !important; }
+.js .pagenavi {
+  display: none; }
 
 article {
   -webkit-transition-duration: 0.5s;
