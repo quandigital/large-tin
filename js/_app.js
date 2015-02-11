@@ -54,6 +54,7 @@ $(document).ready(function() {
         toggleClasses(1400);
     });
     
+
 });
 
 function toggleClasses(timeout)

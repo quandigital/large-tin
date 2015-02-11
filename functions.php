@@ -107,7 +107,7 @@ function quan_add_scripts() {
     //styles
     wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css' );
     wp_enqueue_style( 'css', get_template_directory_uri() . '/css/app.css', array('normalize') );
-    
+
 	wp_enqueue_script( array(
 		// 'jquery',
 		'modernizr',
