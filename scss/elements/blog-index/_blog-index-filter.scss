@@ -75,7 +75,7 @@
         &.active {
             .handle {
                 &:after {
-                    @include transform(rotate(0deg));
+                    @include transform(rotate(-90deg));
                     @include transition-duration(.3s);
                 }
             }
@@ -87,8 +87,7 @@
             .option {
                 @for $i from 1 through 6 {
                     &:nth-child(#{$i}) {
-                        @include transform(/* translateY((34 + (33 * ($i - 1))) * 1px) */ rotateX(25deg));
-                        // @include transform-origin(0 0);
+                        @include transform(rotateX(25deg));
                         @include transition-property(transform);
                         @include transition-duration($i * .2s);
                         @include transition-delay(($i - 1) * .1s);
@@ -120,13 +119,13 @@
                 cursor: pointer;
             }
             &:after {
-                content: "\f151";
+                content: "\f107";
                 font-family: "Ionicons";
                 position: absolute;
                 right: .9375em;
                 vertical-align: inherit;
                 line-height: 40px;
-                @include transform(rotate(-90deg));
+                @include transform(rotate(0deg));
                 @include transition-duration(.3s);
             }
         }
@@ -152,7 +151,6 @@
                 position: relative;
                 @for $i from 1 through 6 {
                     &:nth-child(#{$i}) {
-                        // top: (34 + (33 * ($i - 1))) * -1px;
                         z-index: 6 - $i;
                     }
                 }

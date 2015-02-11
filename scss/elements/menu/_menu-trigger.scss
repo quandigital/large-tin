@@ -136,5 +136,11 @@
                 }
             }
         }
+        &:not(:checked) {
+            ~ .navigation-corner {
+                @include transition-duration(1s);
+                @include transition-delay(1s);
+            }
+        }
     }
 }

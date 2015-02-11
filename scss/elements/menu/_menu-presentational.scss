@@ -5,8 +5,6 @@
     margin-left: 85px;
     border-right: 1px solid rgb(72,66,86);
     pointer-events: auto;
-    @include transition-duration(1s);
-    @include transition-delay(1s);
     @include transform(translateX(-100%) rotate(30deg));
     @include transform-origin(100% 0);
     &:hover {
@@ -26,6 +24,20 @@
     @media #{$background-fix} {
         margin-left: 150px;
     }
+}
+
+.js {
+    .navigation-corner {
+        @include transition-duration(1s);
+        @include transition-delay(1s);
+    }
+}
+
+.no-js {
+    .navigation-corner {
+        @include transition-duration(0);
+        @include transition-delay(0);
+    }    
 }
 
 .main-navigation {

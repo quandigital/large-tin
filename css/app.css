@@ -3845,6 +3845,13 @@ h6 {
       -moz-transition-duration: 0.3s;
       transition-duration: 0.3s;
       left: 0; }
+  .no-js .menu-trigger-checkbox:not(:checked) ~ .navigation-corner {
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    transition-duration: 1s;
+    -webkit-transition-delay: 1s;
+    -moz-transition-delay: 1s;
+    transition-delay: 1s; }
 
 .navigation-corner {
   height: 1000%;
@@ -3853,12 +3860,6 @@ h6 {
   margin-left: 85px;
   border-right: 1px solid #484256;
   pointer-events: auto;
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  transition-duration: 1s;
-  -webkit-transition-delay: 1s;
-  -moz-transition-delay: 1s;
-  transition-delay: 1s;
   -webkit-transform: translateX(-100%) rotate(30deg);
   -moz-transform: translateX(-100%) rotate(30deg);
   -ms-transform: translateX(-100%) rotate(30deg);
@@ -3883,6 +3884,22 @@ h6 {
   @media only screen and (min-width: 33.125em) {
     .navigation-corner {
       margin-left: 150px; } }
+
+.js .navigation-corner {
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-delay: 1s;
+  -moz-transition-delay: 1s;
+  transition-delay: 1s; }
+
+.no-js .navigation-corner {
+  -webkit-transition-duration: 0;
+  -moz-transition-duration: 0;
+  transition-duration: 0;
+  -webkit-transition-delay: 0;
+  -moz-transition-delay: 0;
+  transition-delay: 0; }
 
 .main-navigation.active .navigation-corner {
   -webkit-transition-delay: 0s;
@@ -4313,11 +4330,11 @@ article {
     padding-right: 0;
     float: left; }
     .filter .language.active .handle:after {
-      -webkit-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      transform: rotate(-90deg);
       -webkit-transition-duration: 0.3s;
       -moz-transition-duration: 0.3s;
       transition-duration: 0.3s; }
@@ -4515,17 +4532,17 @@ article {
     .filter .handle:hover {
       cursor: pointer; }
     .filter .handle:after {
-      content: "\f151";
+      content: "\f107";
       font-family: "Ionicons";
       position: absolute;
       right: 0.9375em;
       vertical-align: inherit;
       line-height: 40px;
-      -webkit-transform: rotate(-90deg);
-      -moz-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      transform: rotate(-90deg);
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
       -webkit-transition-duration: 0.3s;
       -moz-transition-duration: 0.3s;
       transition-duration: 0.3s; }
