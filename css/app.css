@@ -4776,13 +4776,13 @@ article {
       padding-top: 0.9375em;
       font-family: Georgia;
       line-height: 1.5; } }
-  .single-content article p {
+  .single-content article > p {
     font-size: 1.5em;
     color: #36363d; }
-    .single-content article p:first-of-type {
+    .single-content article > p:first-of-type {
       font-size: 2.2em;
       color: #271f3d; }
-    .single-content article p img {
+    .single-content article > p img {
       max-width: 100%; }
 
 .single-content > h1 {
@@ -4901,6 +4901,44 @@ article {
     -ms-transform-origin: top left;
     -o-transform-origin: top left;
     transform-origin: top left; }
+
+.single-content ol, .single-content ul {
+  font-size: 1.3em;
+  color: #36363d; }
+  @media only screen and (min-width:40.063em) {
+    .single-content ol, .single-content ul {
+      padding-left: 1.875em; } }
+.single-content .image {
+  padding: 20px 0; }
+  .single-content .image.full {
+    width: 100%; }
+  .single-content .image.half {
+    width: 50%; }
+  .single-content .image img {
+    box-shadow: 0 0 5px #7f7f8d;
+    width: 100%; }
+.single-content .wp-caption-text {
+  margin: 0;
+  font-family: nexa_lightregular, Helvetica, Arial, sans-serif;
+  font-size: 1em; }
+.single-content blockquote {
+  border-left: none; }
+  .single-content blockquote p {
+    font-family: NexaSlabxBoldItalic, Georgia;
+    font-size: 0.975em;
+    color: #d4ccae;
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    float: left;
+    border-left: 2px solid #d4ccae; }
+.single-content dl ~ .attribution {
+  margin-top: -50px;
+  margin-bottom: 20px; }
+  .single-content dl ~ .attribution dd img {
+    box-shadow: none;
+    padding: 0; }
 
 .admin-bar .border {
   color: green;

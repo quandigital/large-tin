@@ -1,20 +1,32 @@
 .single-content {
+    ol,
     ul {
         font: {
-            size:1em;
+            size: 1.3em;
         }
+        color: $quan;
         @media #{$medium-up} {
-            padding-left: 20px
+            padding-left: .9375em * 2;
         }
     }
-    *[id^="attachment"], img {
-        max-width:100%;
+    .image {
         padding: 20px 0;
+        &.full {
+            width: 100%;
+        }
+        &.half {
+            width: 50%;
+        }
+        img {
+            box-shadow: 0 0 5px $gray;
+            width: 100%;
+        }
     }
     .wp-caption-text {
+        margin: 0;
         font: {
-            family: nexa_lightregular, sans-serif!important;
-            size: .8em;
+            family: $light;
+            size: 1em;
         }
     }
     blockquote {
@@ -30,13 +42,16 @@
         }
     }
 
-    ol, ul {
-        font-size: 1em;
-    }
+    
     dl {
-        ~ div {
-            margin-top: -80px;
+        ~ .attribution {
+            margin-top: -50px;
             margin-bottom: 20px;
+            dd 
+            img {
+                box-shadow: none;
+                padding: 0;
+            }
         }
     }
 }
