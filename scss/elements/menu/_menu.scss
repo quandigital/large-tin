@@ -27,4 +27,11 @@
             @include transition-duration(.3s);
         }
     }
+    a {
+        border: none;
+        box-shadow: none;
+        &:hover {
+            background-color: transparent;
+        }
+    }
 }

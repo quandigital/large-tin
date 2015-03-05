@@ -5,6 +5,7 @@
         @include grid-column(12);
         padding: .9375em;
         background-color: #fff;
+        border-left: 6px solid $twitter;
     }
 }
 
@@ -12,7 +13,7 @@
         vertical-align: middle;
         &:hover {
             .twitter-name {
-                border-bottom: 2px solid $quan;
+                border-bottom: 2px solid $purple-dark;
             }
         }
     }
@@ -43,15 +44,15 @@
 
         .twitter-name {
             border-bottom: 2px solid transparent;
-            color: $quan;
+            color: $purple-dark;
             font: {
                 family: nexa_boldregular, sans-serif;
                 size: 1.3em;
             }
             line-height: 1.5;
             &:hover {
-                color: $quan;
-                border-bottom: 2px solid $quan;
+                color: $purple-dark;
+                border-bottom: 2px solid $purple-dark;
             }
         }
 
@@ -97,7 +98,7 @@
             font-size: 1.5em;
             border-bottom: 0;
             &:hover {
-                color: $quan;
+                color: $purple-dark;
                 border-bottom: 0;
             }
         }

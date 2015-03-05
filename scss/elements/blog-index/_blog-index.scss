@@ -27,6 +27,13 @@
                 width: 33.2%;
             }
         }
+        a {
+            border-bottom: 0;
+            box-shadow: none;
+            &:hover {
+                background-color: transparent;
+            }
+        }
     }
 
 
