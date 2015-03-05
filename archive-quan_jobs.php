@@ -4,27 +4,20 @@
 
 	get_header();
 
-	$jobs_query = new WP_Query( array(
-		'post_type'   => 'quan_jobs'
-		) );
+	$jobs_query = new WP_Query(array('post_type'   => 'quan_jobs'));
+?>
+	<div class="job-listings">
+		<?php if( $jobs_query->have_posts() ) : ?>
+			<h1><?= __( 'Job Openings at Quan Digital GmbH', 'quan' ); ?></h1>
 
-	echo '<div class="job-listings">';
+			<?php while( $jobs_query->have_posts() ) : $jobs_query->the_post(); ?>
 
-		if( $jobs_query->have_posts() ) {
-			echo '<h1>';
-				_e( 'Job Openings at Quan Digital GmbH', 'quan' );
-			echo '</h1>';
-
-			while( $jobs_query->have_posts() ) {
-
-				echo '<article>';
-					$jobs_query->the_post();
-					the_title( '<h2><a href="' . get_permalink() . '">', '</a></h2>' );
-					echo quan_job_excerpt();
-				echo '</article>';
-			}
-		}
-
-	echo '</div>';
-
+					<article>
+						<h2><a href="<?= get_permalink(); ?>"><?= get_the_title(); ?></a></h2>
+						<?= quan_job_excerpt(); ?>
+					</article>
+			<?php endwhile; ?>
+		<?php endif; ?>
+	</div>
+<?php
 	get_footer();
