@@ -176,70 +176,70 @@ footer {
 
 
 
-.single-quan_jobs {
-	.content {
-		> h1 {
-			margin-bottom: .5em;
-		}
-	}
-}
+// .single-quan_jobs {
+// 	.content {
+// 		> h1 {
+// 			margin-bottom: .5em;
+// 		}
+// 	}
+// }
 
-.job-listings {
-	@include grid-row();
-	@media #{$medium-only} {
-		padding-left: rem-calc(30) / 2;
-    	padding-right: rem-calc(30) / 2;
-	}
-	> h1 {
-		@include grid-column(12);
-		font: {
-			family: NexaSlab-Bold, Georgia;
-			size:2.513em;
-		}
-		color:$quan;
-		padding-left:0;
-	}
-	article {
-		padding-bottom: 12px;
-		&:after {
-			content:"";
-			padding: 12px;
-			border-bottom: 1px solid $quan;
-			@include grid-column($columns:4, $center:true);
-			display:block;
-		}
-		&:last-child {
-			&:after {
-				border:none;
-			}
-		}
-		h2 {
-			@include grid-column(12);
-			font: {
-				family: NexaSlabLightOblique, Georgia;
-			}
+// .job-listings {
+// 	@include grid-row();
+// 	@media #{$medium-only} {
+// 		padding-left: rem-calc(30) / 2;
+//     	padding-right: rem-calc(30) / 2;
+// 	}
+// 	> h1 {
+// 		@include grid-column(12);
+// 		font: {
+// 			family: NexaSlab-Bold, Georgia;
+// 			size:2.513em;
+// 		}
+// 		color:$quan;
+// 		padding-left:0;
+// 	}
+// 	article {
+// 		padding-bottom: 12px;
+// 		&:after {
+// 			content:"";
+// 			padding: 12px;
+// 			border-bottom: 1px solid $quan;
+// 			@include grid-column($columns:4, $center:true);
+// 			display:block;
+// 		}
+// 		&:last-child {
+// 			&:after {
+// 				border:none;
+// 			}
+// 		}
+// 		h2 {
+// 			@include grid-column(12);
+// 			font: {
+// 				family: NexaSlabLightOblique, Georgia;
+// 			}
 
-			padding-left:0;
-			a {
-				color:$wheat;
-				border-bottom:none;
-				text-shadow: lighten($quan, 20%) 1px 1px 2px;
-				@include transition-duration(.3s);
-				&:hover {
-					color:lighten( $quan, 20% );
-					@include transition-duration(.5s);
-				}
-			}
-		}
-	}
-	p {
-		font-size:1.2em;
-	}
-	.job-details {
-		float:right;
-		margin-top: -1em;
-	}
-}
+// 			padding-left:0;
+// 			a {
+// 				color:$wheat;
+// 				border-bottom:none;
+// 				text-shadow: lighten($quan, 20%) 1px 1px 2px;
+// 				@include transition-duration(.3s);
+// 				&:hover {
+// 					color:lighten( $quan, 20% );
+// 					@include transition-duration(.5s);
+// 				}
+// 			}
+// 		}
+// 	}
+// 	p {
+// 		font-size:1.2em;
+// 	}
+// 	.job-details {
+// 		float:right;
+// 		margin-top: -1em;
+// 	}
+// }
 
 .application-contact {
 	@include grid-column(12);
