@@ -30,7 +30,7 @@
                 @include grid-column($center: true);
                 width: 800px;
                 padding-top: .9375em;
-                font-family: Georgia;
+                font-family: Georgia, serif;
                 line-height: 1.5;
             }
             > p {
@@ -39,7 +39,7 @@
                     color: $purple-dark;
                 }
                 font-size: 1.5em;
-                color: $quan;
+                color: $purple-dark;
                 img {
                     max-width:100%;
                 }
@@ -49,10 +49,6 @@
 
             
 .single-content {
-    // @media #{$medium-only} {
-    //     padding-left: rem-calc(30) / 2;
-    //     padding-right: rem-calc(30) / 2;
-    // }
     > h1 {
         font: {
             family: NexaSlab-Bold, Georgia;
@@ -69,8 +65,6 @@
         margin-top: -60px;
     }
     article {
-        // @include grid-column(12);
-        // font-size:1.2em;
         .abstract {
             h2 {
                 font-size:1.125em;
@@ -86,23 +80,5 @@
                 }
             }
         }
-        // >p  {
-        //     font: {
-        //         size:1em;
-        //     }               
-        // }
-
-
-        .attribution {
-            text-align:right;
-            font-size:.8em;
-            .cc {
-                border:none;
-                img {
-                    width:20px;
-                }
-            }
-        }
-
     }
 }

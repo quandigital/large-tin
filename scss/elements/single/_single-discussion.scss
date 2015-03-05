@@ -1,0 +1,16 @@
+.discussion {
+    @include grid-column(12);
+    font-size: 1em;
+    padding-top: .9375em;
+    &:before {
+        content: "";
+        @include grid-column(2);
+        position: absolute;
+        top: 0;
+        border-top: 1px solid $purple-dark;
+    }
+    a {
+        color: $purple-dark;
+        border: none;
+    }
+}

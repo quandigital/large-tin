@@ -1,0 +1,58 @@
+.single-content {
+    // $purple-dark: #f00;
+    table {
+        * {border: 0;}
+        font: {
+            family: $light;
+            size: 1.1em;
+        }
+        width: 100%;
+        margin-top: 1em;
+        margin-bottom: 2em;
+        thead, 
+        tfoot,
+        tbody {
+            border: {
+                left: 1px solid $purple-dark;
+                right: 1px solid $purple-dark;
+            }    
+        }
+        thead {
+            border-top: 1px solid $purple-dark;
+            font-family: $bold;
+            th {
+                padding: .9375em;
+                text-align: left;
+            }
+        }
+        tfoot {
+            td {
+                &[colspan] {
+                    font: {
+                        family: $light;
+                        size: .75em;
+                    }
+                }
+                font: {
+                    family: $bold;
+                    size: 3em;
+                }
+            }
+        }
+        tbody {
+            tr {
+                background-color: lighten($purple-light, 50);
+                @include transition-duration(.3s);
+                border-top: 1px dashed $white;
+                &:hover {
+                    background-color: lighten($purple-light, 40);
+                    @include transition-duration(.3s);
+                }
+            }
+        }
+        td {
+            padding: .9375em;
+            color: $purple-dark;
+        }
+    }
+}
