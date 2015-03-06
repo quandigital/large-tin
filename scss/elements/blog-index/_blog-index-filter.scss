@@ -75,20 +75,19 @@
         &.active {
             .handle {
                 &:after {
-                    @include transform(rotate(0deg));
+                    @include transform(rotate(-90deg));
                     @include transition-duration(.3s);
                 }
             }
             .options {
                 @include transition-duration(.5s);
                 height: auto;
-                z-index: 7;
+                z-index: 3;
             }
             .option {
                 @for $i from 1 through 6 {
                     &:nth-child(#{$i}) {
-                        @include transform(/* translateY((34 + (33 * ($i - 1))) * 1px) */ rotateX(25deg));
-                        // @include transform-origin(0 0);
+                        @include transform(rotateX(25deg));
                         @include transition-property(transform);
                         @include transition-duration($i * .2s);
                         @include transition-delay(($i - 1) * .1s);
@@ -114,19 +113,19 @@
             color: $green;
             line-height: 40px;
             position: relative;
-            z-index: 8;
+            z-index: 4;
             vertical-align: middle;
             &:hover {
                 cursor: pointer;
             }
             &:after {
-                content: "\f151";
+                content: "\f107";
                 font-family: "Ionicons";
                 position: absolute;
                 right: .9375em;
                 vertical-align: inherit;
                 line-height: 40px;
-                @include transform(rotate(-90deg));
+                @include transform(rotate(0deg));
                 @include transition-duration(.3s);
             }
         }
@@ -152,7 +151,6 @@
                 position: relative;
                 @for $i from 1 through 6 {
                     &:nth-child(#{$i}) {
-                        // top: (34 + (33 * ($i - 1))) * -1px;
                         z-index: 6 - $i;
                     }
                 }

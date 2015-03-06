@@ -3,7 +3,6 @@ $white: #ecf0f1;//#E3E3E8;
 $wheat: #D4CCAE;
 
 $quan:  #36363d;
-$light: lighten($quan, 60%);
 $gray: lighten($quan, 30%);
 
 $facebook-color: #3B5998;
@@ -13,10 +12,14 @@ $adminbar: 32px;
 
 $purple-dark: rgba(39, 31, 61, 1);
 $purple-light: rgba(73, 65, 89, 1);
-$purple-border: rgba(72,66,86, 1);
+$purple-border: rgba(72, 66, 86, 1);
 $green: rgba(138, 200, 118, 1);
 $red: rgba(212, 91, 91, 1);
+
+$twitter: rgb(119, 167, 220);
+$facebook: rgb(69, 88, 151);
 
 $slab: NexaSlab-Bold, Georgia, serif;
 $light: nexa_lightregular, Helvetica, Arial, sans-serif;
 $bold: nexa_boldregular, Helvetica, Arial, sans-serif;
+

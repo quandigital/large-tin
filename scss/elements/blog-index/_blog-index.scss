@@ -27,18 +27,29 @@
                 width: 33.2%;
             }
         }
+        a {
+            border-bottom: 0;
+            box-shadow: none;
+            &:hover {
+                background-color: transparent;
+            }
+        }
     }
 
 
-// animate only if js is loaded
 
 .js {
+    // animate only if js is loaded
     .main-loop {
         article {
             &:not(.shown) {
                 opacity: 0!important;
             }
         }
+    }
+    // don't show navigation if ajax endless scroll
+    .pagenavi {
+        display: none;
     }
 }
     article {

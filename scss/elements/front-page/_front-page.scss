@@ -3,8 +3,9 @@
         .main-container {
             text-align:center; // used for logo positioning and so on
             max-width:100%;
-            padding-left: 0.9375em;
-            padding-right: 0.9375em;
+            padding-left: .9375em;
+            padding-right: .9375em;
+            float: left;
             img {
                 @include transform( scale(.89) );
             }

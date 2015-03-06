@@ -1,0 +1,27 @@
+.attribution {
+    @include grid-column(12);
+    padding: {
+        top: .9375em;
+        bottom: .9375em;
+    }
+    vertical-align: middle;
+    font-size: .8em;
+    line-height: 1;
+    a {
+        color: $purple-dark;
+        vertical-align: inherit;
+        margin-left: .9375em * .5;
+    }
+    .license { 
+        border-bottom: 0;
+    }
+}
+
+    .cc {
+        width: 20px;
+        vertical-align: inherit;
+        border:none;
+        img {
+            width:20px;
+        }
+    }

@@ -3,7 +3,10 @@
     bottom: .9375em;
     left: -300px;
     z-index: 50;
-    font-size: 1.3em;
+    font-size: 1em;
+    @media #{$large-up} {
+        font-size: 1.3em;
+    }
     @include transition-delay(.2s);
     @include transition-duration(.3s);
     > div {
@@ -11,7 +14,7 @@
     }
     a {
         border-bottom: none;
-        color: $light;
+        color: $purple-light;
         &:before {
             content: "";
             font: {

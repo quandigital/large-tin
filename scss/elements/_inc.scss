@@ -1,12 +1,28 @@
 @import
-    "front-page",
-        "front-page-presentational",
-        "front-page-icons",
-        "front-page-navigation",
+    "front-page/front-page",
+        "front-page/front-page-presentational",
+        "front-page/front-page-icons",
+        "front-page/front-page-navigation",
 
-    "main-menu",
+    "menu/menu",
+        "menu/menu-trigger",
+        "menu/menu-presentational",
+        "menu/menu-language",
+        "menu/menu-top",
+        "menu/menu-jobs",
+        "menu/menu-social",
 
-    "blog-index",
-    "blog-index-filter",
-    "blog-index-post",
-    "blog-index-twitter";
+    "blog-index/blog-index",
+        "blog-index/blog-index-filter",
+        "blog-index/blog-index-post",
+        "blog-index/blog-index-twitter",
+
+    "single/single",
+        "single/single-sidebar",
+        "single/single-header",
+        "single/single-image-attribution",
+        "single/single-discussion",
+        "single/single-elements",
+            "single/single-tables",
+            
+    "jobs/jobs-listings";

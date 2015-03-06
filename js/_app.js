@@ -27,8 +27,9 @@ $(document).ready(function() {
         }
     }).on('click', function() {
         if (!$('#menu').hasClass('active')) {
-            $('#menu').addClass('active');
-            $('.menu-trigger').toggleClass('hover');
+            // $('#menu').addClass('active');
+            // $('.menu-trigger').toggleClass('hover');
+            toggleClasses(0);
         }
     });
 
@@ -53,11 +54,31 @@ $(document).ready(function() {
         toggleClasses(1400);
     });
     
+
 });
 
 function toggleClasses(timeout)
 {
     $('#menu').toggleClass('active');
+
+    var vague = $('#main').Vague({
+        intensity: 5,
+        animationOptions: {
+            duration: 600,
+            easing: 'linear' // here you can use also custom jQuery easing functions
+        }
+    });
+
+    if ($('#menu').hasClass('active')) {
+        setTimeout(function() {
+            vague.animate(5);
+        }, 400);
+    } else {
+        setTimeout(function() {
+            vague.animate(0);
+        }, 800);
+    }
+
     $('.menu-trigger').toggleClass('triggered').removeClass('hover');
     setTimeout(function(){
         $('.menu-trigger').toggleClass('triggered');

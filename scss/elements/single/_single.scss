@@ -30,70 +30,25 @@
                 @include grid-column($center: true);
                 width: 800px;
                 padding-top: .9375em;
-                font-family: Georgia;
+                font-family: Georgia, serif;
                 line-height: 1.5;
             }
-            p {
+            > p {
                 &:first-of-type {
                     font-size: 2.2em;
                     color: $purple-dark;
                 }
                 font-size: 1.5em;
-                color: $quan;
+                color: $purple-dark;
                 img {
                     max-width:100%;
-                }
-            }
-
-            ul {
-                font: {
-                    size:1em;
-                }
-                @media #{$medium-up} {
-                    padding-left: 20px
-                }
-            }
-            *[id^="attachment"], img {
-                max-width:100%;
-                padding: 20px 0;
-            }
-            .wp-caption-text {
-                font: {
-                    family: nexa_lightregular, sans-serif!important;
-                    size: .8em;
-                }
-            }
-            blockquote {
-                border-left:none;
-                p {
-                    font:{
-                        family: NexaSlabxBoldItalic, Georgia;
-                        size: 0.975em;
-                    }
-                    color:$wheat;
-                    @include grid-column(12);
-                    border-left: 2px solid $wheat;
-                }
-            }
-
-            ol, ul {
-                font-size: 1em;
-            }
-            dl {
-                ~ div {
-                    margin-top: -80px;
-                    margin-bottom: 20px;
                 }
             }
         }
     }
 
-
+            
 .single-content {
-    // @media #{$medium-only} {
-    //     padding-left: rem-calc(30) / 2;
-    //     padding-right: rem-calc(30) / 2;
-    // }
     > h1 {
         font: {
             family: NexaSlab-Bold, Georgia;
@@ -110,8 +65,6 @@
         margin-top: -60px;
     }
     article {
-        // @include grid-column(12);
-        // font-size:1.2em;
         .abstract {
             h2 {
                 font-size:1.125em;
@@ -127,23 +80,5 @@
                 }
             }
         }
-        // >p  {
-        //     font: {
-        //         size:1em;
-        //     }               
-        // }
-
-
-        .attribution {
-            text-align:right;
-            font-size:.8em;
-            .cc {
-                border:none;
-                img {
-                    width:20px;
-                }
-            }
-        }
-
     }
 }
