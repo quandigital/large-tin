@@ -38,7 +38,9 @@ h6 {
         top: 1em;
         bottom: .3em
     }
-    & + p {
+    & + p,
+    & + ul,
+    & + ol {
         margin-top: 0;
     }
 }
@@ -66,4 +68,31 @@ h5 {
 h6 {
     font-size: 1.2em;
     font-style: italic;
+}
+
+p,
+ul,
+ol {
+    @include grid-column();
+    & + h2,
+    & + h3,
+    & + h4,
+    & + h5,
+    & + h6 {
+        margin-top: 0;
+    }
+}
+
+ul,
+ol {
+    padding-left: 1.5em;
+    font-size: 1.2em;
+    li {
+        line-height: 1.5;
+        margin-bottom: .9375em * .5;
+    }
+}
+
+aside {
+    @include grid-column(12);
 }

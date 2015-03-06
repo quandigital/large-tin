@@ -14,7 +14,7 @@
     }
     a {
         border-bottom: none;
-        color: $purple-light;
+        color: lighten($purple-light, 20);
         &:before {
             content: "";
             font: {

@@ -61,24 +61,6 @@ function toggleClasses(timeout)
 {
     $('#menu').toggleClass('active');
 
-    var vague = $('#main').Vague({
-        intensity: 5,
-        animationOptions: {
-            duration: 600,
-            easing: 'linear' // here you can use also custom jQuery easing functions
-        }
-    });
-
-    if ($('#menu').hasClass('active')) {
-        setTimeout(function() {
-            vague.animate(5);
-        }, 400);
-    } else {
-        setTimeout(function() {
-            vague.animate(0);
-        }, 800);
-    }
-
     $('.menu-trigger').toggleClass('triggered').removeClass('hover');
     setTimeout(function(){
         $('.menu-trigger').toggleClass('triggered');

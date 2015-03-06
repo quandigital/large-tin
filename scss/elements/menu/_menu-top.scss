@@ -25,6 +25,8 @@
     }
     li {
         position: relative;
+        line-height: 1;
+        font-size: 1em;
         @for $i from 1 through 10 {
             &:nth-child(#{$i}) {
                 left: $i * -150px;
