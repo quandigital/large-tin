@@ -1,0 +1,81 @@
+.application-contact {
+    @include grid-column(12);
+    @media #{$medium-up} {
+        @include grid-column($columns: 12, $center: true);
+        width: 800px;
+        font-size: 1em;
+    }
+    
+    &:before {
+        content: "";
+        @include grid-column(2);
+        position: absolute;
+        top: 0;
+        border-top: 1px solid $purple-dark;
+    }
+
+    h3 {
+        font: {
+            family: Georgia, serif;
+            weight: normal;
+            size: 1.2em;
+        }
+    }
+    
+    .c-card {
+        @include grid-column();
+        padding: {
+            right: .9375em;
+            bottom: .9375em;
+        }
+    }
+
+        .image {
+            width: 75px;
+            height: 75px;
+            float: left;
+        }
+
+        .name {
+            text-align: left;
+            line-height: 60px;
+            padding-top: 0;
+        }
+
+            .job {
+                margin-top: -37px;            
+            }
+
+        .mail, 
+        .phone {
+            @include grid-column(12);
+            a {
+                font-size:1.2em;
+                border-bottom:none;
+                word-break:break-all;
+            }
+            &:before {
+                font: {
+                    family: ionicons;
+                    size: 1.4em;
+                }
+                padding: {
+                    left: .9375em;
+                    right: .9375em;
+                }
+                display: inline-block;
+                vertical-align: middle;
+                width: 75px;
+            }
+        }
+        .phone {
+            &:before {
+                content:"\f1e5";
+            }
+        }
+        .mail {
+            &:before {
+                content:"\f2c3";
+            }
+        }
+}
