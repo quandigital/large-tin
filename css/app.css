@@ -4019,7 +4019,9 @@ aside {
         -moz-transition-duration: 0.5s;
         transition-duration: 0.5s; }
   .top-menu li {
-    position: relative; }
+    position: relative;
+    line-height: 1;
+    font-size: 1em; }
     .top-menu li:nth-child(1) {
       left: -150px;
       -webkit-transition-delay: 1.2s;
@@ -4155,7 +4157,7 @@ aside {
     float: left; }
   .social-menu a {
     border-bottom: none;
-    color: #494159; }
+    color: #796c94; }
     .social-menu a:before {
       content: "";
       font-family: Ionicons;
