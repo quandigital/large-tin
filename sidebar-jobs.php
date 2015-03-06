@@ -1,37 +1,36 @@
 <?php
 	//the author sidebar
+	$aat_user       = get_field( 'quan_aat_user' );
+	$aat_user_mail  = get_field( 'quan_aat_email' );
+	$aat_user_phone = get_field( 'quan_aat_phone' );
+	$job            = get_user_meta( $aat_user['ID'], 'job', true );
+
 ?>
 	<aside id="sidebar">
 		<div class="application-contact">
 			<h3><?php _e( 'Please address your application to', 'quan' ); ?></h3>
 				
-				<?php
-				$aat_user       = get_field( 'quan_aat_user' );
-				$aat_user_mail  = get_field( 'quan_aat_email' );
-				$aat_user_phone = get_field( 'quan_aat_phone' );
-				$job            = get_user_meta( $aat_user['ID'], 'job', true );
-			
-				the_author_image( $aat_user['ID'] );
-				
-				echo '<div class="name">';
-					echo $aat_user['display_name'];
-				echo '</div>';
+			<div itemscope itemtype="http://schema.org/Person" class="c-card">
+				<div class="image" itemprop="image">
+					<?php the_author_image( $aat_user['ID'] ); ?>
+				</div>
+				<div class="name">
+					<span itemprop="name"><?= $aat_user['display_name']; ?></span>
 
-				echo '<div class="job">';
-					echo $job;
-				echo '</div>';
+					<div class="job" itemprop="jobTitle">
+						<?= $job; ?>
+					</div>
+				</div>
 
-				echo '<div class="mail">';
-					echo '<a href="mailto:' . $aat_user_mail . '?subject=Application: ' . get_the_title() . '">' . $aat_user_mail . '</a>';
-				echo '</div>';
+				<div class="mail">
+					<a href="mailto:<?= $aat_user_mail; ?>?subject=Application: <?= get_the_title(); ?>" itemprop="email"><?= $aat_user_mail; ?></a>
+				</div>
 
-				if( $aat_user_phone ) {
-					echo '<div class="phone">';
-						echo '<a href="callto:' . $aat_user_phone . '">' . $aat_user_phone . '</a>';
-					echo '</div>';					
-				}
-				
-			?>
+			<?php if( $aat_user_phone ) : ?>
+				<div class="phone">
+					<a href="callto:<?= $aat_user_phone; ?>" itemprop="telephone"><?= $aat_user_phone; ?></a>
+				</div>
+			<?php endif; ?>
 
 		</div>
 

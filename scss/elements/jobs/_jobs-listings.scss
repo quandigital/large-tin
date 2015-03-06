@@ -1,0 +1,15 @@
+.job-listings {
+    @include grid-column(12);
+    @media #{$medium-up} {
+        @include grid-column($center: true);
+        width: 800px;
+    }
+    p {
+        font: {
+            size: 1.5em;
+            family: Georgia, serif;
+        }
+        line-height: 1.5;
+        margin-bottom: 0;
+    }
+}
