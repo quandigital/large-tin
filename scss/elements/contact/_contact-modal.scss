@@ -1,0 +1,51 @@
+.modal {
+    position:fixed;
+    top:50%;
+    left:50%;
+    background-color: rgba($wheat, .99);
+    padding: 5% 10%;
+    z-index:10;
+    display:none;
+    border-radius:2px;
+    box-shadow: 0px 0px 1000px $quan, 0px 0px 0px 1000px rgba($quan, .2);
+    opacity:0;
+    text-align:center;
+    #modal-close {
+        position:absolute;
+        top:-20px;
+        right:-8px;
+        font-size: 40px;
+        &:hover {
+            color:rgba($quan, .5);
+            cursor:pointer;
+            div {
+                border-color:rgba($quan, .5);
+            }
+        }
+        div {
+            content:"";
+            background-color: $wheat;
+            border-radius:50%;
+            height:34px;
+            width:34px;
+            position: absolute;
+            display: block;
+            left: -9px;
+            top: 3px;
+            z-index:-1;
+            border:1px solid $quan;
+        }
+    }
+    > * {
+        position:relative;
+        color:$quan;
+    }
+    h2 {
+        text-align:center;
+        font-size: 45px;
+        font-family: nexa_lightregular;
+    }
+    p {
+        font-size: 20px;
+    }
+}

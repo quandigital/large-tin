@@ -1,0 +1,24 @@
+.contact-container {
+    @include grid-column(12);
+}
+
+.contact {
+    @include grid-column(12);
+    @media #{$medium-up} {
+        @include grid-column($center: true);
+        width: 800px;
+    }
+
+    h1 {
+        text-align: center;
+        color: $purple-dark;
+        margin-bottom: .9375em;
+        &:after {
+            content: "";
+            display: block;
+            width: 10%;
+            border-bottom: 2px solid $purple-dark;
+            margin: 0 auto;
+        }
+    }
+}

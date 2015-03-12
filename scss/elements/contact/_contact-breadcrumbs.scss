@@ -1,0 +1,94 @@
+.breadcrumbs {
+    @include grid-column(12);
+}
+
+.bcb {
+    @include grid-column(3);
+    padding: .9375em;
+    border-right: 0;
+    overflow: hidden;
+    &:after {
+        content: "";
+        border: 160px solid transparent;
+        border-right: 100px solid transparent;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+    }   
+    &:first-child {
+        @include grid-column(3.2);
+        padding: .9375em;
+        padding-left: .9375em * 2;
+    }
+    &:last-child {
+        @include grid-column(2.8);
+        padding: .9375em;
+        padding-left: .9375em * 2;
+    }
+
+    &.bcb-first {
+        background-color: lighten($purple-light, 30);
+        &:after {
+            border-right-color: lighten($purple-light, 40);
+        }
+    }
+    &.bcb-second {
+        background-color: lighten($purple-light, 40);
+        &:after {
+            border-right-color: lighten($purple-light, 50);
+        }
+    }
+    &.bcb-third {
+        background-color: lighten($purple-light, 50);
+        &:after {
+            border-right-color: lighten($purple-light, 60);
+        }
+    }
+    &.bcb-fourth {
+        background-color: lighten($purple-light, 60);
+    }
+
+    .step,
+    .action {
+        @include grid-column(12);
+    }
+    .step {
+        font: {
+            family: $bold;
+            size: 1.4em;
+        } 
+    }
+
+    &.done {
+        &:hover {
+            cursor: pointer;
+            .step,
+            .action {
+                color: $white;
+                @include transition(color, .2s);
+            }    
+        }
+    }
+    &.active {
+        .step,
+        .action {
+            color: $white;
+            @include transition(color, .2s);
+        }
+    }
+
+    &.inactive {
+        .step,
+        .action {
+            color: rgba($purple-dark, .3);
+            @include transition(color, .2s);
+        }
+    }
+}
+
+.no-js {
+    .breadcrumbs {
+        display: none;
+    }
+}
