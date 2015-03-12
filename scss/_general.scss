@@ -1,3 +1,9 @@
+*, 
+*:before,
+*:after {
+    @include box-sizing(border-box);
+}
+
 body {
     font: {
         size: .6em;
@@ -15,14 +21,6 @@ body {
     }
 }
 
-*, 
-*:before,
-*:after {
-    @include box-sizing(border-box);
-    // -moz-box-sizing: border-box;
-    // -webkit-box-sizing: border-box;
-    // box-sizing: border-box;
-}
 
 a {
     text-decoration: none;

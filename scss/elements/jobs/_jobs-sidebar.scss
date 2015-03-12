@@ -11,6 +11,7 @@
         @include grid-column(2);
         position: absolute;
         top: 0;
+        left: 0;
         border-top: 1px solid $purple-dark;
     }
 
