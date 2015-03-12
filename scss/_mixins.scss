@@ -39,21 +39,64 @@
 	}
 }
 
-@mixin placeholder {
-	&::-webkit-input-placeholder {
-		@content
+@mixin button($bgc: $purple-dark, $icon: "\f3d6") {
+	border: none;
+	cursor: pointer;
+	padding: {
+		top: .9375em; 
+		right: .9375em * 4;
+		bottom: .9375em;
+		left: .9375em * 2;
 	}
-
-	&:-moz-placeholder { /* Firefox 18- */
-		@content
+	background-color: $bgc;
+	color: $white;
+	display: inline-block;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	outline: none;
+	position: relative;
+	border-bottom: 0;
+	box-shadow: none;
+	overflow: hidden;
+	@include transition-duration(.3s);
+	&:after {
+		content: "";
+		position: absolute;
+		width: 25%;
+		height: 200%;
+		background: rgba(red, .5);
+		background-color: rgba(255, 255, 255, .2);
+		z-index: 1;
+		right: 0;
+		top: 0;
+		@include transform(rotate(30deg));
+		// @include transform(rotate(-20deg));
+		@include transform-origin(125% 50%);
+		// @include transform-origin(0 0);
+		@include transition-duration(.3s);
 	}
-
-	&::-moz-placeholder {  /* Firefox 19+ */
-		@content
+	&:before {
+		content: $icon;
+		font: {
+			family: Ionicons;
+			size: 1.5em;
+		}
+		position: absolute;
+		top: 0;
+		right: .9375em;
+		line-height: 50px;
 	}
-
-	&:-ms-input-placeholder {  
-		@content
+	&:hover {
+		@if lightness($bgc) < 50% {
+			background-color: lighten($bgc, 10);
+		  } @else {
+			background-color: darken($bgc, 20);
+		  }
+		@include transition-duration(.3s);
+		&:after {
+			@include transition-duration(.3s);
+			@include transform-origin(125% 60%);
+		}
 	}
 }
 

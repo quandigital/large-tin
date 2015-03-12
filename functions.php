@@ -97,6 +97,7 @@ function quan_add_scripts() {
     wp_register_script( 'blog', get_template_directory_uri() .  '/js/_blog-index.js', array( 'jquery', 'isotope', 'cookie' ), '', true );
     wp_register_script( 'front', get_template_directory_uri() .  '/js/_front.js', array( 'jquery', 'disable_scroll', 'functions' ), '', true );
     wp_register_script( 'single', get_template_directory_uri() .  '/js/_single.js', array( 'jquery', 'functions' ), '', true );
+    wp_register_script( 'contact', get_template_directory_uri() .  '/js/_contact.js', array( 'jquery', 'functions' ), '', true );
 
     //styles
     wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css' );
@@ -133,7 +134,7 @@ function quan_add_scripts() {
 
     if( is_page_template( 'contact.php' ) ) {
         wp_enqueue_script( array(
-            'send-message'
+            'contact'
             )
         );
     }

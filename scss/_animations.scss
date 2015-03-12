@@ -47,15 +47,23 @@
 // 	}
 // }
 
-@include keyframe( spin ) {
-	from {
-		@include rotate(0deg);
-	}
-	to {
-		@include rotate(360deg);
-	}
-}
+// @include keyframes( spin ) {
+// 	from {
+// 		@include rotate(0deg);
+// 	}
+// 	to {
+// 		@include rotate(360deg);
+// 	}
+// }
 
+@include keyframes( contact-color ) {
+    from {
+        color: rgba($purple-dark, 0);
+    }
+    to {
+        color: $purple-dark;
+    }
+}
 // @include keyframe( show-linear ) {
 // 	from {
 // 		opacity:0;
