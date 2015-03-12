@@ -1,0 +1,91 @@
+html, body {
+    height: 100%;
+
+}
+
+.main-container {
+    // @include grid-row();
+    // min-height:100%;
+    // padding-top: 30px;
+    min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -9.375em;
+// background-color: rgba($red, .2);
+}
+
+footer,
+.push {
+    height: 9.375em;
+}
+footer {
+    @include grid-column(12);
+    background-color: #fff;
+    // position: relative;
+    // right: 0;
+    // bottom: 0;
+    // left: 0;
+    // margin-top: 9.375em;
+    padding: 0 3em;
+    .logo {
+        @include grid-column();
+        padding: 1px;
+        height: 3em;
+        width: 3em;
+        margin-top: (9.375em - 3em) * .5;
+        img {
+            width: 100%;
+        }
+    }
+}
+    .copy,
+    .address {
+        @include grid-column($collapse: false);
+        line-height: 9.375em;
+        font-family: $bold;
+        color: $purple-dark;
+    }
+
+    .address {
+        font-family: $light;
+    }
+
+    .work-with-us {
+        @include button();
+        float: right;
+        position: absolute;
+        top: 50%;
+        right: 3em;
+        margin-top: -25px;
+    }
+
+.single-post {
+    .single-wrapper {
+        padding-bottom: 9.375em * .5;
+    }
+}
+
+.blog {
+    .main-loop-container {
+        padding-bottom: 9.375em * .5;
+    }
+}
+
+.review {
+    padding-bottom: 9.375em * .61; // atm I have no clue why this has to be this multiplier
+}
+
+.single-quan_jobs {
+    aside {
+        padding-bottom: 9.375em * 1.5;
+    }
+}
+
+
+// .page {
+//     padding-bottom: 9.375em;
+//     position: relative;
+//     .contact-container {
+//         padding-bottom: 9.375em;
+//     }
+// }
