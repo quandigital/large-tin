@@ -188,8 +188,17 @@ function step3() {
         })
         .on('keydown', '#email, #phone', function(e) {
             setTimeout(function() {
+                // console.log(e.which);
                 if ($.trim($(e.target).text()).length > 0) {
                     $(e.target).siblings('.label').hide();
+                    if ($.trim($(e.target).text()).length > 15) {
+                        var len = ($.trim($(e.target).text()).length - 15) * 0.05;
+                        var emFontSize = parseFloat(parseInt($(e.target).css('font-size')) / 16);
+                        console.log([emFontSize, len, emFontSize - len, emFontSize - len + 'em']);
+                        $(e.target).css('font-size', emFontSize - len + 'em');
+                        // console.log(parseInt($(e.target).css('font-size')) - len);
+                        // alexander.goller
+                    }
                 } else {
                     $(e.target).siblings('.label').show();
                 }
@@ -201,6 +210,7 @@ function step3() {
                 if ($.trim($('#email, #phone').text()).length > 3) {
                     $('#email, #phone').removeClass('empty');
                 }
+
             }, 1);
         })
         .on('focus', '#email, #phone', function(e) {
