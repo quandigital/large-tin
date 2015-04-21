@@ -1,7 +1,7 @@
 .dark-corner {
     height: 20000px;
     width: 10000px;
-    background-color: rgba($purple-dark, .65);
+    background-color: rgba($purple-dark, .05);
     position: absolute;
     // left: 72.5%;
     left: 22.5%;
@@ -17,7 +17,7 @@
 .light-corner-1 {
     height: 1000%;
     width: 100%;
-    background-color: rgba($purple-light, .85);
+    background-color: rgba($purple-light, .05);
     position: absolute;
     left: 8%;
     top: -100%;
@@ -32,7 +32,7 @@
 }
 .light-corner-2 {
     height: 20000px;
-    background-color: rgba($purple-light, .85);
+    background-color: rgba($purple-light, .05);
     position: absolute;
     top: -60%;
     right: -57.9%;
@@ -48,7 +48,7 @@
 .background-corner {
     height: 1000%;
     width: 200px;
-    background-color: rgba($purple-light, .1);
+    background-color: rgba($purple-light, .05);
     position: absolute;
     top: -50%;
     z-index: 0;

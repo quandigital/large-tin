@@ -45,6 +45,12 @@
     }
 }
 
+.social {
+    &:before {
+        content: "\f47c";
+    }
+}
+
 .commitment {
     &:before {
         content: "\f1fe";
