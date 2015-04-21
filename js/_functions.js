@@ -3,7 +3,7 @@ function breakpoints() {
        document.querySelector('body'), ':before'
     ).getPropertyValue('content');
     
-    return breakpoint;
+    return eval(breakpoint);
 }
 
 $.fn.extend({
