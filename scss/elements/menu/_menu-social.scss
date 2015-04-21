@@ -3,7 +3,7 @@
     bottom: .9375em;
     left: -300px;
     z-index: 50;
-    font-size: 1em;
+    font-size: 1.5em;
     @media #{$large-up} {
         font-size: 1.3em;
     }
@@ -14,7 +14,7 @@
     }
     a {
         border-bottom: none;
-        color: lighten($purple-light, 20);
+        color: lighten($purple-light, 40);
         &:before {
             content: "";
             font: {

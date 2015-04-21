@@ -27,6 +27,16 @@
         left: 0;
         visibility: visible;
         @include transition-delay(.1s);
+        padding: {
+            left: 8px;
+            right: 8px;
+        }
+        background-color: rgba($purple-dark, .95);
+        border-radius: 3px;
+        @media #{$large-up} {
+            padding: 0;
+            background-color: transparent;
+        }
     }
     &:after { // close
         content: "\f405";
@@ -36,7 +46,7 @@
     &.hover {
         cursor: pointer;
     }
-    @media #{$background-fix} {
+    @media #{$large-up} {
         visibility: visible;
         @include transition-duration(.5s);
         &:before {
@@ -73,7 +83,7 @@
                 visibility: visible;
                 @include transition-duration(.5s);
             }
-            @media #{$background-fix} {
+            @media #{$large-up} {
                 left: -81px;
                 &:after {
                     left: 81px;

@@ -5,6 +5,7 @@
     margin-left: 85px;
     border-right: 1px solid rgb(72,66,86);
     pointer-events: auto;
+    opacity: 0;
     @include transform(translateX(-100%) rotate(30deg));
     @include transform-origin(100% 0);
     &:hover {
@@ -21,8 +22,9 @@
         outline: 1px solid $purple-border;
         outline-offset: 10px
     }
-    @media #{$background-fix} {
+    @media #{$large-up} {
         margin-left: 150px;
+        opacity: 1;
     }
 }
 
@@ -45,7 +47,9 @@
         .navigation-corner {
             @include transition-delay(0s);
             @include transition-duration(1s);
-            margin-left: 110%;
+            margin-left: 400%;
+            width: 400%;
+            opacity: 1;
             &:hover {
                 cursor: default;
             }
