@@ -47,7 +47,7 @@ $(document).ready(function(){
     
         $('html').on('mousewheel DOMMouseScroll onmousewheel touchmove scroll', function(e) {
             // don't animate when viewed on a small screen
-            if (breakpoints() != 'small') { 
+            if (breakpoints() == 'large') { 
                 // if scrolling is disabled, i.e. there is already an animation don't do anything
                 if (!disableScroll) {
                     // prevent defaults/don't bubble
