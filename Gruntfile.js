@@ -3,35 +3,27 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         sass: {
-            dist: {
+            default: {
                 options: {
                     outputStyle: 'compressed',
-                    includePaths: require('node-bourbon').includePaths
+                    includePaths: require('node-bourbon').includePaths,
+                    sourceMap: true
                 },
                 files: {
                     'css/app.css': 'scss/app.scss'
                 }        
-            },
-            dev: {
-                options: {
-                    outputStyle: 'expanded',
-                    includePaths: require('node-bourbon').includePaths
-                },
-                files: {
-                    'css/app.css': 'scss/app.scss'
-                }
             }
         },
 
         watch: {
             grunt: { 
                 files: 'Gruntfile.js',
-                tasks: ['sass:dev']
+                tasks: 'sass'
             },
 
             sass: {
                 files: 'scss/**/*.scss',
-                tasks: ['sass:dev']
+                tasks: 'sass'
             }
         }
     });
@@ -39,6 +31,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('build', ['sass:dist']);
-    grunt.registerTask('default', ['sass:dev', 'watch']);
+    grunt.registerTask('build', 'sass');
+    grunt.registerTask('default', ['sass', 'watch']);
 }
