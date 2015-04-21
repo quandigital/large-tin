@@ -1,3 +1,15 @@
+.intro-layout {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    @media #{$large-up} {
+        display: inline-block;
+        width: 530px;
+        height: 400px;
+    }
+}
+
 .dark-corner {
     height: 20000px;
     width: 10000px;
@@ -24,7 +36,7 @@
     z-index: 4;
     @include transform(rotate(30deg));
     @include transform-origin(top left);
-    @media #{$background-fix} {
+    @media #{$large-up} {
         width: 300%;
         top: -300%;
         left: -150%;
@@ -40,7 +52,7 @@
     visibility: hidden;
     @include transform(rotate(30deg));
     @include transform-origin(top left);
-    @media #{$background-fix} {
+    @media #{$large-up} {
         width: 350px;
         visibility: visible;
     }
