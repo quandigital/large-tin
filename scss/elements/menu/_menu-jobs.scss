@@ -4,7 +4,7 @@
 
 .job-count {
     border: {
-        left: 15px solid $red;
+        left: 20px solid $red;
         bottom: 31px solid transparent;
     }
     display: inline-block;
@@ -21,8 +21,8 @@
     &:before {
         content: attr(data-jobcount);
         position: absolute;
-        right: 5px;
-        top: 1px;
+        right: 10px;
+        top: 2px;
         @media #{$medium-up} {
             right: 14px;
         }
