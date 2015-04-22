@@ -3,10 +3,8 @@
     display: none;
     max-width: 40px;
     z-index: 4;
-    @media #{$medium-up} {
+    @media #{$large-up} {
         display: block;
-    }
-    @media #{$landscape} {
         right: 50px;
         top: 50%;
         margin-top: 117/2 * -1px;
