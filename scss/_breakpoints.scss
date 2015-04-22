@@ -1,11 +1,6 @@
 html {
     &:before {
         display: none;
-        display: block;
-        position: fixed;
-        height: 50px;
-        top: 0;
-        left: 0;
         @media #{$small-only} {
             content: "small";
         }        

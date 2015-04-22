@@ -132,7 +132,9 @@ aside {
 
     .single-post {
         .main-container {
-            position: static;
-            float: none;
+            @media #{$large-up} {
+                position: static;
+                float: none;
+            }
         }
     }

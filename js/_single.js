@@ -1,4 +1,18 @@
 jQuery(document).ready(function($) {
+    if (breakpoints() == 'large') {
+        titleScroll();
+    };
+
+    $(window).smartresize(function() {
+        if (breakpoints() !== 'large') {
+            $('.single-title, #sidebar .author').removeAttr('style');
+            $('#sidebar, .navigation-corner').removeClass('fade');
+        };        
+    });
+});
+
+function titleScroll()
+{
     $(window).on('scroll', function(){
         var scrOff = $(window).scrollTop();
         // $('.cover-image').css('background-position', '50% ' + (scrOff/10+50) +'%');
@@ -16,11 +30,5 @@ jQuery(document).ready(function($) {
             $('#sidebar, .navigation-corner').removeClass('fade');
         }
 
-        // console.log(scrOff);
     });
-        // $('article p').each(function() {
-        //     var text = $(this).text().substring(0,70);
-        //     $(this).prepend(text+'<br/>');
-        //     console.log();
-        // });
-});
+}
