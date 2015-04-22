@@ -1,70 +1,72 @@
-// icon stuff here
-.concept, 
-.growth,
-.trust {
-    section{
-        &:before {
-            font: {
-                family: Ionicons;
+.home {
+    // icon stuff here
+    .concept, 
+    .growth,
+    .trust {
+        section{
+            &:before {
+                font: {
+                    family: Ionicons;
+                }
+                font-size: 3em;
+                text-align: center;
+                position: relative;
+                display: block;
             }
-            font-size: 3em;
-            text-align: center;
-            position: relative;
-            display: block;
         }
     }
-}
 
-.relaunch {
-    &:before {
-        content: "\f201";
+    .relaunch {
+        &:before {
+            content: "\f201";
+        }
     }
-}
 
-.optimization {
-    &:before {
-        content: "\f298";
-    }   
-}
-
-.analysis {
-    &:before {
-        content: "\f2a5";
+    .optimization {
+        &:before {
+            content: "\f298";
+        }   
     }
-}
 
-.brand {
-    &:before {
-        content: "\f2ab";
+    .analysis {
+        &:before {
+            content: "\f2a5";
+        }
     }
-}
 
-.content {
-    &:before {
-        content: "\f262";
+    .brand {
+        &:before {
+            content: "\f2ab";
+        }
     }
-}
 
-.social {
-    &:before {
-        content: "\f47c";
+    .content {
+        &:before {
+            content: "\f262";
+        }
     }
-}
 
-.commitment {
-    &:before {
-        content: "\f1fe";
+    .social {
+        &:before {
+            content: "\f47c";
+        }
     }
-}
 
-.direct {
-    &:before {
-        content: "\f11c";
+    .commitment {
+        &:before {
+            content: "\f1fe";
+        }
     }
-}
 
-.cost-benefit {
-    &:before {
-        content: "\f2b5";
+    .direct {
+        &:before {
+            content: "\f11c";
+        }
+    }
+
+    .cost-benefit {
+        &:before {
+            content: "\f2b5";
+        }
     }
 }

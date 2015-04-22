@@ -98,6 +98,7 @@
             }
         }
     
+.home {    
     .concept, 
     .growth,
     .trust {
@@ -159,6 +160,7 @@
                 margin-bottom: 0;
             }
         }
+}
 
 .full-screen {
     @media #{$large-up} {

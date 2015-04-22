@@ -22,6 +22,7 @@ footer {
 }
 
 .push {
+    @include grid-column(12);
     @media #{$large-up} {
         height: 9.375em;
     }
@@ -76,6 +77,9 @@ footer {
     .single-wrapper {
         padding-bottom: 9.375em * .5;
     }
+    .push {
+        height: 1px;
+    }
 }
 
 .blog {
@@ -90,10 +94,15 @@ footer {
 
 .single-quan_jobs {
     aside {
-        padding-bottom: 9.375em * 1.5;
+        padding-bottom: 9.375em * .5;
     }
 }
 
+.post-type-archive-quan_jobs {
+    .main-container {
+        padding-bottom: 9.375em * .5;
+    }
+}
 // .page {
 //     padding-bottom: 9.375em;
 //     position: relative;

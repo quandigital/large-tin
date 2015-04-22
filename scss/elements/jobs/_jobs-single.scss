@@ -1,8 +1,8 @@
 .single-quan_jobs {
     @include grid-column(12);
-    .main-container,
     .content {
         @include grid-column(12);
+        background-color: transparent;
     }
     article {
         @include grid-column(12);

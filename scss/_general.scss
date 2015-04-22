@@ -116,9 +116,21 @@ aside {
 }
 
 .main-container {
+    @include grid-column($columns: 12, $collapse: false);
     background-color: $white;
     min-height: 100vh;
     @media #{$large-up} {
+        padding: {
+            left: 0;
+            right: 0;
+        }
         margin: 0 auto -9.375em;
     }
 }
+
+    .single-post {
+        .main-container {
+            position: static;
+            float: none;
+        }
+    }
