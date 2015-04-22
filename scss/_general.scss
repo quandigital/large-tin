@@ -37,6 +37,10 @@ a {
     border-bottom: 1px solid $green;
     box-shadow: inset 0 -3px $green;
     color: $purple-dark;
+    padding: {
+        left: 2px;
+        right: 2px;
+    }
     @include transition-duration(.2s);
     outline: 0;
     &:hover {

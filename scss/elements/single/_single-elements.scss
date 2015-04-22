@@ -38,7 +38,7 @@
             family: $bold;
             size: 1.4em;
         }
-        border: 4px solid $twitter;
+        border: 4px solid rgba($twitter, .8);
         margin-bottom: 1em;
         overflow: hidden;
         &:after {
@@ -55,7 +55,12 @@
         a {
             font-family: $light;
             color: $twitter;
+            box-shadow: inset 0 -3px $twitter;
             border: none;
+            &:hover {
+                background-color: $twitter;
+                color: $white;
+            }
         }
     }
 
