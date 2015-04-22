@@ -13,7 +13,7 @@
 			</div>
 
             <div class="address">
-                Klosterstraße 62 &middot; 10179 Berlin &middot; 030&thinsp;206&thinsp;13&thinsp;79&thinsp;232
+                Klosterstraße 62 &middot; 10179 Berlin &middot; 030&#8239;206&#8239;13&#8239;79&#8239;232
             </div>
 
             <a href="<?= get_bloginfo('wpurl'); ?>/contact" class="work-with-us">Work with us</a>
