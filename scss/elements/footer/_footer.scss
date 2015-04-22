@@ -1,17 +1,20 @@
 footer {
     @include grid-column(12);
     background-color: #fff;
-    padding: 0 3em;
+    padding: .9375em;
     @media #{$large-up} {
         height: 9.375em;
+        padding: 0 3em;
     }
 
     .logo {
         @include grid-column();
-        padding: 1px;
-        height: 3em;
         width: 3em;
-        margin-top: (9.375em - 3em) * .5;
+        @media #{$large-up} {
+            padding: 1px;
+            height: 3em;
+            margin-top: (9.375em - 3em) * .5;
+        }
         img {
             width: 100%;
         }
@@ -25,28 +28,46 @@ footer {
 }
     .copy,
     .address {
-        @include grid-column($collapse: false);
+        @include grid-column($columns: 10, $collapse: false);
+        @media #{$large-up} {
+            line-height: 9.375em;
+            width: auto;
+        }
+    }
+    
+    .copy {
         font-family: $bold;
         color: $purple-dark;
         @media #{$large-up} {
-            line-height: 9.375em;
+            margin-top: 0;
         }
     }
 
     .address {
         font-family: $light;
+        color: $purple-dark;
+        @media #{$large-up} {
+            @include grid-column($collapse: false);
+        }
     }
 
     .work-with-us {
         @include button();
-        float: right;
-        position: absolute;
-        top: 50%;
-        right: 3em;
-        margin-top: -25px;
-        display: none;
-        @media #{$large-up} {
+        clear: both;
+        float: left;
+        margin: {
+            top: .9375em;
+            left: 3em + .9375em;
+        }
+        @media #{$medium-up} {
+            float: right;
             display: block;
+            right: 0;
+            top: -2em;
+        }
+        @media #{$large-up} {
+            margin-top: -25px;
+            top: 50%;
         }
     }
 
