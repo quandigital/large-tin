@@ -60,6 +60,7 @@ footer {
             left: 3em + .9375em;
         }
         @media #{$medium-up} {
+            clear: none;
             float: right;
             display: block;
             right: 0;
