@@ -1,0 +1,26 @@
+.page-template-default {
+    h1,
+    article {
+        color: $purple-dark;
+        @include grid-column(12);
+        @media #{$medium-up} {
+            @include grid-column($center: true);
+            max-width: 800px;
+        }
+    }
+    h1 {
+        text-align: center;
+        &:after {
+            content: "";
+            display: block;
+            width: 10%;
+            border-bottom: 2px solid $purple-dark;
+            margin: 0 auto;
+        }
+    }
+    p {
+        @include grid-column(12);
+        font-size: 1.3em;
+        margin-top: 0;
+    }
+}

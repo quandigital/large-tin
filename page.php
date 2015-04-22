@@ -6,20 +6,20 @@
 
 	get_header();
 
-	
-			if( have_posts() ) : 
-				while (have_posts()) : 
-					the_post(); 
+		if( have_posts() ) : 
+			while (have_posts()) : 
+				the_post(); 
+			?>
 
-				the_title( '<h1>', '</h1>' );
-	
-				echo '<article>';				
-					the_content();
-				echo '</article>';
+			<h1><?php the_title(); ?></h1>
 
-				endwhile; 
-			endif; 
-
+			<article>
+				<?php the_content(); ?>
+			</article>
+			
+			<?php
+			endwhile; 
+		endif; 
 
 	get_footer();
 
