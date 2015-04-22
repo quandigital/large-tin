@@ -2,6 +2,37 @@
     display: none;
 }
 
+body {
+    &:before {
+        content: "";
+        height: 75px;
+        @include grid-column(12);
+        background-color: $purple-dark;
+    }
+    &:after {
+        content: "";
+        @include grid-column($columns:6, $offset: 6);
+        background: {
+            color: transparent;
+            image: url("../images/QuanDigitalWOLogo.svg");
+            size: contain;
+            repeat: no-repeat;
+            position: -20px center;
+        }
+        height: 65px;
+        position: absolute;
+        top: 5px;
+        right: 0;
+        padding-right: 20px;
+    }
+    @media #{$large-up} {
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
+}
+
 .menu-trigger {
     color: $green;
     position: fixed;
@@ -46,8 +77,16 @@
     &.hover {
         cursor: pointer;
     }
+    &.initial {
+        visibility: visible;
+        &:before {
+            left: 70px;
+            background-color: transparent;
+        }
+    }
     @media #{$large-up} {
         visibility: visible;
+        top: 20px;
         @include transition-duration(.5s);
         &:before {
             left: -100%;
@@ -104,6 +143,9 @@
                 &:after {
                     padding-left: 0;
                 }
+            }
+            &.initial {
+                visibility: hidden;
             }
         }
     }

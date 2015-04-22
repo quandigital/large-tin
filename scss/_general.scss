@@ -2,6 +2,8 @@
 *:before,
 *:after {
     @include box-sizing(border-box);
+    -webkit-backface-visibility:hidden; 
+    // -webkit-transform: translateZ(0);
 }
 
 html,

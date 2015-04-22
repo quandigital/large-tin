@@ -1,9 +1,9 @@
 function breakpoints() {
     var breakpoint = window.getComputedStyle(
-       document.querySelector('body'), ':before'
+       document.querySelector('html'), ':before'
     ).getPropertyValue('content');
     
-    return eval(breakpoint);
+    return breakpoint.replace(/'/g, '');
 }
 
 $.fn.extend({

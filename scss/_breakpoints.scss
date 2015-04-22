@@ -1,26 +1,20 @@
-@media #{$small-only} {
-    body {
-        &:before {
+html {
+    &:before {
+        display: none;
+        display: block;
+        position: fixed;
+        height: 50px;
+        top: 0;
+        left: 0;
+        @media #{$small-only} {
             content: "small";
-            display: none;
-        }
-    }
-}
-
-@media #{$medium-only} {
-    body {
-        &:before {
+        }        
+        @media #{$medium-only} {
             content: "medium";
-            display: none;
         }
-    }
-}
-
-@media #{$large-up} {
-    body {
-        &:before {
+        @media #{$large-up} {
             content: "large";
-            display: none;
         }
     }
 }
+    
