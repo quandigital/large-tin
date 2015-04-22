@@ -1,7 +1,7 @@
 <nav class="main-navigation" id="menu">
     <input type="checkbox" name="mt-checkbox" class="menu-trigger-checkbox" />
         <div class="navigation-corner"></div>
-        <div class="menu-trigger initial"><?php _e('Menu', 'quan'); ?></div>
+        <div class="menu-trigger"><?php _e('Menu', 'quan'); ?></div>
         <ul class="top-menu">
             <li class="menu-home"><a href="<?= get_bloginfo( 'wpurl' ); ?>/#intro"><?php _e( 'Home', 'quan' ); ?></a></li>
             <li class="menu-blog"><a href="/blog"><?php _e( 'Blog', 'quan' ); ?></a></li>

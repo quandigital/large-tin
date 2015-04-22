@@ -54,24 +54,14 @@ $(document).ready(function() {
         toggleClasses(1400);
     });
 
-    if (breakpoints() !== 'large') {
-        $(document).on('mousewheel DOMMouseScroll onmousewheel touchmove scroll touchstart', function() {
-            toggleMenu();
-        });
 
-        $(window).smartresize(function() {
-            toggleMenu();
-        });
-    }
-
+    // show a top bar (or not)
     if (breakpoints() == 'large') {
-        $('.menu-trigger').removeClass('initial');
         $('body').removeClass('initial-menu');
     };
 
     $(window).smartresize(function() {
         if (breakpoints() == 'large') {
-            $('.menu-trigger').removeClass('initial');
             $('body').removeClass('initial-menu');
         };
     });
@@ -85,13 +75,4 @@ function toggleClasses(timeout)
     setTimeout(function(){
         $('.menu-trigger').toggleClass('triggered');
     }, timeout); 
-}
-
-function toggleMenu()
-{
-    if ($(document).scrollTop() > 1) {
-        $('.menu-trigger').removeClass('initial');
-    } else {
-        $('.menu-trigger').addClass('initial');
-    }
 }
