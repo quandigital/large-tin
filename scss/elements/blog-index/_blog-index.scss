@@ -1,7 +1,10 @@
 // container and general
 .main-loop-container {
     @include grid-row();
-    padding-left: .9375em;
+    padding: {
+        top: .9375em;
+        left: .9375em;
+    }
 }
 
     .main-loop {
@@ -33,6 +36,9 @@
             &:hover {
                 background-color: transparent;
             }
+        }
+        h2 {
+            font-size: 1.5em;
         }
     }
 
