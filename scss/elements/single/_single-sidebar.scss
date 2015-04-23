@@ -1,11 +1,16 @@
 .sidebar {
-    position: fixed;
-    height: 50vh;
+    position: absolute;
     width: 100vw;
     top: 0;
-    left: 0;
+    left: -15px;
     right: 0;
-    z-index: -1;
+    z-index: 1;
+    @media #{$large-up} {
+        position: fixed;
+        height: 50vh;
+        left: 0;
+        z-index: -1;
+    }
     &.fade {
         .author {
             .name {
@@ -16,11 +21,13 @@
 }
 
 .author {
-    position: absolute;
     top: 0;
     right: 0;
     left: 50%;
     z-index: 100;
+    @media #{$large-up} {
+        position: absolute;
+    }
 }
     .image {
         border-radius: 50%;

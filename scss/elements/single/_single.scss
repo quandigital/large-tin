@@ -28,6 +28,9 @@
     }
 
     .single-content {
+        a {
+            word-wrap: break-word;
+        }
         @include grid-row();
         @media #{$large-up} {
             margin-top: 50vh;
