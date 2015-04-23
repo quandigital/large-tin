@@ -1,4 +1,6 @@
 jQuery(document).ready(function($) {
+    hljs.initHighlightingOnLoad();
+    
     if (breakpoints() == 'large') {
         titleScroll();
     };
