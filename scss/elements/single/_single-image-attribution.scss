@@ -14,6 +14,7 @@
     }
     .license { 
         border-bottom: 0;
+        box-shadow: none;
     }
 }
 
@@ -21,7 +22,6 @@
         width: 20px;
         vertical-align: inherit;
         border:none;
-        box-shadow: 0;
         img {
             width:20px;
         }
