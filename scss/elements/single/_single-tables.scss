@@ -1,5 +1,4 @@
 .single-content {
-    // $purple-dark: #f00;
     table {
         * {border: 0;}
         font: {
@@ -9,9 +8,12 @@
         width: 100%;
         margin-top: 1em;
         margin-bottom: 2em;
+        border: {
+            collapse: collapse;
+            spacing: 0;
+        }
         thead, 
-        tfoot,
-        tbody {
+        tfoot {
             border: {
                 left: 1px solid $purple-dark;
                 right: 1px solid $purple-dark;
@@ -40,10 +42,15 @@
             }
         }
         tbody {
+
             tr {
                 background-color: lighten($purple-light, 50);
                 @include transition-duration(.3s);
-                border-top: 1px dashed $white;
+                border: {
+                    left: 1px solid $purple-dark;
+                    right: 1px solid $purple-dark;
+                    top: 1px dashed $white;
+                }
                 &:hover {
                     background-color: lighten($purple-light, 40);
                     @include transition-duration(.3s);
