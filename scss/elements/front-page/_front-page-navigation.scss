@@ -1,3 +1,10 @@
+.home {
+    &.overflowing {
+        .front-navigation {
+            display: none;
+        }
+    }
+}
 .front-navigation {
     position: fixed;
     display: none;

@@ -1,8 +1,42 @@
-$(document).ready(function(){
+$(function(){
+    singleAction();
+});
+
+$(window).smartresize(function() {
+    singleAction()
+    if (!$('body').hasClass('overflowing') && breakpoints() == 'large') {
+        var offset = $(location.hash).offset();
+        setTimeout(function(){
+            $(window).scrollTop(offset.top);
+        }, 50);
+    }
+});
+
+$(window).on('load', function(){
+    // initial scroll
+    if (location.hash !== '') {
+        var offset = $(location.hash).offset();
+        setTimeout(function(){
+            $(window).scrollTop(offset.top);
+        }, 50);
+    };
+});
+
+function singleAction() {    
     var homeSections = $('#frontpage').children('section');
+    var overflowing = false;
 
     $.each(homeSections, function(){
-        $(this).addClass('full-screen');
+        $('body').removeClass('overflowing');
+        var hasOverflow = $(this).children('.contents').innerHeight() > $(this)[0].scrollHeight;
+        if (!hasOverflow) {
+            $(this).addClass('full-screen');
+        } else {
+            $(this).removeClass('full-screen');
+            overflowing = true;
+        }
+        // console.log([$(this)[0].scrollHeight, $(this).children('.contents').innerHeight()]);
+        // console.log($(this)[0].className +' has overflow? '+ hasOverflow + '/'+overflowing);
     });
     
     /**
@@ -41,13 +75,16 @@ $(document).ready(function(){
             }
         });
 
+        overflowing ? $('body').addClass('overflowing') : $('body').removeClass('overflowing');
+
     /**
      * Smoothly move to the next section on "scroll"
      */
-    
+
         $('html').on('mousewheel DOMMouseScroll onmousewheel touchmove scroll', function(e) {
+            console.log([breakpoints(), $('body').hasClass('overflowing'), breakpoints() == 'large' && !$('body').hasClass('overflowing')]);
             // don't animate when viewed on a small screen
-            if (breakpoints() == 'large') { 
+            if (breakpoints() == 'large' && !$('body').hasClass('overflowing')) {
                 // if scrolling is disabled, i.e. there is already an animation don't do anything
                 if (!disableScroll) {
                     // prevent defaults/don't bubble
@@ -237,16 +274,7 @@ $(document).ready(function(){
                 $(window).disablescroll('undo');
             }, 1500);
         });
-    
-});
-
-$(window).on('load', function(){
-    // initial scroll
-    var offset = $(location.hash).offset();
-    setTimeout(function(){
-        $(window).scrollTop(offset.top);
-    }, 50);
-});
+};
 
 function findSections(section) {
     // get the previous and next section

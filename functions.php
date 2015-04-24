@@ -662,3 +662,22 @@ function updateTweet() {
 }
 
 // add_action('init', 'updateTweet');
+
+// Apply filter
+add_filter('body_class', 'multisite_body_classes');
+
+function multisite_body_classes($classes) {
+
+    if (is_front_page()) {
+        # code...
+        // echo '<code><pre>';
+        //     var_dump($classes);
+        // echo '</pre></code>';
+        foreach ($classes as $key => $class) {
+            if ($class == 'page-template-default') {
+                unset($classes[$key]);
+            }
+        }
+    }
+        return $classes;
+}
