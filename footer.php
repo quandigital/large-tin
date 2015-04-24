@@ -5,7 +5,7 @@
 		<footer>
 
             <div class="logo">
-                <img src="<?= get_stylesheet_directory_uri(); ?>/images/circle.png" />
+                <img src="<?= get_stylesheet_directory_uri(); ?>/images/circle.svg" />
             </div>
 
 			<div class="copy">
