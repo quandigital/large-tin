@@ -82,7 +82,6 @@ function singleAction() {
      */
 
         $('html').on('mousewheel DOMMouseScroll onmousewheel touchmove scroll', function(e) {
-            console.log([breakpoints(), $('body').hasClass('overflowing'), breakpoints() == 'large' && !$('body').hasClass('overflowing')]);
             // don't animate when viewed on a small screen
             if (breakpoints() == 'large' && !$('body').hasClass('overflowing')) {
                 // if scrolling is disabled, i.e. there is already an animation don't do anything
