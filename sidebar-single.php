@@ -22,7 +22,7 @@
 	<aside id="sidebar" class="sidebar">
 		<div class="author">
 				<div class="image">
-					<?php the_author_image_size(200, 200); ?>
+					<?php the_author_image_size(200, 200, $aut_id); ?>
 				</div>
 
 				<div class="name">
