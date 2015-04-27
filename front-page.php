@@ -20,7 +20,6 @@
             
             <div class="contents">
                 <p>Quan Digital ging aus dem Gedanken hervor, besseres Online Marketing durch innovative Technik, hohen menschlichen Anspruch und Begeisterung für unsere Kunden anzubieten.</p>
-                <!-- <p class="unique-story">Every brand has its own unique story.<br />We tell it.</p> -->
             </div>
         </section>
 
@@ -29,15 +28,15 @@
                 <h2>concept &amp; idea.</h2>
                 <p class="section-tagline">Wir liefern Ihnen klare Handlungsempfehlungen zur Optimierung Ihrer Online-Präsenz</p>
                 <section class="relaunch">
-                    <h3>Relaunch Concept</h3>
-                    <p>Sie planen einen Re-/Launch? Wir beraten Sie gern und zeigen verdeckte Optimierungspotenziale auf. Zielbewusst nutzen wir unsere Expertise und erarbeiten ein zeitgemäßes Konzept, das individuelle Potenziale Ihres Projektes (von der ersten Besprechung bis zum Abschluss) voll ausschöpft.</p>
+                    <h3>relaunch concept</h3>
+                    <p>Wir begleiten Sie bei der Planung und Umsetzung Ihrer neuen Webseite. Zielbewusst nutzen wir unsere Expertise und erarbeiten ein zeitgemäßes Konzept, das Fehlerquellen eliminiert und individuelle Potenziale Ihres Projektes voll ausschöpft.</p>
                 </section>
                 <section class="optimization">
-                    <h3>Ranking &amp; Conversion Optimization</h3>
+                    <h3>ranking &amp; conversion optimization</h3>
                     <p>Mit uns erzielen Sie einen Anstieg Ihrer Besucherzahlen sowie nachhaltig konvertierenden Traffic auf Ihrer Webseite. Unsere Maßnahmen sind an Ihren individuellen Zielen ausgerichtet und umfassen beispielsweise die Verbesserung Ihrer Webseiten-Struktur oder eine Layout- oder Warenkorb-Optimierung.</p>
                 </section>
                 <section class="analysis">
-                    <h3>Data Acquisition &amp; Evaluation</h3>
+                    <h3>data acquisition &amp; evaluation</h3>
                     <p>Detaillierte Konkurrenzanalysen sowie einmalige oder regelmäßige Onpage- und Offpage-Audits sind richtungsweisende Elemente unseres ganzheitlichen Beratungskonzepts. Wir schaffen auf Basis der erhobenen Daten eine individuell ausgerichtete Lösungsstrategie.</p>
                 </section>
             </div>
@@ -67,16 +66,16 @@
                 <h2>commitment &amp; trust.</h2>
                 <p class="section-tagline">Wir arbeiten mit höchstem Einsatz und kompromissloser Orientierung an Ihren Bedürfnissen</p>
                 <section class="commitment">
-                    <h3>Commitment</h3>
-                    <p>Wir arbeiten mit Hingabe und höchster Leistungsbereitschaft und legen dabei größten Wert auf transparente Kommunikation. Lernen Sie unsere qualifizierten Mitarbeiter kennen, gewinnen Sie Einblick in unsere Arbeitsweisen und behalten Sie jederzeit einen Überblick über die erbrachten Leistungen.</p>
+                    <h3>commitment</h3>
+                    <p>Mit großer Hingabe erfüllen wir die höchsten Ansprüche und legen dabei großen Wert auf transparente Kommunikation. Lernen Sie unsere qualifizierten Mitarbeiter kennen, gewinnen Sie Einblick in unsere Arbeitsweisen und behalten Sie jederzeit einen Überblick über die erbrachten Leistungen.</p>
                 </section>
                 <section class="direct">
-                    <h3>Immediate &amp; Personal Contact</h3>
-                    <p>Trotz der allgegenwärtigen digitalen Kommunikation begeistern wir uns weiterhin für das persönliche Gespräch. Mit einem persönlichen Anpsrechpartner für den gesamten Kooperationszeitraum schenken wir Ihnen individuelle Aufmerksamkeit und stehen Ihnen gern und jederzeit zur Verfügung. </p>
+                    <h3>immediate &amp; personal contact</h3>
+                    <p>Trotz der allgegenwärtigen digitalen Kommunikation begeistern wir uns weiterhin für das persönliche Gespräch. Mit einem persönlichen Ansprechpartner für den gesamten Kooperationszeitraum schenken wir Ihnen individuelle Aufmerksamkeit und stehen Ihnen gern und jederzeit zur Verfügung. </p>
                 </section>
                 <section class="cost-benefit">
-                    <h3>Cost-Benefit Awareness</h3>
-                    <p>Unserer Leistungen werden stetig an die rasanten Entwicklungen im Onlinebereich angepasst. Damit garantieren wir Ihnen höchste Qualität und eine zeitgemäße Unterstützung bei Ihrer Webseiten-Optimierung zu einem sehr guten Preis-Leistungs-Verhältnis.</p>
+                    <h3>cost-benefit awareness</h3>
+                    <p>Unsere Leistungen werden stetig an die rasanten Entwicklungen im Onlinebereich angepasst. Damit garantieren wir Ihnen höchste Qualität und eine zeitgemäße Unterstützung bei Ihrer Webseiten-Optimierung zu einem sehr guten Preis-Leistungs-Verhältnis.</p>
                 </section>
             </div>
         </section>
