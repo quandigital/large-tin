@@ -26,7 +26,7 @@
         <section class="concept" id="concept">
             <div class="contents">
                 <h2>concept &amp; idea.</h2>
-                <p class="section-tagline">Wir liefern Ihnen klare Handlungsempfehlungen zur Optimierung Ihrer Online-Präsenz</p>
+                <p class="section-tagline">Wir liefern klare Handlungsempfehlungen zur Optimierung Ihrer Online-Präsenz</p>
                 <section class="relaunch">
                     <h3>relaunch concept</h3>
                     <p>Wir begleiten Sie bei der Planung und Umsetzung Ihrer neuen Webseite. Zielbewusst nutzen wir unsere Expertise und erarbeiten ein zeitgemäßes Konzept, das Fehlerquellen eliminiert und individuelle Potenziale Ihres Projektes voll ausschöpft.</p>
@@ -39,8 +39,10 @@
                     <h3>data acquisition &amp; evaluation</h3>
                     <p>Detaillierte Konkurrenz&shy;analysen sowie einmalige oder regelmäßige Onpage- und Offpage-Audits sind richtungs&shy;weisende Elemente unseres ganzheitlichen Beratungskonzepts. Wir schaffen auf Basis der erhobenen Daten eine individuell ausgerichtete Lösungsstrategie.</p>
                 </section>
-                <div class="cta">
-                    <div class="button">Work with us</div>
+                <div class="cta-container">
+                    <div class="cta">
+                        <div class="button">Work with us</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -61,8 +63,10 @@
                     <h3>social seeding</h3>
                     <p>Wir entwickeln eine Social-Sharing Strategie für Sie, die Ihren Quality Content auf gut sicht&shy;baren Internetplatt&shy;formen wie Blogs und sozialen Netzwerken in der ganzen Welt verteilt. Profitieren Sie von unseren gut vernetzten Publishern und wecken Sie das Interesse an Ihrer Marke.</p>
                 </section>
-                <div class="cta">
-                    <div class="button">Work with us</div>
+                <div class="cta-container">
+                    <div class="cta">
+                        <div class="button">Work with us</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -70,7 +74,7 @@
         <section class="trust" id="trust">
             <div class="contents">
                 <h2>commitment &amp; trust.</h2>
-                <p class="section-tagline">Wir arbeiten mit höchstem Einsatz und kompromissloser Orientierung an Ihren Bedürfnissen</p>
+                <p class="section-tagline">Wir arbeiten mit höchstem Einsatz und kompromissloser Orientierung an Ihrer Marke</p>
                 <section class="commitment">
                     <h3>commitment</h3>
                     <p>Mit großer Hingabe erfüllen wir die höchsten Ansprüche und legen dabei großen Wert auf transparente Kommu&shy;nikation. Lernen Sie unsere qualifizierten Mitarbeiter kennen, gewinnen Sie Einblick in unsere Arbeitsweisen und behalten Sie jederzeit einen Überblick über die erbrachten Leistungen.</p>
@@ -83,8 +87,10 @@
                     <h3>cost-benefit awareness</h3>
                     <p>Unsere Leistungen werden stetig an die rasanten Entwicklungen im Onlinebereich ange&shy;passt. Damit garantieren wir Ihnen höchste Quali&shy;tät und eine zeitgemäße Unterstützung bei Ihrer Webseiten-Optimierung zu einem sehr guten Preis-Leistungs-Verhältnis.</p>
                 </section>
-                <div class="cta">
-                    <div class="button">Work with us</div>
+                <div class="cta-container">
+                    <div class="cta">
+                        <div class="button">Work with us</div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -165,7 +165,7 @@
 
         .section-tagline {
             @include grid-column(12);
-            font-size: 1.5em;
+            font-size: 1.325em;
             margin-bottom: 3*16px;
         }
 
@@ -213,21 +213,28 @@
         }
     }
 
-    .cta {
-        @include grid-column($columns: 12, $collapse: false);
-        padding-top: 2em;
+    .cta-container {
+        @include grid-column(12);
+        padding-top: .9375em * 3;
     }
-    .button {
-        @include button();
-        @media #{$large-up} {
-            &:after {
-                width: 22%;
+        .cta {
+            @media #{$large-up} {
+                @include grid-column($columns: 4, $collapse: false, $center: true);       
             }
         }
-        &:before {
-            line-height: 2em;
+
+        .button {
+            @include button();
+            @media #{$large-up} {
+                width: 100%;
+                &:after {
+                    width: 22%;
+                }
+            }
+            &:before {
+                line-height: 2em;
+            }
         }
-    }
     // don't display the footer link
     .work-with-us {
         display: none;
