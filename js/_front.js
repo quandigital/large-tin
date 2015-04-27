@@ -77,6 +77,8 @@ function singleAction() {
 
         overflowing ? $('body').addClass('overflowing') : $('body').removeClass('overflowing');
 
+        var animationDuration = 1000;
+
     /**
      * Smoothly move to the next section on "scroll"
      */
@@ -112,24 +114,24 @@ function singleAction() {
 
                             // reverse the animation
                             $('html, body').animate({
-                            scrollTop: prevOffset.top
-                            }, 2000, function() {
+                                scrollTop: prevOffset.top
+                            }, animationDuration, function() {
                                 location.hash = '#' + section.attr('id');
                             });
 
                             $('.dark-corner').animate({
                                 top: '-50%',
-                            }, 1000);
+                            }, animationDuration * .5);
 
                             setTimeout(function() {
                                 $('.intro-layout').animate({
                                     top: '0',
-                                }, 3000);
-                            }, 500);
+                                }, animationDuration * 1.5);
+                            }, animationDuration * .25);
                         } else {
                             $('html, body').animate({
                                 scrollTop: prevOffset.top
-                            }, 2000, function() {
+                            }, animationDuration, function() {
                                 location.hash = '#' + section.attr('id');
                             });
                         }
@@ -145,32 +147,32 @@ function singleAction() {
                             $('.dark-corner').animate({
                                 top: '-200%',
                                 // left: '-5%'
-                            }, 1500);
+                            }, animationDuration * .75);
                             setTimeout(function() {
                                 $('.intro-layout').animate({
                                     top: '-4000px',
-                                }, 4000);
-                            }, 500);
+                                }, animationDuration * 2);
+                            }, animationDuration * .25);
                             setTimeout(function() {
                                 $('html, body').animate({
                                     scrollTop: nextOffset.top,
-                                }, 2000, function() {
+                                }, animationDuration, function() {
                                     location.hash = '#' + section.attr('id');
                                     findSections(section);
                                 });
-                            }, 2000);
+                            }, animationDuration);
                             initialView = false;
                         } else {
                             $('html, body').animate({
                                 scrollTop: nextOffset.top
-                            }, 2000, function() {
+                            }, animationDuration, function() {
                                 location.hash = '#' + section.attr('id');
                             });
                             findSections(section);
                         }
                     }
 
-                    // enable scrolling after 500ms
+                    // enable scrolling after animationDuration
                     setTimeout(function(){
                         disableScroll = false;
                         $(window).disablescroll('undo');
@@ -181,7 +183,7 @@ function singleAction() {
                                 $(this).addClass('active');
                             }
                         });
-                    }, 1500);
+                    }, animationDuration);
                 }
             }
         }); // scroll
@@ -205,60 +207,65 @@ function singleAction() {
             });
             setTimeout(function() {
                 clickedItem.addClass('active').removeClass('clicking');
-            }, 500);
+            }, animationDuration * .25);
 
             if (initialView) {
                 initialView = false;
 
                 $('.dark-corner').animate({
                     top: '-200%',
-                    // left: '-5%'
-                }, 1500);
+                }, animationDuration * .75);
                 setTimeout(function() {
                     $('.intro-layout').animate({
                         top: '-4000px',
-                    }, 4000);
-                }, 500);
+                    }, animationDuration * 2);
+                }, animationDuration * .25);
                 
                 setTimeout(function() {
                     $('html, body').animate({
                         scrollTop: $(goto).offset().top,
-                    }, 2000, function() {
+                    }, animationDuration, function() {
                         location.hash = '#' + $(goto).attr('id');
                         findSections($(goto));
                     });
-                }, 2000);
+                }, animationDuration);
             } else {
+                console.log([prevSection, nextSection]);
                 if (goto == '#intro') {
-                    if (!$('.intro-layout').hasClass('already-seen')) {
-                        $('.intro-layout').addClass('already-seen');
-                    };
+                    // if (!$('.intro-layout').hasClass('already-seen')) {
+                    //     $('.intro-layout').addClass('already-seen');
+                    // };
 
                     // reset the initial view 
                     initialView = true;
 
+                    findSections($(goto));
+
+                    console.log([prevSection, nextSection]);
+
                     // reverse the animation
                     $('html, body').animate({
                         scrollTop: $(goto).offset().top,
-                    }, 2000, function() {
-                        location.hash = '#' + section.attr('id');
+                    }, animationDuration, function() {
+                        location.hash = goto;
                         findSections($(goto));
                     });
 
                     $('.dark-corner').animate({
                         top: '-50%',
-                    }, 1000);
+                    }, animationDuration * .5);
 
                     setTimeout(function() {
                         $('.intro-layout').animate({
                             top: '0',
-                        }, 3000);
-                    }, 500);
+                        }, animationDuration * 1.5);
+                    }, animationDuration * .25);
                 } else {
+                    console.log(goto);
                     setTimeout(function() {
                         $('html, body').animate({
                             scrollTop: $(goto).offset().top,
-                        }, 2000, function() {
+                        }, animationDuration, function() {
                             location.hash = '#' + $(goto).attr('id');
                             findSections($(goto));
                         });
@@ -267,11 +274,11 @@ function singleAction() {
                 }
             }
 
-            // enable scrolling after 1500ms
+            // enable scrolling after animationDuration
             setTimeout(function(){
                 disableScroll = false;
                 $(window).disablescroll('undo');
-            }, 1500);
+            }, animationDuration);
         });
 };
 
