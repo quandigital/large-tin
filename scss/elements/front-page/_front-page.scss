@@ -110,6 +110,7 @@
             }
             svg {
                 max-width: 100vw;
+                max-height: 50vh;
                 padding-top: 80px;
                 fill: $purple-dark;
                 position: absolute;
@@ -205,6 +206,30 @@
                     padding-top: 1%;
                 }   
             }
+            h3 {
+                font-size: 1.4em;
+                line-height: 1.2;
+            }
         }
+    }
+
+    .cta {
+        @include grid-column($columns: 12, $collapse: false);
+        padding-top: 2em;
+    }
+    .button {
+        @include button();
+        @media #{$large-up} {
+            &:after {
+                width: 22%;
+            }
+        }
+        &:before {
+            line-height: 2em;
+        }
+    }
+    // don't display the footer link
+    .work-with-us {
+        display: none;
     }
 }
