@@ -9,6 +9,7 @@ jQuery(document).ready(function($) {
         if (breakpoints() !== 'large') {
             $('.single-title, #sidebar .author').removeAttr('style');
             $('#sidebar, .navigation-corner').removeClass('fade');
+            $('.single-title').removeAttr('style');
         };        
     });
 });
