@@ -74,7 +74,7 @@
         <section class="trust" id="trust">
             <div class="contents">
                 <h2>commitment &amp; trust.</h2>
-                <p class="section-tagline">Wir arbeiten mit höchstem Einsatz und kompromissloser Orientierung an Ihrer Marke</p>
+                <p class="section-tagline">Wir arbeiten zielorientiert und mit höchstem Einsatz an ihren Bedürfnissen</p>
                 <section class="commitment">
                     <h3>commitment</h3>
                     <p>Mit großer Hingabe erfüllen wir die höchsten Ansprüche und legen dabei großen Wert auf transparente Kommu&shy;nikation. Lernen Sie unsere qualifizierten Mitarbeiter kennen, gewinnen Sie Einblick in unsere Arbeitsweisen und behalten Sie jederzeit einen Überblick über die erbrachten Leistungen.</p>
