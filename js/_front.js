@@ -1,10 +1,12 @@
 $(function(){
     overflowing();
+    headingHeight();
     singleAction();
 });
 
 $(window).smartresize(function(e) {
     overflowing();
+    headingHeight();
     if (!$('body').hasClass('overflowing') && breakpoints() == 'large') {
         var offset = $(location.hash).offset();
         setTimeout(function(){
@@ -22,6 +24,32 @@ $(window).on('load', function(){
         }, 50);
     };
 });
+
+function headingHeight()
+{
+    $('.full-screen h3').each(function() {
+        $(this).removeAttr('style');       
+    });
+
+    if (breakpoints() == 'large') {
+        var heights;
+        $('.full-screen').each(function() {
+            heights = 0;
+            $(this).find('h3').each(function() {
+                if (heights == 0) {
+                    heights = $(this).height()/parseInt($(this).css('line-height'));
+                } else {
+                    heights = $(this).height()/parseInt($(this).css('line-height')) >= heights ? heights = $(this).height()/parseInt($(this).css('line-height')) : heights;
+                }
+            });
+            $(this).find('h3').each(function() {
+                if ($(this).height()/parseInt($(this).css('line-height')) !== heights) {
+                    $(this).css('line-height', '2.4');
+                }
+            });
+        });
+    };
+}
 
 function overflowing()
 {
