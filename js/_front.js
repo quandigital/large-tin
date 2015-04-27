@@ -1,9 +1,10 @@
 $(function(){
+    overflowing();
     singleAction();
 });
 
-$(window).smartresize(function() {
-    singleAction()
+$(window).smartresize(function(e) {
+    overflowing();
     if (!$('body').hasClass('overflowing') && breakpoints() == 'large') {
         var offset = $(location.hash).offset();
         setTimeout(function(){
@@ -22,7 +23,8 @@ $(window).on('load', function(){
     };
 });
 
-function singleAction() {    
+function overflowing()
+{
     var homeSections = $('#frontpage').children('section');
     var overflowing = false;
 
@@ -38,7 +40,17 @@ function singleAction() {
         // console.log([$(this)[0].scrollHeight, $(this).children('.contents').innerHeight()]);
         // console.log($(this)[0].className +' has overflow? '+ hasOverflow + '/'+overflowing);
     });
-    
+
+    overflowing ? $('body').addClass('overflowing') : $('body').removeClass('overflowing');
+
+    if ($('body').hasClass('overflowing')) {
+        // remove 300px that are present because of the presentational css in #intro
+        $('#main').css('height', $('#main').height() - 300);
+    }
+}
+
+function singleAction() 
+{    
     /**
      * set inital values for sections and offsets
      */
@@ -75,8 +87,6 @@ function singleAction() {
             }
         });
 
-        overflowing ? $('body').addClass('overflowing') : $('body').removeClass('overflowing');
-
         var animationDuration = 1000;
 
     /**
@@ -86,13 +96,13 @@ function singleAction() {
         $('html').on('mousewheel DOMMouseScroll onmousewheel touchmove scroll', function(e) {
             // don't animate when viewed on a small screen
             if (breakpoints() == 'large' && !$('body').hasClass('overflowing')) {
+                $('#main').removeAttr('style');
+                // prevent defaults/don't bubble
+                if (e.target.id == 'el') return;
+                e.preventDefault();
+                e.stopPropagation();
                 // if scrolling is disabled, i.e. there is already an animation don't do anything
                 if (!disableScroll) {
-                    // prevent defaults/don't bubble
-                    if (e.target.id == 'el') return;
-                    e.preventDefault();
-                    e.stopPropagation();
-
                     // disable scroll --> throttle
                     disableScroll = true;
                     $(window).disablescroll();
@@ -105,9 +115,6 @@ function singleAction() {
 
                         // if the scroll is back to intro
                         if (prevSection == '#intro' && nextSection !== '#concept') {
-                            if (!$('.intro-layout').hasClass('already-seen')) {
-                                $('.intro-layout').addClass('already-seen');
-                            };
 
                             // reset the initial view 
                             initialView = true;
@@ -183,7 +190,7 @@ function singleAction() {
                                 $(this).addClass('active');
                             }
                         });
-                    }, animationDuration);
+                    }, animationDuration + 500);
                 }
             }
         }); // scroll
@@ -232,10 +239,6 @@ function singleAction() {
             } else {
                 console.log([prevSection, nextSection]);
                 if (goto == '#intro') {
-                    // if (!$('.intro-layout').hasClass('already-seen')) {
-                    //     $('.intro-layout').addClass('already-seen');
-                    // };
-
                     // reset the initial view 
                     initialView = true;
 
@@ -290,4 +293,18 @@ function findSections(section) {
     // get the offset of the prev/next sections to scroll to them
     prevOffset = $(prevSection).offset();
     nextOffset = $(nextSection).offset();
+}
+
+function debounce(fn, delay) {
+    var timeout;
+
+    return function () {
+        var context = this,
+            args = arguments;
+
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+            fn.apply(context, args);
+        }, delay || 250);
+    };
 }
