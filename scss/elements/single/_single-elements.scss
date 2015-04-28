@@ -120,10 +120,12 @@
 
     figure {
         @include grid-column(12);
+        margin-bottom: .9375em;
     }
 
         figcaption {
             @include grid-column(12);
+            float: right;
         }
 }
 

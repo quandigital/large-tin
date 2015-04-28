@@ -42,7 +42,7 @@
             }
         }
         tbody {
-
+            border-bottom: 1px solid $purple-dark;
             tr {
                 background-color: lighten($purple-light, 50);
                 @include transition-duration(.3s);
