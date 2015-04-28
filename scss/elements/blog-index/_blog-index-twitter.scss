@@ -5,7 +5,7 @@
         @include grid-column(12);
         padding: .9375em;
         background-color: #fff;
-        border-left: 6px solid $twitter;
+        // border-left: 6px solid $twitter;
     }
 }
 
@@ -69,14 +69,21 @@
              size: cover;
              position: 0;
          }
-         min-height:175px;
-         width:100%;
-         margin-bottom: 10px;
+         min-height: 175px;
+         width: 100%;
+         margin: 10px 0;
      }
     
     .tweet-content {
-        border-bottom: 1px solid $light;
-        font-size: 1.4em;
+        @include grid-column(12);
+        border: {
+            top: 1px solid $twitter;
+            bottom: 1px solid $twitter;
+        }
+        font-size: 1.2em;
+        p {
+            margin-bottom: .9375em;
+        }
     }
 
     // actions/intents

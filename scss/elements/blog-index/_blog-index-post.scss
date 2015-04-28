@@ -14,14 +14,12 @@
     h2 {
         @include grid-column(12);
         margin-bottom: .3em;
-        font-family: nexa_boldregular, sans-serif;
+        font: {
+            family: $bold;
+        }
         a {
             border-bottom: none;
             color: $quan;
-            font-size: 1.4em;
-            &:hover {
-                color: $gray;
-            }
         }
     }
     p {
