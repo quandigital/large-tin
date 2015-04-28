@@ -99,6 +99,7 @@ function quan_add_scripts() {
     wp_register_script( 'front', get_template_directory_uri() .  '/js/_front.js', array( 'jquery', 'disable_scroll', 'functions' ), '', true );
     wp_register_script( 'single', get_template_directory_uri() .  '/js/_single.js', array( 'jquery', 'functions', 'highlight' ), '', true );
     wp_register_script( 'contact', get_template_directory_uri() .  '/js/_contact.js', array( 'jquery', 'functions' ), '', true );
+    wp_register_script( 'lpfr', get_template_directory_uri() .  '/js/_frenchlp.js', array( 'jquery', 'functions' ), '', true );
 
     //styles
     // wp_register_script
@@ -146,6 +147,13 @@ function quan_add_scripts() {
     if( is_page_template( 'contact.php' ) ) {
         wp_enqueue_script( array(
             'contact'
+            )
+        );
+    }
+
+    if( is_page_template( 'page-lpfr.php' ) ) {
+        wp_enqueue_script( array(
+            'lpfr'
             )
         );
     }
@@ -680,4 +688,49 @@ function multisite_body_classes($classes) {
         }
     }
         return $classes;
+}
+
+// send the contact email
+add_action( 'wp_ajax_send_email', 'quanSendEmail' );
+add_action( 'wp_ajax_nopriv_send_email', 'quanSendEmail' );
+
+function quanSendEmail()
+{
+    $email = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL) : 'false';
+    $phone = isset($_POST['phone']) ? filter_var($_POST['phone'], FILTER_SANITIZE_NUMBER_INT) : 'false';
+    $name = isset($_POST['name']) ? filter_var($_POST['name'], FILTER_SANITIZE_STRING) : 'false';
+    $msg = isset($_POST['project']) ? filter_var($_POST['project'], FILTER_DEFAULT) : 'false';
+
+    $body = '<div class="emailbody"><table><tr><td>Name:</td><td>'.$name.'</td></tr><tr><td>Nachricht:</td><td>'.$msg.'</td></tr><tr><td>Kontakt:</td><td>'.$email.' '.$phone.'</td></tr></table></div>';
+
+    echo wp_mail( 
+        'mail@quandigital.com', 
+        'Neue Anfrage von ' . $name, 
+        $body,
+        array('Content-Type: text/html; charset=UTF-8')
+    );
+    wp_die();
+}
+
+// send the contact email
+add_action( 'wp_ajax_fr_send_email', 'quanFrSendEmail' );
+add_action( 'wp_ajax_nopriv_fr_send_email', 'quanFrSendEmail' );
+
+function quanFrSendEmail()
+{
+    $email = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL) : 'false';
+    $phone = isset($_POST['phone']) ? filter_var($_POST['phone'], FILTER_SANITIZE_NUMBER_INT) : 'false';
+    $name = isset($_POST['name']) ? filter_var($_POST['name'], FILTER_SANITIZE_STRING) : 'false';
+    $company = isset($_POST['company']) ? filter_var($_POST['company'], FILTER_SANITIZE_STRING) : 'false';
+    $website = isset($_POST['website']) ? filter_var($_POST['website'], FILTER_SANITIZE_STRING) : 'false';
+
+    $body = '<div class="emailbody"><table><tr><td>Name:</td><td>'.$name.'</td></tr><tr><td>Email:</td><td>'.$email.'</td></tr><tr><td>Phone:</td><td>'.$phone.'</td></tr><tr><td>Company:</td><td>'.$company.'</td></tr><tr><td>Website:</td><td>'.$website.'</td></tr></table></div>';
+
+    echo wp_mail( 
+        'fr@quandigital.com', 
+        'New Message from ' . $name, 
+        $body,
+        array('Content-Type: text/html; charset=UTF-8')
+    );
+    wp_die();
 }
