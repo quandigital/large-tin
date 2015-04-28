@@ -27,7 +27,7 @@
             <h2>La performance est au coeur de nos valeurs</h2>
             <div class="collab service">
                 <h3>Une collaboration durable</h3>
-                <p>Nous travaillons depuis plusieurs années avec la plupart nos clients. Développer le trafic d'un site internet de manière durable est un travail de longue haleine.</p>
+                <p>Nous travaillons depuis plusieurs années avec la plupart de nos clients. Développer le trafic d'un site internet de manière durable est un travail de longue haleine.</p>
             </div>    
             <div class="trafic service">
                 <h3>Plus de trafic</h3>
@@ -53,7 +53,7 @@
             </div>
             <div class="marque service">
                 <h3>Promouvoir votre marque</h3>
-                <p>Nous vous aidons à communiquer auprès des influenceurs et les journalistes. Obtenir des backlinks et mentions sur des sites influents est une condition nécessaire pour booster votre SEO et votre image de marque.</p>
+                <p>Nous vous aidons à communiquer auprès des influenceurs et journalistes. Obtenir des backlinks et mentions sur des sites influents est une condition nécessaire pour booster votre SEO et votre image de marque.</p>
             </div>
         </div>
     </section>
