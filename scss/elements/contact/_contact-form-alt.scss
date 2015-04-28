@@ -29,9 +29,9 @@ section {
             top: 0;
             right: 1/12 * -100%;
             bottom: -4px;
-            &:hover {
-                cursor: pointer;
-            }
+        }
+        &:hover {
+            cursor: pointer;
         }
         &.empty {
             &:after {
@@ -193,6 +193,7 @@ section {
                 &:after {
                     @include grid-column(2);
                     position: absolute;
+                    display: block;
                     right: 2/12 * -100%;
                     text-align: center;
                     font-size: 64px;
