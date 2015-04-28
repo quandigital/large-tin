@@ -52,11 +52,13 @@
 				<label class="check email">
 					<div id="email" class="edit" data-key="email" contentEditable></div>
 					<span class="label">E-Mail</span>
+					<span class="width-dummy"></span>
 				</label>
 
 				<label class="check phone">
 					<div id="phone" class="edit"  data-key="phone" contentEditable></div>
 					<span class="label">Phone</span>
+					<span class="width-dummy"></span>
 				</label>
 
 			</section>
@@ -84,7 +86,7 @@
 					<div class="result"></div>
 					<a href="?step=3" class="rev-edit"></a>
 				</div>
-				<div class="send-contact">Send Request</div>
+				<div id="send" class="send-contact default">Send Request</div>
 			</section>
 		</div>
 	</div>
