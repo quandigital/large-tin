@@ -100,7 +100,7 @@ $(document)
         $(this).siblings().removeClass('unfocus');
     })
     // when element is clicked (anywhere) go to article
-    .on('click', '#loop article', function() {
+    .on('click', '.index-post', function() {
         window.location = $(this).find('.postlink').attr('href');
     });
 
