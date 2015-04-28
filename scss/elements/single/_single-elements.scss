@@ -117,6 +117,14 @@
         padding: .9375em;
         background-color: $purple-dark;
     }
+
+    figure {
+        @include grid-column(12);
+    }
+
+        figcaption {
+            @include grid-column(12);
+        }
 }
 
 .no-js {
