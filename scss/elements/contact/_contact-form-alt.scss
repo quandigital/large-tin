@@ -1,0 +1,258 @@
+section {
+    @include grid-column(12);
+    .edit {
+        @include grid-column(11);
+        background-color: #fff;
+        border-bottom: 4px solid $purple-dark;
+        font-size: 2em;
+        min-height: 9.375em * .25;
+        line-height: 9.375em * .25;
+        outline: 0;
+        text-align: center;
+        display: inline-block;
+        &:after {
+            content: "\f3d6";
+            @include grid-column(1);
+            @include transition(color, .2s);
+            font: {
+                family: Ionicons;
+                size: 2em;
+            }
+            line-height: 1.2;
+            color: $purple-dark;
+            background-color: #fff;
+            border-bottom: 4px solid $purple-dark;
+            position: absolute;
+            top: 0;
+            right: 1/12 * -100%;
+            bottom: -4px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        &.empty {
+            &:after {
+                color: rgba($purple-dark, 0);
+            }
+        }
+    }
+    .error {
+        @include grid-column(11);
+        background-color: $purple-dark;
+        color: $white;
+        border-bottom: 4px solid $purple-dark;
+        padding-left: 4px;
+        &:after {
+            content: "";
+            @include grid-column(1);
+            background-color: $purple-dark;
+            border-bottom: 4px solid $purple-dark;
+            position: absolute;
+            top: 0;
+            right: 1/12 * -100%;
+            bottom: -4px;
+        }
+    }
+}
+
+    .section-label {
+        @include grid-column(12);
+        font: {
+            size: 1.5em;
+        }
+        padding: {
+            top: .9375em * 2;
+            bottom: .9375em;
+        }
+        min-height: 9.375em * .5;
+    }
+
+.project {
+    .edit {
+        min-height: 9.375em * .25;
+        line-height: 1.2;
+        padding: .9375em * .5 * 1.2; // times half the line height = * .6
+    }
+}
+
+.contact-details {
+    .check {
+        @include grid-column(6);
+        font-size: 2em;
+        min-height: 9.375em * .25;
+        line-height: 9.375em * .25;
+        text-align: center;
+    }
+    input {
+        &[type="checkbox"] {
+            height: 9.375em * .25;
+            width: 400px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+    }
+    .edit {
+        @include grid-column(12);
+        font-size: 1em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        min-height: 9.375em * .125;
+        line-height: 9.375em * .25;
+        &:focus {
+            & ~ .label {
+                color: rgba($purple-dark, .3);
+            }
+        }
+    }
+    .label {
+        position: relative;
+        z-index: 1;
+        color: rgba($purple-dark, .5);
+        pointer-events: none;
+    }
+    .email,
+    .phone {
+        .edit {
+            line-height: 75px;
+        }
+        .width-dummy {
+            height: 75px;
+            display: inline-block;
+            position: absolute;
+            z-index: -3;
+        }
+    }
+
+    .email {
+        text-align: right;
+        .label {
+            margin-right: 1.5/12 * 100%;
+        }
+        .edit {
+            width: 11/12 * 100%;
+            text-align: right;
+            padding-right: .5/12 * 100%;
+            &:after {
+                display: none    
+            }
+            &:before {
+                content: "/";
+                position: absolute;
+                right: .25/12 * -100%;
+                z-index: 2;
+                font-size: 32px;
+            }
+        }
+        .error {
+            font-size: .5em;
+            position: absolute;
+            left: 0;
+            bottom: -20px;
+            width: 22/12 * 100%;
+            text-align: left;
+            height: 20px;
+            line-height: 1;
+        }
+    }
+    .phone {
+        text-align: left;
+        .label {
+            margin-left: .5/12 * -100%;
+        }
+        .edit {
+            width: 11/12 * 100%;
+            left: -1/12 * 100%;
+            text-align: left;
+            padding-left: .5/12 * 100%;
+            &:after {
+                @include grid-column(2);
+                position: absolute;
+                right: 2/12 * -100%;
+                text-align: center;
+                font-size: 64px;
+            }
+        }
+    }
+}
+
+.review {
+    @include grid-column(12);
+    .rev-item {
+        @include grid-column(12);
+        padding-bottom: .9375em * 2;
+    }
+    label {
+        @include grid-column(12);
+        font-size: 1.5em;
+    }
+    .result {
+        @include grid-column(12);
+        background-color: #fff;
+        padding: .9375em;
+        font-size: 1.2em;
+        border-bottom: 2px solid $purple-dark;
+    }
+    .rev-edit {
+        position:absolute;
+        top: 1.5em + .9375em * .5;
+        right: .9375em * .5;
+        border-bottom: 0;
+        box-shadow: none;
+        &:after {
+            content: "\f2bf";
+            font: {
+                family: Ionicons;
+                size: 1.5em;
+            }
+            color: rgba($purple-light, .5);
+            display: block;
+            @include transition(color, .3s);
+        }
+        &:hover {
+            background-color: transparent;
+            &:after {
+                color: $purple-dark;
+                @include transition(color, .3s);
+            }
+        }
+    }
+}
+
+.send-contact {
+    min-width: 250px;
+    &.default {
+        @include button($red);
+        &:before {
+            content: "\f3f9";
+        }
+    }
+    &.sending {
+        @include button();
+        &:before {
+            content: "\b7";
+            border: 2px solid #fff;
+            border-radius: 50%;
+            top: 33%;
+            right: 16px;
+            line-height: 0;
+            width: 20px;
+            height: 20px;
+            @include transform-origin(center center);
+            @include animation-name(rotate);
+            @include animation-duration(.75s);
+            @include animation-iteration-count(infinite);
+            @include animation-timing-function(linear);
+        }
+    }
+    &.sent {
+        @include button($green);
+        &:before {
+            content: "\f121";
+        }
+    }
+}
