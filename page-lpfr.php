@@ -12,15 +12,13 @@
             <h2>Notre équipe est déterminée à débloquer votre potentiel sur internet</h2>
             <p>Nous aidons des marques françaises et internationales à développer leur visibilité et leurs revenus sur internet depuis près de 10 ans. Notre double expertise en SEO et Marketing nous permet de concevoir et exécuter des campagnes à fort ROI. Demandez dès maintenant une consultation gratuite avec l'un de nos spécialistes afin qu'il vous livre les clés pour optimiser votre trafic et vos revenus sur le web.</p>
         </div>
-        <form id="contact" action="">
-            <input type="text" name="name" placeholder="Nom">
-            <input type="tel" name="phone" placeholder="Téléphone">
-            <input type="email" name="email" placeholder="Mail">
-            <input type="text" name="company" placeholder="Entreprise">
-            <input type="text" name="website" placeholder="Site Internet">
-            <div class="button submit">
-                Demander ma consultation gratuite
-            </div>
+        <form id="contact">
+            <input type="text" name="name" placeholder="Nom" required>
+            <input type="tel" name="phone" placeholder="Téléphone" required>
+            <input type="email" name="email" placeholder="Mail" required>
+            <input type="text" name="company" placeholder="Entreprise" required>
+            <input type="text" name="website" placeholder="Site Internet" required>
+            <button type="submit" class="button submit" id="send">Demander ma consultation gratuite</button>
         </form>    
     </section>
 

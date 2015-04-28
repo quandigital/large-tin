@@ -63,7 +63,7 @@
 		position: absolute;
 		top: 0;
 		right: .9375em;
-		line-height: 40px;
+		line-height: 50px;
 	}
 	&:hover {
 		@if lightness($bgc) < 50% {
@@ -116,5 +116,14 @@
     * {
         @include transition(none!important);
         @include animation-duration(0!important);
+    }
+}
+
+@include keyframes(rotate) {
+    0% {
+        @include transform(rotate(0deg));
+    }
+    100% {
+        @include transform(rotate(360deg));
     }
 }

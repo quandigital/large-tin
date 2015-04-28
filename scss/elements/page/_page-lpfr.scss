@@ -72,6 +72,8 @@
                 @include grid-column(12);
                 padding: .9375em;
                 @include appearance(none);
+                border: 0;
+                font-size: 1em;
                 text: {
                     transform: uppercase;
                     align: center;
@@ -84,6 +86,33 @@
                     @include transition-duration(.3s);
                     cursor: pointer;
                 }
+                &:disabled {
+                    background-color: rgba($red, .5);
+                }
+                &.sent {
+                    background-color: $green;
+                    &:disabled {
+                        background-color: $green;   
+                    }
+                }
+            }
+            .spinner {
+                border: 3px dotted $purple-dark;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                bottom: 2.8125em;
+                left: 50%;
+                margin: {
+                    left: -15px;
+                    bottom: -6px;
+                }
+                @include transform-origin(center center);
+                @include animation-name(rotate);
+                @include animation-duration(2s);
+                @include animation-iteration-count(infinite);
+                @include animation-timing-function(linear);
             }
         }
     }
