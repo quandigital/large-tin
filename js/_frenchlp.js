@@ -14,9 +14,10 @@ jQuery(document).ready(function($) {
         }
 
        $.post(ajaxurl, data, function(response) {
-            $('.spinner').remove();
-            $('#send').text('Votre message a bien été envoyé').addClass('sent');
-           console.log(response);
+            if (response) {
+                $('.spinner').remove();
+                $('#send').text('Votre message a bien été envoyé').addClass('sent');
+            }
        });
     });
 });
