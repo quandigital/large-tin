@@ -9,7 +9,9 @@
         <?php
             if( has_post_thumbnail() ) {
                 $img = aq_resize(wp_get_attachment_url( get_post_thumbnail_id($post->ID) ), $GLOBALS['width'], $GLOBALS['height'], true);
-                $img = !$img ? wp_get_attachment_url(get_post_thumbnail_id($post->ID)) : $img;
+                $imgSizes = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+                $img = !$img ? aq_resize(wp_get_attachment_url(get_post_thumbnail_id($post->ID)), $imgSizes[1], $imgSizes[1] * 16/9, true) : $img;
+                $img = !$img ? wp_get_attachment_thumb_url(get_post_thumbnail_id($post->ID)) : $img;
                 echo '<img src="' . $img . '" alt="" class="index-post-img" />';
             }
 
