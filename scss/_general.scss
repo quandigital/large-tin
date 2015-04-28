@@ -98,7 +98,7 @@ h6 {
 p,
 ul,
 ol {
-    @include grid-column();
+    @include grid-column(12);
     & + h2,
     & + h3,
     & + h4,
