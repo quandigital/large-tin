@@ -41,7 +41,7 @@
                 </section>
                 <div class="cta-container">
                     <div class="cta">
-                        <div class="button">Work with us</div>
+                        <a href="<?= get_bloginfo('wpurl'); ?>/contact" class="button">Work with us</a>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                 </section>
                 <div class="cta-container">
                     <div class="cta">
-                        <div class="button">Work with us</div>
+                        <a href="<?= get_bloginfo('wpurl'); ?>/contact" class="button">Work with us</a>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                 </section>
                 <div class="cta-container">
                     <div class="cta">
-                        <div class="button">Work with us</div>
+                        <a href="<?= get_bloginfo('wpurl'); ?>/contact" class="button">Work with us</a>
                     </div>
                 </div>
             </div>
