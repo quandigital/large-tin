@@ -76,8 +76,8 @@ $(document).ready(function() {
         }
     });
 
-    $(document).on('click', '.bcb.done', function(e) {
-        window.location.href = '?step=' + $(e.target).children('.step').data('step');
+    $(document).on('click', '.bcb.done', function() {
+        window.location.href = '?step=' + $(this).children('.step').data('step');
     });
 });
 
@@ -113,6 +113,7 @@ function setElement() {
 
     // single edit element
     var curElement = curParent.children('.edit');
+
     setTimeout(function() {
         curElement.focus();
     }, 100);
@@ -193,7 +194,6 @@ function step3() {
         })
         .on('keydown', '#email, #phone', function(e) {
             setTimeout(function() {
-                console.log(e.target);
                 if ($.trim($(e.target).text()).length > 0) {
                     $(e.target).siblings('.label').hide();
                         
@@ -310,6 +310,10 @@ function errorHandler(err) {
         case 'email' :
             case 'details' :
             errEl.text('Please add a valid email address.');
+            break;
+        case 'phone' :
+            case 'details' :
+            errEl.text('Please add a valid phone number.');
             break;
     }
 

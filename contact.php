@@ -56,7 +56,7 @@
 				</label>
 
 				<label class="check phone">
-					<div id="phone" class="edit"  data-key="phone" contentEditable></div>
+					<div id="phone" class="edit" type="tel" data-key="phone" contentEditable></div>
 					<span class="label">Phone</span>
 					<span class="width-dummy"></span>
 				</label>

@@ -4,12 +4,15 @@ section {
         @include grid-column(11);
         background-color: #fff;
         border-bottom: 4px solid $purple-dark;
-        font-size: 2em;
+        font-size: 1.5em;
         min-height: 9.375em * .25;
         line-height: 9.375em * .25;
         outline: 0;
         text-align: center;
         display: inline-block;
+        @media #{$large-up} {
+            font-size: 2em;
+        }
         &:after {
             content: "\f3d6";
             @include grid-column(1);
@@ -77,11 +80,15 @@ section {
 
 .contact-details {
     .check {
-        @include grid-column(6);
-        font-size: 2em;
-        min-height: 9.375em * .25;
-        line-height: 9.375em * .25;
+        @include grid-column(12);
+        font-size: 1.5em;
+        min-height: 75px;
+        line-height: 75px;
         text-align: center;
+        @media #{$large-up} {
+            @include grid-column(6);
+            font-size: 2em;
+        }
     }
     input {
         &[type="checkbox"] {
@@ -101,13 +108,19 @@ section {
         left: 0;
         bottom: 0;
         right: 0;
-        min-height: 9.375em * .125;
-        line-height: 9.375em * .25;
+        min-height: 75px;
+        line-height: 75px;
         &:focus {
             & ~ .label {
                 color: rgba($purple-dark, .3);
             }
         }
+    }
+    .width-dummy {
+        height: 75px;
+        display: inline-block;
+        position: absolute;
+        z-index: -3;
     }
     .label {
         position: relative;
@@ -115,37 +128,30 @@ section {
         color: rgba($purple-dark, .5);
         pointer-events: none;
     }
-    .email,
-    .phone {
-        .edit {
-            line-height: 75px;
-        }
-        .width-dummy {
-            height: 75px;
-            display: inline-block;
-            position: absolute;
-            z-index: -3;
-        }
-    }
-
     .email {
-        text-align: right;
-        .label {
-            margin-right: 1.5/12 * 100%;
-        }
+        margin-bottom: .9375em;
         .edit {
-            width: 11/12 * 100%;
-            text-align: right;
-            padding-right: .5/12 * 100%;
             &:after {
                 display: none    
             }
-            &:before {
-                content: "/";
-                position: absolute;
-                right: .25/12 * -100%;
-                z-index: 2;
-                font-size: 32px;
+        }
+        @media #{$large-up} {
+            text-align: right;
+            margin-bottom: 0;
+            .label {
+                margin-right: 1.5/12 * 100%;
+            }
+            .edit {
+                width: 11/12 * 100%;
+                text-align: right;
+                padding-right: .5/12 * 100%;
+                &:before {
+                    content: "/";
+                    position: absolute;
+                    right: .25/12 * -100%;
+                    z-index: 2;
+                    font-size: 32px;
+                }
             }
         }
         .error {
@@ -153,28 +159,44 @@ section {
             position: absolute;
             left: 0;
             bottom: -20px;
-            width: 22/12 * 100%;
             text-align: left;
             height: 20px;
             line-height: 1;
+            width: 100%;
+            &:after {
+                display: none;
+            }
+            @media #{$large-up} {
+                width: 22/12 * 100%;
+                &:after {
+                    display: block;
+                }
+            }
         }
     }
     .phone {
-        text-align: left;
-        .label {
-            margin-left: .5/12 * -100%;
-        }
         .edit {
-            width: 11/12 * 100%;
-            left: -1/12 * 100%;
-            text-align: left;
-            padding-left: .5/12 * 100%;
             &:after {
-                @include grid-column(2);
-                position: absolute;
-                right: 2/12 * -100%;
-                text-align: center;
-                font-size: 64px;
+                display: none;
+            }
+        }
+        @media #{$large-up} {
+            text-align: left;
+            .label {
+                margin-left: .5/12 * -100%;
+            }
+            .edit {
+                width: 11/12 * 100%;
+                left: -1/12 * 100%;
+                text-align: left;
+                padding-left: .5/12 * 100%;
+                &:after {
+                    @include grid-column(2);
+                    position: absolute;
+                    right: 2/12 * -100%;
+                    text-align: center;
+                    font-size: 64px;
+                }
             }
         }
     }

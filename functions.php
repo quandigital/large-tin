@@ -704,7 +704,8 @@ function quanSendEmail()
     $body = '<div class="emailbody"><table><tr><td>Name:</td><td>'.$name.'</td></tr><tr><td>Nachricht:</td><td>'.$msg.'</td></tr><tr><td>Kontakt:</td><td>'.$email.' '.$phone.'</td></tr></table></div>';
 
     echo wp_mail( 
-        'mail@quandigital.com', 
+        // 'mail@quandigital.com', 
+        'alexander.goller@quandigital.com', 
         'Neue Anfrage von ' . $name, 
         $body,
         array('Content-Type: text/html; charset=UTF-8')
@@ -727,7 +728,8 @@ function quanFrSendEmail()
     $body = '<div class="emailbody"><table><tr><td>Name:</td><td>'.$name.'</td></tr><tr><td>Email:</td><td>'.$email.'</td></tr><tr><td>Phone:</td><td>'.$phone.'</td></tr><tr><td>Company:</td><td>'.$company.'</td></tr><tr><td>Website:</td><td>'.$website.'</td></tr></table></div>';
 
     echo wp_mail( 
-        'fr@quandigital.com', 
+        // 'fr@quandigital.com', 
+        'alexander.goller@quandigital.com', 
         'New Message from ' . $name, 
         $body,
         array('Content-Type: text/html; charset=UTF-8')
