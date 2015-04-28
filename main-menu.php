@@ -5,8 +5,6 @@
         <ul class="top-menu">
             <li class="menu-home"><a href="<?= get_bloginfo( 'wpurl' ); ?>/#intro"><?php _e( 'Home', 'quan' ); ?></a></li>
             <li class="menu-blog"><a href="/blog"><?php _e( 'Blog', 'quan' ); ?></a></li>
-            <li><a href="<?= get_bloginfo('wpurl'); ?>/team"><?php _e( 'Team', 'quan' ); ?></a></li>
-            <li><a href="<?= get_bloginfo('wpurl'); ?>/tour"><?php _e( 'Take the Tour', 'quan' ); ?></a></li>
             <?php
                 if( $GLOBALS['jobs_open'] > 0 ) : 
             ?>
