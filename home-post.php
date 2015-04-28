@@ -8,7 +8,9 @@
     <div class="post-image">
         <?php
             if( has_post_thumbnail() ) {
-                echo '<img src="' . aq_resize( wp_get_attachment_url( get_post_thumbnail_id($post->ID) ), $GLOBALS['width'], $GLOBALS['height'], true ) . '" alt="" class="index-post-img" />';
+                $img = aq_resize(wp_get_attachment_url( get_post_thumbnail_id($post->ID) ), $GLOBALS['width'], $GLOBALS['height'], true);
+                $img = !$img ? wp_get_attachment_url(get_post_thumbnail_id($post->ID)) : $img;
+                echo '<img src="' . $img . '" alt="" class="index-post-img" />';
             }
 
         ?>
