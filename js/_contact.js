@@ -168,12 +168,17 @@ function step3() {
                 $('#'+val).siblings('.label').hide()
             }
         }
-
         conLen[val] = $.trim($('#'+val).text()).length;
     });
         
     if (conLen.phone == 0 && conLen.email == 0) {
         $('#email, #phone').addClass('empty');
+    } else {
+        setTimeout(function() {
+            var e = jQuery.Event('keydown');
+            e.which = e.keyCode = 40;
+            $('#email, #phone').trigger(e);
+        }, 1);
     }
 
     $(document)
@@ -188,17 +193,11 @@ function step3() {
         })
         .on('keydown', '#email, #phone', function(e) {
             setTimeout(function() {
-                // console.log(e.which);
+                console.log(e.target);
                 if ($.trim($(e.target).text()).length > 0) {
                     $(e.target).siblings('.label').hide();
-                    if ($.trim($(e.target).text()).length > 15) {
-                        var len = ($.trim($(e.target).text()).length - 15) * 0.05;
-                        var emFontSize = parseFloat(parseInt($(e.target).css('font-size')) / 16);
-                        console.log([emFontSize, len, emFontSize - len, emFontSize - len + 'em']);
-                        $(e.target).css('font-size', emFontSize - len + 'em');
-                        // console.log(parseInt($(e.target).css('font-size')) - len);
-                        // alexander.goller
-                    }
+                        
+                    dummyWidth($(e.target));
                 } else {
                     $(e.target).siblings('.label').show();
                 }
@@ -222,15 +221,25 @@ function step3() {
 
 function step4() {
     var returns = ['name', 'project', 'email', 'phone'];
-
+    var emailData = {};
     $.each(returns, function(index,val) {
         if (sessionStorage.getItem(val) !== null) {
             $('#review-' + val).children('.result').html(sessionStorage.getItem(val));
         }
-         if ($.trim($('#review-' + val).text()).length == 0) {
-            $('#review-' + val).remove();
-         }
+        if ($.trim($('#review-' + val).text()).length == 0) {
+           $('#review-' + val).remove();
+        }
+
+        emailData[val] = sessionStorage.getItem(val);
     });
+
+    $('#send').on('click', function() {
+        emailData['action'] = 'send_email';
+        $('#send').removeClass('default').addClass('sending').text('Sending');
+        $.post(ajaxurl, emailData, function(response) {
+            $('#send').removeClass('sending').addClass('sent').text('Message sent');
+        });
+    })
 }
 
 function validateContact() {
@@ -332,5 +341,20 @@ function breadcrumbs() {
             $('.bcb-third').addClass('done').removeClass('active');
             $('.bcb-fourth').addClass('active').removeClass('inactive');
             break;
+    }
+}
+
+function dummyWidth(el)
+{
+    var dummy = el.siblings('.width-dummy');
+    dummy.text($.trim(el.text()));
+
+    if (dummy.width() >= el.width()) {
+        var fz = parseInt(el.css('font-size'));
+        while (dummy.width() >= el.width()) {
+            fz = fz - 1;
+            el.css('font-size', fz + 'px'); 
+            dummy.css('font-size', fz + 'px'); 
+        }
     }
 }
