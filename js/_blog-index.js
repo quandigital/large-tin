@@ -16,8 +16,7 @@ $(window).on('load', function(){
 
     // add isotope
     $('#loop').isotope({
-            itemSelector: 'article',
-        });
+        itemSelector: 'article',
     });
 
     setTimeout(function(){
