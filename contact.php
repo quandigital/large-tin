@@ -13,16 +13,16 @@
 
 			<div class="breadcrumbs">
 				<div id="bcb-name" class="bcb bcb-first">
-					<span class="step" data-step="1">Step 1</span>
-					<span class="action">Your Name</span>
+					<span class="step" data-step="1"><?= __('Step 1', 'quan'); ?></span>
+					<span class="action"><?= __('Your Name', 'quan'); ?></span>
 				</div>
 				<div id="bcb-project" class="bcb bcb-second">
-					<span class="step" data-step="2">Step 2</span>
-					<span class="action">Your Project</span>
+					<span class="step" data-step="2"><?= __('Step 2', 'quan'); ?></span>
+					<span class="action"><?= __('Your Project', 'quan'); ?></span>
 				</div>
 				<div id="bcb-details" class="bcb bcb-third">
-					<span class="step" data-step="3">Step 3</span>
-					<span class="action">Contact Details</span>
+					<span class="step" data-step="3"><?= __('Step 3', 'quan'); ?></span>
+					<span class="action"><?= __('Contact Details', 'quan'); ?></span>
 				</div>
 			</div>
 			
@@ -63,26 +63,26 @@
 				<label class="section-label"><?= __('Please review the information', 'quan'); ?></label>
 
 				<div id="review-name" class="rev-item">
-					<label>Your Name: </label>
+					<label><?= __('Your Name:', 'quan');?> </label>
 					<div class="result"></div>
 					<a href="?step=1" class="rev-edit"></a>
 				</div>
 				<div id="review-project" class="rev-item">
-					<label>Your Project: </label>
+					<label><?= __('Your Project:', 'quan');?> </label>
 					<div class="result"></div>
 					<a href="?step=2" class="rev-edit"></a>
 				</div>
 				<div id="review-email" class="rev-item">
-					<label>Your Email Address: </label>
+					<label><?= __('Your Email Address:', 'quan');?> </label>
 					<div class="result"></div>
 					<a href="?step=3" class="rev-edit"></a>
 				</div>
 				<div id="review-phone" class="rev-item">
-					<label>Your Phone Number: </label>
+					<label><?= __('Your Phone Number:', 'quan');?> </label>
 					<div class="result"></div>
 					<a href="?step=3" class="rev-edit"></a>
 				</div>
-				<div id="send" class="send-contact default">Send Request</div>
+				<div id="send" class="send-contact default"><?= __('Send Request', 'quan'); ?></div>
 			</section>
 		</div>
 	</div>

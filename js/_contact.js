@@ -303,23 +303,23 @@ function errorHandler(err) {
         case 'empty' :
             switch (window.element.parent[0].id) {
                 case 'name' :
-                    errEl.text('Please add a name');
+                    errEl.text(contactLocalization.nameEmpty);
                     break;
                 case 'project' :
-                    errEl.text('Please tell us a little bit about your project.');
+                    errEl.text(contactLocalization.projectEmpty);
                     break;
                 case 'details' :
-                    errEl.text('Please provide us with a way to contact you.');
+                    errEl.text(contactLocalization.contactEmpty);
                     break;
             }
             break;
         case 'email' :
             case 'details' :
-            errEl.text('Please add a valid email address.');
+            errEl.text(contactLocalization.emailInvalid);
             break;
         case 'phone' :
             case 'details' :
-            errEl.text('Please add a valid phone number.');
+            errEl.text(contactLocalization.phoneInvalid);
             break;
     }
 

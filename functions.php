@@ -178,6 +178,13 @@ function quan_add_scripts() {
 		'nothing_here' => '<div id="nothing-here">' . __( 'Nothing here yet. We are working on new blogposts.', 'quan' ) . '</div>'
 	) );
 	
+    wp_localize_script( 'contact', 'contactLocalization', array(
+        'nameEmpty' => __('Please add a name', 'quan'),
+        'projectEmpty' => __('Please tell us a little bit about your project.', 'quan'),
+        'contactEmpty' => __('Please provide us with a way to contact you.', 'quan'),
+        'emailInvalid' => __('Please add a valid email address.', 'quan'),
+        'phoneInvalid' => __('Please add a valid phone number.', 'quan'),
+    ) );
 }
 	
 // always define ajaxurl
