@@ -42,6 +42,9 @@ $(window).on('load', function(){
             var insert = $('#loop').isotope('insert', $(response));
 
             setTimeout(function(){
+                $('#loop').isotope({
+                    itemSelector: 'article',
+                });
                 // redo isotope
                 $('#loop').imagesLoaded(function() {
                     $(this).isotope({
