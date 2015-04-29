@@ -28,6 +28,12 @@ $(window).on('load', function(){
 
         // remove the preload class to animate the posts
         $('#loop').removeClass('preload');
+
+        $('#loop').imagesLoaded(function() {
+            $(this).isotope({
+                itemSelector: 'article',
+            });
+        });
     }, 200);
 
     // get all posts
