@@ -15,9 +15,7 @@ $(window).on('load', function(){
     }
 
     // add isotope
-    
-    $('#loop').imagesLoaded(function() {
-        $(this).isotope({
+    $('#loop').isotope({
             itemSelector: 'article',
         });
     });
