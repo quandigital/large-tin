@@ -81,6 +81,12 @@ $(document).ready(function() {
     $(document).on('click', '.bcb.done', function() {
         window.location.href = '?step=' + $(this).children('.step').data('step');
     });
+
+    $(document).on('click', '.bcb.active', function() {
+        var bcbEl = $(this).attr('id').split('-');
+        $('#'+bcbEl[1]).find('.edit').focus();
+        console.log(bcbEl[1]);   
+    });
 });
 
     $(window).on('popstate', function(e) {
