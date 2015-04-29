@@ -9,7 +9,8 @@ $(document).ready(function() {
             e.preventDefault();
 
             if (window.step == 3) {
-                if (!validateContact()) {
+                if (validateContact()) {
+                    errorHandler(validateContact());
                     return false;
                 }
             }
@@ -25,7 +26,8 @@ $(document).ready(function() {
     $(document).on('click', '.edit', function(e) {
         if ($(e.target).outerWidth() + $(e.target).offset().left < e.clientX) {
             if (window.step == 3) {
-                if (!validateContact()) {
+                if (validateContact()) {
+                    errorHandler(validateContact());
                     return false;
                 }
             }
@@ -206,8 +208,11 @@ function step3() {
                     $('#email, #phone').addClass('empty');
                 }
 
-                if ($.trim($('#email, #phone').text()).length > 3) {
-                    $('#email, #phone').removeClass('empty');
+                if ($.trim($('#email, #phone').text()).length > 6) {
+                    if (!validateContact()) {
+                        $('.email .error').remove();
+                        $('#phone').removeClass('empty');
+                    }
                 }
 
             }, 1);
@@ -246,28 +251,24 @@ function validateContact() {
     var err = false;
 
     if ($.trim($('#email').text()).length > 0 && $.trim($('#email').text()).match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}/i) == null) {
-        errorHandler('email');
-        err = true;
+        err = 'email';
     }
 
     if ($.trim($('#phone').text()).length > 0 && $.trim($('#phone').text()).match(/^\+*?[\d\/\\\-\s\(\)]*?$/) == null) {
-        errorHandler('phone');
-        err = true;
+        err = 'phone';
     }
 
-    return !err;
+    return err;
 }
 
 function nextStep() {
     if (window.element.child.length == 1) {
         if (window.element.child.text().length == 0) {
-            console.log(window.element.child.html()); 
             return false;
         }
     }
 
     if (step == 2) {
-        console.log($(window.element.child).html());
         sessionStorage.setItem($(window.element.child).data('key'), $(window.element.child).html());
     } else {
         $.each(window.element.child, function(index, el) {
@@ -292,7 +293,6 @@ function errorHandler(err) {
     var errEl = $('<span>').addClass('error');
     $(window.element.child[0]).after(errEl);
 
-    console.log([err, window.element.parent[0].id]);
     switch (err) {
         case 'empty' :
             switch (window.element.parent[0].id) {

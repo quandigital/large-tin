@@ -2,30 +2,57 @@
     label {
         display: none;
     }
+    input {
+        @include placeholder {
+            font: {
+                family: $light;
+            }
+            color: $gray;
+        }
+    }
+    input,
+    .message {
+        @include grid-column(12);
+        @include appearance(none);
+        border: none;
+        padding: .9375em * .5;
+        margin-bottom: .9375em;
+        background-color: #fff;
+        border-bottom: 4px solid $purple-dark;
+        &:focus {
+            outline: none;
+        }
+    }
+    .message {
+        &.placeholder {
+            font: {
+                family: $light;
+            }
+            color: $gray;
+        }
+    }
+    .send-contact {
+        @include button();
+        width: 100%;
+        font-size: 1.25em;
+        &:after {
+            width: 20%;
+        }
+    }
     .name,
     .email,
     .tel {
-        font-size: 1.2em;
-        margin-bottom: .9375em;
-        input {
-            @include grid-column(12);
-            font-size: 1em;
-            padding: .9375em * .5;
-            @include placeholder {
-                font: {
-                    family: $light;
-                }
-            }
-        }
-    }
-    .name {
+        font-size: 1.4em;
         @include grid-column(12);
-    }
-    .email,
-    .tel {
-        @include grid-column(6);
-    }
+    }.2
     .email {
         margin-right: .9375em;
+    }
+    .text {
+        font-size: 1.4em;
+        @include grid-column(12);
+        .message {
+            min-height: 30vh;
+        }
     }
 }

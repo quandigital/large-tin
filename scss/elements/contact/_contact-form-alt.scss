@@ -29,8 +29,6 @@ section {
             top: 0;
             right: 1/12 * -100%;
             bottom: -4px;
-        }
-        &:hover {
             cursor: pointer;
         }
         &.empty {
@@ -101,7 +99,7 @@ section {
         }
     }
     .edit {
-        @include grid-column(12);
+        @include grid-column(11);
         font-size: 1em;
         position: absolute;
         top: 0;
@@ -114,6 +112,9 @@ section {
             & ~ .label {
                 color: rgba($purple-dark, .3);
             }
+        }
+        &:after {
+            line-height: 75px;
         }
     }
     .width-dummy {
@@ -130,11 +131,6 @@ section {
     }
     .email {
         margin-bottom: .9375em;
-        .edit {
-            &:after {
-                display: none    
-            }
-        }
         @media #{$large-up} {
             text-align: right;
             margin-bottom: 0;
@@ -175,11 +171,6 @@ section {
         }
     }
     .phone {
-        .edit {
-            &:after {
-                display: none;
-            }
-        }
         @media #{$large-up} {
             text-align: left;
             .label {
@@ -253,6 +244,12 @@ section {
         &:before {
             content: "\f3f9";
         }
+        &:after {
+            width: 20%;
+            @media #{$large-up} {
+                width: 25%;
+            }
+        }
     }
     &.sending {
         @include button();
@@ -271,11 +268,23 @@ section {
             @include animation-iteration-count(infinite);
             @include animation-timing-function(linear);
         }
+        &:after {
+            width: 20%;
+            @media #{$large-up} {
+                width: 25%;
+            }
+        }
     }
     &.sent {
         @include button($green);
         &:before {
             content: "\f121";
+        }
+        &:after {
+            width: 20%;
+            @media #{$large-up} {
+                width: 25%;
+            }
         }
     }
 }

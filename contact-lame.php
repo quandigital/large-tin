@@ -11,7 +11,7 @@
 
 			<h1><?php _e( 'Contact', 'quan' ); ?></h1>
 
-			<form id="contact-form" class="contact-form" action="<?php echo get_template_directory_uri(); ?>/send.php" method="post">
+			<form id="contact" class="contact-form">
 				<div class="user-data">
 					<div class="name">
 						<label for="name"><?= __('Your Name', 'quan'); ?></label>
@@ -29,20 +29,12 @@
 
 				<div class="text">
 					<label for="subject"><?= __('Tell us a little about what you are looking for', 'quan'); ?></label>	
-					<textarea name="subject" placeholder="<?php _ex( 'Subject', 'Contactform placeholder', 'quan' ); ?>"></textarea>
+					<div class="message placeholder" id="message" contentEditable><?= __('Tell us a little about what you are looking for', 'quan'); ?></div>
 				</div>
 
-				<label id="leave_me" for="leave_me"><?php _ex( 'Please leave empty to send the contact form.', 'Spam Prevention', 'quan' ); ?>
-					<input type="text" name="leave_me" placeholder="<?php _ex( 'Please leave empty', 'Spam Prevention', 'quan' ); ?>" />
-				</label>
-
-				<input type="submit" id="submit" value="<?php _e( 'Send', 'quan' ); ?>" />
+				<button type="submit" id="send" class="send-contact default"><?= __('Send Request', 'quan'); ?></button>
 			</form>
 
-	</section>
-
-	<div id="mail-success" class="modal"></div>
-			
 		</div>
 	</div>
 <?php
