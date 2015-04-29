@@ -3,7 +3,7 @@
 //l18n
 add_action('after_setup_theme', 'quan_l18n');
 function quan_l18n(){
-    load_theme_textdomain( 'quan', get_template_directory() . '/languages' );
+    load_theme_textdomain( 'quan', WP_CONTENT_DIR . '/languages/themes' );
 }
 
 function dumpit( $var, $dump = 'export', $return = false ) {
