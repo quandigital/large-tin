@@ -42,15 +42,16 @@ $(window).on('load', function(){
             var insert = $('#loop').isotope('insert', $(response));
 
             setTimeout(function(){
-                $('#loop').isotope({
-                    itemSelector: 'article',
-                });
-                // redo isotope
-                $('#loop').imagesLoaded(function() {
-                    $(this).isotope({
+                $('#loop')
+                    .isotope({
                         itemSelector: 'article',
+                    })
+                    // redo isotope
+                    .imagesLoaded(function() {
+                        $(this).isotope({
+                            itemSelector: 'article',
+                        });
                     });
-                });
 
                 // show all posts in the viewport
                 inViewport();
