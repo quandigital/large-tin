@@ -46,8 +46,7 @@ $(window).on('load', function(){
                 $('#loop').imagesLoaded(function() {
                     $(this).isotope({
                         itemSelector: 'article',
-                    })
-                    .isotope( 'reloadItems' ).isotope();
+                    });
                 });
 
                 // show all posts in the viewport
