@@ -24,10 +24,6 @@
 					<span class="step" data-step="3">Step 3</span>
 					<span class="action">Contact Details</span>
 				</div>
-				<div id="bcb-review" class="bcb bcb-fourth">
-					<span class="step" data-step="4">Step 4</span>
-					<span class="action">Review</span>
-				</div>
 			</div>
 			
 			<section id="name">

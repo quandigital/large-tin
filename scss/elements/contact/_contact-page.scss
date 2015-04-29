@@ -6,7 +6,7 @@
     @include grid-column(12);
     @media #{$medium-up} {
         @include grid-column($center: true);
-        width: 800px;
+        max-width: 800px;
     }
 
     h1 {

@@ -4,7 +4,8 @@
 
 .bcb {
     @media #{$large-up} {
-        @include grid-column(3);
+        @include grid-column(4);
+        padding-left: .9375em * 3;
         &:after {
             content: "";
             border: 160px solid transparent;
@@ -15,14 +16,14 @@
             right: 0;
         }   
         &:first-child {
-            @include grid-column(3.2);
+            @include grid-column(4.2);
             padding: .9375em;
-            padding-left: .9375em * 2;
+            padding-left: .9375em * 3;
         }
         &:last-child {
-            @include grid-column(2.8);
+            @include grid-column(3.8);
             padding: .9375em;
-            padding-left: .9375em * 2;
+            padding-left: .9375em * 3;
         }
     }
     padding: .9375em;
@@ -43,12 +44,6 @@
     }
     &.bcb-third {
         background-color: lighten($purple-light, 50);
-        &:after {
-            border-right-color: lighten($purple-light, 60);
-        }
-    }
-    &.bcb-fourth {
-        background-color: lighten($purple-light, 60);
     }
 
     .step,
