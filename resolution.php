@@ -1,9 +1,8 @@
 <?php
-    //if there is a cookie on the screen size, use the right image
+    // if there is a cookie on the screen size, use the correct image size
     if( isset( $_COOKIE['resolution'] ) ) {
         $cookie_val = explode( ",", $_COOKIE['resolution'] );
         $screen     = $cookie_val[0] * $cookie_val[1];
-
 
         if( $screen <= 480 ) {
             $GLOBALS['height']     = 270;

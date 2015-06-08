@@ -1,7 +1,11 @@
 		  <div class="push"></div>
         </div> <?php //main container ?>
 
-        <?php get_template_part( 'main', 'menu' ); ?>
+        <?php 
+            if( !is_page_template( 'page-lpfr.php' ) ) {
+                get_template_part( 'main', 'menu' ); 
+            }
+        ?>
 		<footer>
 
             <div class="logo">
