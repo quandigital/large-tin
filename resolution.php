@@ -1,4 +1,5 @@
 <?php
+
     // if there is a cookie on the screen size, use the correct image size
     if( isset( $_COOKIE['resolution'] ) ) {
         $cookie_val = explode( ",", $_COOKIE['resolution'] );
@@ -23,11 +24,13 @@
         }
 
         //check if the original image is even that size, if not simply take the largest possible image with the correct proportions
-        $wp_attachment = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
+        if (!is_null($post)) {
+            $wp_attachment = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
 
-        if( $wp_attachment[1] < $GLOBALS['width'] ) {
-            $GLOBALS['width']  = $wp_attachment[1];
-            $GLOBALS['height'] = intval( $GLOBALS['width'] * 0.5625 );
+            if( $wp_attachment[1] < $GLOBALS['width'] ) {
+                $GLOBALS['width']  = $wp_attachment[1];
+                $GLOBALS['height'] = intval( $GLOBALS['width'] * 0.5625 );
+            }
         }
 
     //else use the largest we have
