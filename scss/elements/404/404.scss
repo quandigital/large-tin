@@ -1,0 +1,24 @@
+.error404 {
+    h1 {
+        @include grid-column(12);
+        text-align: center;
+        font: {
+            family: $light;
+            size: 6em;
+        }
+    }
+    p {
+        @include grid-column(12);
+        font-size: 1.2em;
+        text-align: center;
+        a {
+            @include button($green);
+            &:before {
+                line-height: 60px;
+            }
+            &:after {
+                height: 450%;
+            }
+        }
+    }
+}

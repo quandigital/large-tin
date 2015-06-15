@@ -611,62 +611,62 @@
 	left:-10000px;
 }
 
-.error404 {
-	h1 {
-		@include grid-column($columns:12);
-		text-align:center;
-		&:hover {
-			&:before {
-				content:attr(data-popup);
-				position:absolute; 
-				bottom:-20px;
-				z-index:10;
-				font-size:.4em;
-				line-height:.6em;
-				padding:8px;
-				background-color:rgba( $quan, .85 );
-				border-radius:4px;
-				color:$wheat;
-				visibility: visible;
-				font-family:nexa_lightregular, sans-serif;
-			}
-			&:after {
-				content:"";
-				display:block;
-				position:absolute;
-				bottom:6px;
-				left:50%;
-				border-bottom: 8px solid rgba( $quan, .85 );
-				border-left:8px solid transparent;
-				border-right:8px solid transparent;
+// .error404 {
+// 	h1 {
+// 		@include grid-column($columns:12);
+// 		text-align:center;
+// 		&:hover {
+// 			&:before {
+// 				content:attr(data-popup);
+// 				position:absolute; 
+// 				bottom:-20px;
+// 				z-index:10;
+// 				font-size:.4em;
+// 				line-height:.6em;
+// 				padding:8px;
+// 				background-color:rgba( $quan, .85 );
+// 				border-radius:4px;
+// 				color:$wheat;
+// 				visibility: visible;
+// 				font-family:nexa_lightregular, sans-serif;
+// 			}
+// 			&:after {
+// 				content:"";
+// 				display:block;
+// 				position:absolute;
+// 				bottom:6px;
+// 				left:50%;
+// 				border-bottom: 8px solid rgba( $quan, .85 );
+// 				border-left:8px solid transparent;
+// 				border-right:8px solid transparent;
 
-			}
-		}
-	}
-	p {
-		@include grid-column(12);
-		font-size:1.2em;
-		text-align:center;
-		a {
-			@include button;
-			margin-top: 1em;
-			padding:0.9375em;
-		}
-	}
+// 			}
+// 		}
+// 	}
+// 	p {
+// 		@include grid-column(12);
+// 		font-size:1.2em;
+// 		text-align:center;
+// 		a {
+// 			@include button;
+// 			margin-top: 1em;
+// 			padding:0.9375em;
+// 		}
+// 	}
 
-	.shipwreck-404 {
-		@include grid-column(12);
-		text-align:center;
-		svg {
-			@media #{$large-up} {
-				width: 75%;
-				height:500px;
-			}
-			width: 100%;
-			height:300px;
-		}
-	}
-}
+// 	.shipwreck-404 {
+// 		@include grid-column(12);
+// 		text-align:center;
+// 		svg {
+// 			@media #{$large-up} {
+// 				width: 75%;
+// 				height:500px;
+// 			}
+// 			width: 100%;
+// 			height:300px;
+// 		}
+// 	}
+// }
 
 // .js {
 // 	.content {
