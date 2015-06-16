@@ -15,6 +15,11 @@
         $tweetauthor = $twitterScreenName; 
     }
 
+    // if the twitter name is empty also give it the screenname
+    if (empty($twitterName)) {
+        $twitterName = $twitterScreenName; 
+    }
+
     //if the tweet has an image
     $attachment = get_post_meta( $post->ID, 'quan_tweet_media_attachment', true );
 
