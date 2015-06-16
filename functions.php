@@ -6,24 +6,6 @@ function quan_l18n(){
     load_theme_textdomain( 'quan', WP_CONTENT_DIR . '/languages/themes' );
 }
 
-function dumpit( $var, $dump = 'export', $return = false ) {
-	$text = '<code><pre>';
-	switch( $dump ) {
-		case 'export' : 
-			$text .= var_export( $var, true );
-			break;
-		case 'html' : 
-			$text .= htmlentities( var_export( $var, true ) );
-			break;
-	}
-	$text .= '</pre></code>';
-	if ( $return ) {
-		return $text;
-	} else {
-		echo $text;
-	}
-}
-
 //php ini settings
 @ini_set( 'upload_max_size' , '64M' );
 @ini_set( 'post_max_size', '64M');
@@ -103,8 +85,8 @@ function quan_add_scripts() {
 
     //styles
     // wp_register_script
-    wp_register_style( 'normalize', get_template_directory_uri() . '/css/normalize.css' );
-    wp_register_style( 'css', get_template_directory_uri() . '/css/app.css', array('normalize') );
+    // wp_register_style( 'normalize', get_template_directory_uri() . '/css/normalize.css' );
+    wp_register_style( 'css', get_template_directory_uri() . '/css/app.css', array() );
     wp_register_style( 'highlight', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/paraiso.dark.min.css' );
 
 	wp_enqueue_script( array(
