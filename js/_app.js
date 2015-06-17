@@ -1,3 +1,8 @@
+var $ = jQuery.noConflict();
+if (window.navigator.msMaxTouchPoints) {
+    $( 'html' ).removeClass( 'no-touch' ).addClass( 'touch' );
+}
+
 $(document).ready(function() {
 
     // close the menu when the click occurs outside of the menu
