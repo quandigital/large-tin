@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Quan Version 2 v1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-06-17 14:43:42+0000\n"
+"PO-Revision-Date: 2015-06-17 14:46:53+0000\n"
 "Last-Translator: alex <goller@oppstett.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -253,7 +253,7 @@ msgstr "Schreiben Sie uns"
 #@ quan
 msgctxt "public phone number for your country"
 msgid "tel:+123456789"
-msgstr "tel:+4930"
+msgstr "tel:+49302061379232"
 
 #: main-menu.php:23
 #@ quan
