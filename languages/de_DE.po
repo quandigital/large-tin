@@ -1,0 +1,296 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Quan Version 2 v1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-06-17 14:46:53+0000\n"
+"Last-Translator: alex <goller@oppstett.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: 404.php:8
+#@ quan
+msgid "Unfortunately what you were looking for is no longer here."
+msgstr "Leider ist das wonach Sie suchen nicht mehr hier."
+
+#: 404.php:9
+#@ quan
+msgid "Click here to go back home"
+msgstr "Klicken Sie hier um zur Homepage zurückzukehren."
+
+#: archive-quan_jobs.php:11
+#@ quan
+msgid "Job Openings at Quan Digital GmbH"
+msgstr "Jobangebote der Quan Digital GmbH"
+
+#: contact-lame.php:12
+#: contact.php:12
+#: main-menu.php:15
+#@ quan
+msgid "Contact"
+msgstr "Kontakt"
+
+#: contact-lame.php:17
+#: contact.php:17
+#@ quan
+msgid "Your Name"
+msgstr "Ihr Name"
+
+#: contact-lame.php:18
+#@ quan
+msgctxt "Contactform placeholder"
+msgid "Name"
+msgstr "Name"
+
+#: contact-lame.php:21
+#@ quan
+msgid "Your E-Mail Address"
+msgstr "Ihre E-Mail Adresse"
+
+#: contact-lame.php:22
+#@ quan
+msgctxt "Contactform placeholder"
+msgid "E Mail"
+msgstr "E-Mail"
+
+#: contact-lame.php:25
+#@ quan
+msgid "Your Phonenumber"
+msgstr "Ihre Telefonnummer"
+
+#: contact-lame.php:26
+#@ quan
+msgctxt "Contactform placeholder"
+msgid "Phone"
+msgstr "Telefon"
+
+#: contact-lame.php:31
+#: contact-lame.php:32
+#@ quan
+msgid "Tell us a little about what you are looking for"
+msgstr "Erzählen Sie uns etwas über Ihr Projekt"
+
+#: contact-lame.php:35
+#: contact.php:85
+#@ quan
+msgid "Send Request"
+msgstr "Senden"
+
+#: contact.php:16
+#@ quan
+msgid "Step 1"
+msgstr "Schritt 1"
+
+#: contact.php:20
+#@ quan
+msgid "Step 2"
+msgstr "Schritt 2"
+
+#: contact.php:21
+#@ quan
+msgid "Your Project"
+msgstr "Ihr Projekt"
+
+#: contact.php:24
+#@ quan
+msgid "Step 3"
+msgstr "Schritt 3"
+
+#: contact.php:25
+#@ quan
+msgid "Contact Details"
+msgstr "Kontakdetails"
+
+#: contact.php:31
+#@ quan
+msgid "What's your name?"
+msgstr "Wie lautet Ihr Name"
+
+#: contact.php:38
+#@ quan
+msgid "Hi"
+msgstr "Hallo"
+
+#: contact.php:38
+#@ quan
+msgid "Tell us a bit about what you are looking for:"
+msgstr "Erzählen Sie uns etwas über Ihr Projekt:"
+
+#: contact.php:45
+#@ quan
+msgid "How would you like us to get back to you?"
+msgstr "Wie möchten Sie kontaktiert werden?"
+
+#: contact.php:63
+#@ quan
+msgid "Please review the information"
+msgstr "Bitte überprüfen Sie die Informationen"
+
+#: contact.php:66
+#@ quan
+msgid "Your Name:"
+msgstr "Ihr Name:"
+
+#: contact.php:71
+#@ quan
+msgid "Your Project:"
+msgstr "Ihr Projekt:"
+
+#: contact.php:76
+#@ quan
+msgid "Your Email Address:"
+msgstr "Ihre E-Mail Adresse"
+
+#: contact.php:81
+#@ quan
+msgid "Your Phone Number:"
+msgstr "Ihre Telefonnummer:"
+
+#: functions.php:115
+#@ quan
+msgid "Please add a name"
+msgstr "Bitte geben Sie einen Namen an"
+
+#: functions.php:116
+#@ quan
+msgid "Please tell us a little bit about your project."
+msgstr "Bitte erzählen Sie uns etwas über Ihr Projekt."
+
+#: functions.php:117
+#@ quan
+msgid "Please provide us with a way to contact you."
+msgstr "Bitte geben Sie eine Kontakmöglichkeit an."
+
+#: functions.php:118
+#@ quan
+msgid "Please add a valid email address."
+msgstr "Bitte geben Sie eine valide E-Mail Adresse an."
+
+#: functions.php:119
+#@ quan
+msgid "Please add a valid phone number."
+msgstr "Bitte geben Sie eine Telefonnummer an."
+
+#: functions.php:338
+#: functions.php:367
+#@ quan
+msgid "Details"
+msgstr "Details"
+
+#: home-filter.php:15
+#@ quan
+msgid "Filter Posts:"
+msgstr "Posts filtern:"
+
+#: home-filter.php:19
+#@ quan
+msgid "Hide Tweets"
+msgstr "Tweets ausblenden"
+
+#: home-filter.php:19
+#@ quan
+msgid "Show Tweets"
+msgstr "Tweets anzeigen"
+
+#: home-filter.php:26
+#@ quan
+msgid "All Langagues"
+msgstr "Alle Sprachen"
+
+#: home-tweet.php:67
+#@ quan
+msgid "Favorite"
+msgstr ""
+
+#: home-tweet.php:71
+#@ quan
+msgid "Retweet"
+msgstr ""
+
+#: home-tweet.php:75
+#@ quan
+msgid "Reply"
+msgstr ""
+
+#: main-menu.php:4
+#@ quan
+msgid "Menu"
+msgstr "Menü"
+
+#: main-menu.php:6
+#@ quan
+msgid "Home"
+msgstr ""
+
+#: main-menu.php:7
+#@ quan
+msgid "Blog"
+msgstr ""
+
+#: main-menu.php:11
+#@ quan
+msgid "Jobs"
+msgstr ""
+
+#: main-menu.php:20
+#@ quan
+msgid "Write us an e-mail"
+msgstr "Schreiben Sie uns"
+
+#: main-menu.php:23
+#@ quan
+msgctxt "public phone number for your country"
+msgid "tel:+123456789"
+msgstr "tel:+49302061379232"
+
+#: main-menu.php:23
+#@ quan
+msgid "Talk to us"
+msgstr "Reden Sie mit uns"
+
+#: main-menu.php:26
+#@ quan
+msgid "Read the legal stuff"
+msgstr "Impressum"
+
+#: sidebar-jobs.php:11
+#@ quan
+msgid "Please address your application to"
+msgstr "Bitte richten Sie Ihre Bewerbung an"
+
+#: sidebar-jobs.php:43
+#: sidebar-single.php:80
+#@ quan
+msgid "Share"
+msgstr "Teilen"
+
+#: sidebar-jobs.php:46
+#: sidebar-single.php:83
+#@ quan
+msgid "on facebook"
+msgstr "auf facebook"
+
+#: sidebar-jobs.php:49
+#: sidebar-single.php:86
+#@ quan
+msgid "on twitter"
+msgstr "auf twitter"
+
+#: sidebar-jobs.php:53
+#: sidebar-single.php:90
+#@ quan
+msgid "on google+"
+msgstr "auf google+"
+

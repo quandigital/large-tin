@@ -17,12 +17,6 @@
 	<title><?php bloginfo( 'name' ); ?></title>
 
 	<?php wp_head(); ?>
-	<script>
-		var $ = jQuery.noConflict();
-		if (window.navigator.msMaxTouchPoints) {
-			$( 'html' ).removeClass( 'no-touch' ).addClass( 'touch' );
-		}
-	</script>
 </head>
 <body <?php body_class(); ?>>
 

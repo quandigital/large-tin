@@ -1,0 +1,1 @@
+$(".tags a").click(function(a){a.preventDefault();var b=$(this).parent().attr("id"),c=ajaxpost_localization.blog_url+"?tag="+b;window.location.href=c});
