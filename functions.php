@@ -594,3 +594,26 @@ function quanFrSendEmail()
     );
     wp_die();
 }
+
+// Escape HTML tags in post content
+add_filter('the_content', 'escape_code_fragments');
+
+function escape_code_fragments($source) {
+  $encoded = preg_match('/<code>(.*?)<\/code>/ims', $source, $matches);
+  $inner = preg_replace('%<br.*>%', '', $matches[1]);
+  error_log(date('H:i:s', strtotime('now')) . "\n" . print_r([$matches, $inner], true) . "\n", 3, __DIR__ . '/debug.log');
+  $encoded = preg_replace_callback('/<code>(.*?)<\/code>/ims',
+  create_function(
+    '$matches',
+    '$matches[1] = preg_replace(
+        array("%^(\r|\n|<br.*?>)+%i", "%(\r|\n|<br.*?>|\s<p>)+$%i"), "",
+        $matches[1]);
+      return "<code>" . esc_html( $matches[1] ) . "</code>";'
+  ),
+  $source);
+
+  if ($encoded)
+    return $encoded;
+  else
+    return $source;
+}

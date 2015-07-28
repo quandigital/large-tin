@@ -1,0 +1,19 @@
+.single-content {
+    pre {
+        @include grid-column(12);
+        margin-top: 0;
+        display: inline-block;
+        overflow-x: scroll;
+        white-space: pre;
+        & > code { // if the code element is nested in pre
+            background-color: $purple-dark;
+            line-height: 1.4em;
+            padding: .9375em;
+        }
+    }
+    code { 
+        font-family: Consolas, Courier, monospace; 
+        background-color: #fff;
+        padding: 2px;
+    }
+}

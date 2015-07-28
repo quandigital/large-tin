@@ -105,18 +105,6 @@
             }
         }
     }
- 
-    pre {
-        @include grid-column(12);
-        margin-top: 0;
-    }
-    code { 
-        @include grid-column(12);
-        font-family: Consolas, Courier, monospace; 
-        line-height: 1.4em;
-        padding: .9375em;
-        background-color: $purple-dark;
-    }
 
     figure {
         @include grid-column(12);
