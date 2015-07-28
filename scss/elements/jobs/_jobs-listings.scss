@@ -12,4 +12,35 @@
         line-height: 1.5;
         margin-bottom: 0;
     }
+    h1 {
+        @include grid-column(12);
+        text-align: center;
+        font: {
+            family: $bold;
+        }
+        color: $purple-dark;
+        &:after {
+            content: "";
+            display: block;
+            width: 10%;
+            border-bottom: 2px solid $purple-dark;
+            margin: 0 auto;
+        }
+    }
+    article {
+        @include grid-column(12);
+        margin-bottom: .9375em * 2;
+        padding: .9375em;
+        background-color: #fff;
+        &:first-of-type {
+            margin-top: .9375em * 2;
+        }
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
 }
+
+    .job-details {
+        float: right;
+    }
