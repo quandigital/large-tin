@@ -1,8 +1,8 @@
 <?php
 
-	/*
-	fallback for everything
-	*/
+	/**
+	 * Blog Index
+	 */
 
     require_once('resolution.php');
 

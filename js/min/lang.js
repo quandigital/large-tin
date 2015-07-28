@@ -1,1 +1,0 @@
-$.urlParam=function(a){var b=new RegExp("[\\?&]"+a+"=([^&#]*)").exec(window.location.href);return null==b?null:b[1]||0},window.quanLang=$.urlParam("lang");

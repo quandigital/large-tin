@@ -1,1 +1,0 @@
-{"version":3,"file":"lang.js","sources":["../lang.js"],"names":["$","urlParam","name","results","RegExp","exec","window","location","href","quanLang"],"mappings":"AAAAA,EAAEC,SAAW,SAASC,GAClB,GAAIC,GAAU,GAAIC,QAAO,SAAWF,EAAO,aAAaG,KAAKC,OAAOC,SAASC,KAC7E,OAAa,OAATL,EACM,KAGAA,EAAQ,IAAM,GAI5BG,OAAOG,SAAWT,EAAEC,SAAS"}

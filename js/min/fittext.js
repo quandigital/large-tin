@@ -1,1 +1,0 @@
-!function(a){a.fn.fitText=function(b){var c=b||1;return this.each(function(){var b=a(this),d=function(){for(var a=parseInt(b.css("line-height"),10)*c,d=b.height();d>a;){var a=parseInt(b.css("line-height"),10)*c,d=b.height(),e=parseInt(b.css("font-size"),10);if(b.css("font-size",e-1),0==e)return!1}};d(),a(window).smartresize(function(){})})}}(jQuery);
