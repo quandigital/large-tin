@@ -19,16 +19,11 @@ function removeEmptyParagraphs( $content ) {
 add_filter( 'the_content', 'removeEmptyParagraphs', 9999 );
 remove_filter('the_excerpt', 'wpautop'); 
 
-// Disable WordPress version reporting as a basic protection against attacks
-function remove_generators() {
-	return '';
-}		
-
-add_filter('the_generator','remove_generators');
-
 add_filter('the_generator', create_function('', 'return "";'));
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'wp_shortlink_wp_head');
+remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
 
 // remove wp version param from any enqueued scripts
 function vc_remove_wp_ver_css_js( $src ) {
@@ -38,7 +33,6 @@ function vc_remove_wp_ver_css_js( $src ) {
 }
 add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
-
 
 /**
  *	ENQUEUE SCRIPTS
@@ -599,9 +593,6 @@ function quanFrSendEmail()
 add_filter('the_content', 'escape_code_fragments');
 
 function escape_code_fragments($source) {
-  $encoded = preg_match('/<code>(.*?)<\/code>/ims', $source, $matches);
-  $inner = preg_replace('%<br.*>%', '', $matches[1]);
-  error_log(date('H:i:s', strtotime('now')) . "\n" . print_r([$matches, $inner], true) . "\n", 3, __DIR__ . '/debug.log');
   $encoded = preg_replace_callback('/<code>(.*?)<\/code>/ims',
   create_function(
     '$matches',
