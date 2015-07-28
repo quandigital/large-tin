@@ -15,5 +15,7 @@
         font-family: Consolas, Courier, monospace; 
         background-color: #fff;
         padding: 2px;
+        // some important style to not mess with the content of a code
+        text-transform: none!important;
     }
 }

@@ -115,6 +115,19 @@
             @include grid-column(12);
             float: right;
         }
+
+    dl {
+        @include grid-column($columns: 12, $collapse: false);
+        font-size: 1.3em;
+    }
+        dt {
+            text-transform: uppercase;
+            font-weight: bold;   
+        }
+
+        dd {
+            margin-bottom: .9375em;
+        }
 }
 
 .no-js {
