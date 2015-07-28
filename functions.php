@@ -50,7 +50,6 @@ function quan_add_scripts() {
 
     // third party
     wp_register_script( 'smartresize', get_template_directory_uri() .  '/js/smartresize.js', array( 'jquery' ), '0.1', true );
-    wp_register_script( 'easing', get_template_directory_uri() .  '/js/easing.js', array( 'jquery', 'functions' ), '', true );
     wp_register_script( 'disable_scroll', get_template_directory_uri() .  '/js/disablescroll.min.js', array('jquery'), '', true );
     wp_register_script( 'isotope', get_template_directory_uri() .  '/js/isotope.min.js', array( 'jquery' ), '', true );
     wp_register_script( 'cookie', get_template_directory_uri() .  '/js/jquery.cookie.js', array( 'jquery' ), '', true );
