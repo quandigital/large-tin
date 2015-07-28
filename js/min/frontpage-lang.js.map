@@ -1,0 +1,1 @@
+{"version":3,"file":"frontpage-lang.js","sources":["../frontpage-lang.js"],"names":["$","change","cookie","this","val","path","window","scrollTop","location","reload"],"mappings":"AAAAA,EAAE,gBAAgBC,OAAQ,WACzBD,EAAEE,OAAQ,OAAQF,EAAEG,MAAMC,OAASC,KAAM,MACzCL,EAAEM,QAAQC,UAAU,GACpBC,SAASC"}

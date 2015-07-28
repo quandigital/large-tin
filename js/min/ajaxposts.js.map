@@ -1,0 +1,1 @@
+{"version":3,"file":"ajaxposts.js","sources":["../ajaxposts.js"],"names":["$","click","ev","preventDefault","tagID","this","parent","attr","queryUrl","ajaxpost_localization","blog_url","window","location","href"],"mappings":"AAAAA,EAAE,WAAWC,MAAM,SAASC,GAExBA,EAAGC,gBACH,IAAIC,GAAQJ,EAAEK,MAAMC,SAASC,KAAK,MAE9BC,EAAWC,sBAAsBC,SAAW,QAAUN,CAE1DO,QAAOC,SAASC,KAAOL"}
