@@ -10,7 +10,7 @@ module.exports = function(grunt) {
                     sourceMap: true
                 },
                 files: {
-                    'css/app.css': 'src/scss/app.scss'
+                    'css/app.css': 'scss/app.scss'
                 }        
             }
         },
@@ -58,5 +58,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('build', ['sass', 'uglify:dist']);
-    grunt.registerTask('default', ['sass', 'uglify:dev', 'watch']);
+    grunt.registerTask('default', ['sass', 'watch']);
 }
