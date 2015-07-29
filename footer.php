@@ -21,8 +21,8 @@
             </div>
             
             <?php
-                if (function_exists(is_ios())) {
-                    $url = is_ios() ? 'mailto:mail@quandigital.com' : get_bloginfo('wpurl') . '/contact';
+                if (function_exists('is_ios')) {
+                    $url = is_ios() ? 'mailto:mail@quandigital.com' : get_bloginfo('wpurl') . '/kontakt';
                 } else {
                     $url = get_bloginfo('wpurl') . '/kontakt';
                 }

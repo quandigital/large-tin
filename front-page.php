@@ -4,7 +4,7 @@
 
 	get_header( 'front' );
 
-    if (function_exists(is_ios())) {
+    if (function_exists('is_ios')) {
         $url = is_ios() ? 'mailto:mail@quandigital.com' : get_bloginfo('wpurl') . '/contact';
     } else {
         $url = get_bloginfo('wpurl') . '/contact';
