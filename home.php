@@ -4,12 +4,9 @@
 	 * Blog Index
 	 */
 
-    require_once('resolution.php');
-
 	get_header(); 
 
     //the main query
-   
     $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
     $quan_query = new WP_Query( array(
             'post_type'      => array( 'post', 'quan_tweets' ),
@@ -35,8 +32,8 @@
         </div>
     </div>
     <div id="loading-canvas"></div>
-    <input type="hidden" id="postids" value="<?= json_encode( $ids ); ?>" />
+    <input type="hidden" id="postids" value="<?= json_encode($ids); ?>" />
 
 <?php 
 
-get_footer(); 
+    get_footer(); 
