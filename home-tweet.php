@@ -7,9 +7,18 @@
     
     $twitterName = get_post_meta( $post->ID, 'quan_tweet_author_twitter_name', true );
     $twitterScreenName = get_post_meta( $post->ID, 'quan_tweet_author_twitter', true );
+    
     //check if we have this author in the database
     $tweetauthor = get_users( array( 'meta_key' => 'twitter', 'meta_value' => $twitterScreenName ) );
+
+    if (is_array($tweetauthor) && !empty($tweetauthor)) {
+        $author = $tweetauthor[0];
+        $userData = new \Quan\UserData\UserData($author);
+    }
     
+    // get the author image; either our image or the one from twitter
+    $twitImg = isset($userData) ? $userData->image : get_post_meta( $post->ID, 'quan_tweet_avatar_url', true );
+
     //if this still does not return an author, get the tweet author
     if( empty( $tweetauthor ) ) {
         $tweetauthor = $twitterScreenName; 
@@ -28,38 +37,30 @@
 ?>
     
     <div class="index-author tweet-author">
-        <a class="twitter-image" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank">
-            <?php
-                if( is_array( $tweetauthor ) ) :
-                    //get their author image
-                    the_author_image_size( 100, 100, $tweetauthor[0]->ID ); 
-                else :
-                //get their twitter image (retain the stupid class name of the author image plugin)
-            ?>
-                <div class="entry_author_image"><img src="<?= get_post_meta( $post->ID, 'quan_tweet_avatar_url', true ); ?>" alt="" /></div>    
-            <?php 
-                endif; 
-            ?>
-        </a>
+        <div class="twitter-image-container">
+            <a class="twitter-link" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank"></a>
+            <div class="twitter-image" style="background-image: url(<?= $twitImg; ?>)"></div>
+        </div>
 
         <div class="display-name">
-        <?php if( is_array( $tweetauthor ) ) : ?>
-            <a class="twitter-name" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank"><?= $tweetauthor[0]->display_name; ?></a>
-        <?php else : ?>
-            <a class="twitter-name" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank"><?= $twitterName; ?></a>
-        <?php endif; ?>
+            <a class="twitter-name" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank">
+                <?= is_array($tweetauthor) ? $tweetauthor[0]->display_name : $twitterName; ?>
+            </a>
             <br />
-            <a class="twitter-screenname" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank">@<?= $twitterScreenName; ?></a>
+            <a class="twitter-screenname" href="https://twitter.com/<?= $twitterScreenName; ?>" target="_blank">
+                @<?= $twitterScreenName; ?>
+            </a>
         </div>
 
     </div>
 
     <div class="tweet-content">
-    <?php if( $attachment != '' ) : ?>
-        <div class="tweet-attachment" style="background-image: url(<?= $attachment; ?>);"></div>
-    <?php endif; ?>
-    
-       <p><?= $content; ?></p>
+        <?php if( $attachment != '' ) : ?>
+            <div class="tweet-attachment" style="background-image: url(<?= $attachment; ?>);"></div>
+        <?php endif; ?>
+        <p>
+            <?= $content; ?>
+        </p>
 
     </div>
 
@@ -78,7 +79,7 @@
     </div>
 
 <?php                   
-    //unset the tweetauthor, so it gets newly created on each iteration
-    unset( $tweetauthor );
+    //unset the userData/screen name, so it gets newly created on each iteration
+    unset( $userData );
     unset( $twitterScreenName );
     
