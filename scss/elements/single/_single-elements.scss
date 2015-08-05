@@ -10,6 +10,7 @@
         }
     }
     .content-image {
+        @include grid-column();
         padding: 20px 0;
         &.full {
             width: 100%;
@@ -70,6 +71,7 @@
         padding: .9375em;
         padding-left: .9375em * 3;
         border-left: .9375em solid $purple-light;
+        min-height: 125px;
         &:before {
             content: "\201C";
             font: {
@@ -95,6 +97,7 @@
             @include grid-column(12);
             padding: 0;
             height: auto;
+            background-color: transparent; // account for the general page footer
         }
         cite {
             @include grid-column(12);
