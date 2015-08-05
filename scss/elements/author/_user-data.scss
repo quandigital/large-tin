@@ -1,0 +1,67 @@
+.data-container {
+    @include grid-column(12);
+    font-size: 1.2em;
+    @media #{$medium-up} {
+        padding-right: .9375em;
+    }
+}
+
+    .user-image-container {
+        @include grid-column(12);
+        padding-right: .9375em;        
+        overflow: hidden;
+        @media #{$medium-up} {
+            @include grid-column(4);
+            padding-right: .9375em;        
+        }
+    }
+
+        .user-image {
+            width: 100%;
+            padding-bottom: 100%;
+            background: {
+                color: $purple-dark;
+                repeat: no-repeat;
+                size: cover;
+            }
+            &:after {
+                content: "";
+                background-color: rgba($white, .3);
+                height: 200%;
+                width: 100%;
+                position: absolute;
+                top: -25%;
+                left: 21%;
+                @include transform(rotate(30deg));
+                @include transition-duration(.6s);
+            }
+            &:hover {
+                &:after {
+                    @include transform(rotate(30deg) translateX(90%));
+                    @include transition-duration(.6s);
+                }
+            }
+        }
+
+    .user-data {
+        @include grid-column(12);
+        margin-bottom: .9375em;
+        @media #{$medium-up} {
+            @include grid-column(8);
+        }
+        h1 {
+            margin: 0;
+        }
+    }
+        .user-job {
+            @include grid-column(12);
+            margin: {
+                top: -.5em;
+                bottom: .5em;
+            }
+            font-weight: bold;
+        }
+
+        .user-bio {
+            @include grid-column(12);
+        }

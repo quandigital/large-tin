@@ -1,0 +1,31 @@
+.user-posts {
+    @include grid-column(12);
+    padding-top: .9375em * 2;
+    @media #{$medium-up} {
+        padding-top: .9375em * 2;
+    }
+    margin-bottom: .9375em * 5;
+}
+
+    .user-loop {
+        @include grid-row();
+        @media #{$medium-up} {
+            @include display(flex);
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+            overflow-x: hidden;
+        }
+    }
+
+        .user-post {
+            @include grid-column(12);
+            margin-bottom: .9375em;
+            @media #{$medium-up} {
+                width: 49.9%;
+                float: left;
+                padding: {
+                    left: 0;
+                    right: .9375em;
+                }
+            }
+        }

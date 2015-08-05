@@ -1,0 +1,32 @@
+.socials {
+    @include grid-column(12);
+    @media #{$medium-up} {
+        @include grid-column(8);
+    }
+    font-size: 2em;
+    text-align: right;
+    a {
+        border: none;
+        box-shadow: none;
+        &:hover {
+            background-color: transparent;
+            color: $green;
+        }
+    }
+}
+
+    .social {
+        @include grid-column();
+        padding-right: 15px; // the font size is different, that's why ems won't work
+    } 
+
+    .user-xing {
+        font: {
+            size: 1.05em;
+            weight: bold;
+        }
+    }
+
+    .user-linkedin {
+        font-size: 1.1em;
+    }

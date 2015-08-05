@@ -1,0 +1,9 @@
+.user-profile {
+    @include grid-column(12);
+    padding-top: .9375em * 2;
+    @media #{$medium-up} {
+        @include grid-column($center: true);
+        max-width: 800px;
+        padding-top: .9375em * 5;
+    }
+}
