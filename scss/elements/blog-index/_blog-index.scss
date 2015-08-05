@@ -30,16 +30,6 @@
                 width: 33.2%;
             }
         }
-        a {
-            border-bottom: 0;
-            box-shadow: none;
-            &:hover {
-                background-color: transparent;
-            }
-        }
-        h2 {
-            font-size: 1.5em;
-        }
     }
 
 
@@ -62,7 +52,7 @@
         @include transition-duration(.5s);
         &.shown {
             @include animation(fadeIn .7s ease-in);
-            &.unfocus { // we need this specifity
+            &.unfocus { // we need this specificity
                 opacity: .3!important;
                 @include transition-duration(.2s);
                 &:before {

@@ -6,6 +6,14 @@
         padding: .9375em;
         background-color: #fff;
     }
+    a {
+        color: $purple-dark;
+        border-bottom: none;
+        box-shadow: none;
+        &:hover {
+            background-color: transparent;
+        }
+    }
     &:hover {
         cursor: default !important; //overwrite element style
         .tweet-content {
@@ -27,25 +35,42 @@
             }
         }
     }
-        .twitter-image {
+        .twitter-image-container {
+            position: relative;
             display: inline-block;
+            width: 80px;
+            height: 80px;
+            margin: 10px;
             vertical-align: inherit;
-            border: 0;
+            z-index: 2;
             &:hover {
                 border: 0;
             }
         }
-    
-        .entry_author_image {
-            img {
-                border-radius: 50%;
-                padding: .9375em;
+
+            .twitter-link {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 3
             }
-        }
+            
+            .twitter-image {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background: {
+                    color: $purple-dark;
+                    size: contain;
+                }
+                z-index: 1;
+            }
 
         .display-name {
             display: inline-block;
-            padding-left: 20px;
             vertical-align: inherit;
             br {
                 font-size: 1.3em;
@@ -57,9 +82,9 @@
             color: $purple-dark;
             font: {
                 family: nexa_boldregular, sans-serif;
-                size: 1.3em;
+                size: 1.2em;
             }
-            line-height: 1.5;
+            line-height: 1.2;
             &:hover {
                 color: $purple-dark;
                 border-bottom: 2px solid $purple-dark;
