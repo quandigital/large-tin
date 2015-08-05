@@ -8,10 +8,10 @@
         @include grid-column(12);
         @media #{$medium-up} {
             @include grid-column($columns: 12, $center: true);
-            width: 800px;
             padding-top: .9375em;
             font-family: Georgia, serif;
             line-height: 1.5;
+            max-width: 800px;
         }
     }
     h1 {
