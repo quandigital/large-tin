@@ -59,11 +59,13 @@ function quan_add_scripts() {
     // v2
     wp_register_script( 'functions', get_template_directory_uri() .  '/js/_functions.js', array('jquery'), '', true );
     wp_register_script( 'app', get_template_directory_uri() .  '/js/_app.js', array( 'jquery', 'functions', 'smartresize' ), '', true );
-    wp_register_script( 'blog', get_template_directory_uri() .  '/js/_blog-index.js', array( 'jquery', 'isotope', 'cookie' ), '', true );
+    wp_register_script( 'blog', get_template_directory_uri() .  '/js/_blog-index.js', array( 'jquery', 'isotope', 'cookie', 'app' ), '', true );
     wp_register_script( 'front', get_template_directory_uri() .  '/js/_front.js', array( 'jquery', 'disable_scroll', 'functions' ), '', true );
-    wp_register_script( 'single', get_template_directory_uri() .  '/js/_single.js', array( 'jquery', 'functions', 'highlight' ), '', true );
-    wp_register_script( 'contact', get_template_directory_uri() .  '/js/_contact.js', array( 'jquery', 'functions' ), '', true );
-    wp_register_script( 'lpfr', get_template_directory_uri() .  '/js/_frenchlp.js', array( 'jquery', 'functions' ), '', true );
+    wp_register_script( 'single', get_template_directory_uri() .  '/js/_single.js', array( 'jquery', 'functions', 'highlight', 'app' ), '', true );
+    wp_register_script( 'contact', get_template_directory_uri() .  '/js/_contact.js', array( 'jquery', 'functions', 'app' ), '', true );
+    wp_register_script( 'lpfr', get_template_directory_uri() .  '/js/_frenchlp.js', array( 'jquery', 'functions', 'app' ), '', true );
+    wp_register_script( 'author', get_template_directory_uri() .  '/js/_author.js', array( 'jquery', 'isotope', 'app' ), '', true );
+
 
     //styles
     // wp_register_script
@@ -81,6 +83,10 @@ function quan_add_scripts() {
     if(is_single()) {
         wp_enqueue_script('single');
         wp_enqueue_style('highlight-css');
+    }
+
+    if (is_author()) {
+        wp_enqueue_script('author');
     }
 
     if(is_home()) {
@@ -157,7 +163,7 @@ function add_htaccess($insertion) {
 
 function sgr_filter_image_sizes( $sizes) {
 		
-	unset( $sizes['thumbnail']);
+	// unset( $sizes['thumbnail']);
 	unset( $sizes['medium']);
 	unset( $sizes['large']);
 	
@@ -169,6 +175,16 @@ add_filter('intermediate_image_sizes_advanced', 'sgr_filter_image_sizes');
 require_once('aq_resizer.php');
 
 add_theme_support( 'post-thumbnails' );
+
+function quanPostThumbs($post) {
+    if( has_post_thumbnail() ) {
+        $img = aq_resize(wp_get_attachment_url( get_post_thumbnail_id($post->ID) ), $GLOBALS['width'], $GLOBALS['height'], true);
+        $imgSizes = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+        $img = !$img ? aq_resize(wp_get_attachment_url(get_post_thumbnail_id($post->ID)), $imgSizes[1], $imgSizes[1] * 16/9, true) : $img;
+        $img = !$img ? wp_get_attachment_thumb_url(get_post_thumbnail_id($post->ID)) : $img;
+        return sprintf('<img src="%s" alt="" class="index-post-img" />', $img);
+    }
+}
 
 // add_action( 'wp_ajax_nopriv_quan_query_posts', 'quan_load_posts' );
 // add_action( 'wp_ajax_quan_query_posts', 'quan_load_posts' );
