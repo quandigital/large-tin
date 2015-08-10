@@ -1,0 +1,9 @@
+{
+    "name": "quandigital/large-tin",
+    "description": "Triangle theme for quandigital.com",
+    "license": "MIT",
+    "type": "wordpress-theme",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
