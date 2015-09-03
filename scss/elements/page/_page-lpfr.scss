@@ -225,18 +225,8 @@
             }
             color: $purple-dark;
             margin-bottom: .9375em;
-            @media #{$large-up} {
-                @include grid-column($columns: 6, $collapse: false);
-                text-align: right;
-                margin-bottom: 0;
-                line-height: 55px;
-            }
         }
         .cta {
-            @media #{$large-up} {
-                @include grid-column($columns: 6, $collapse: false);
-                text-align: left;
-            }
             a {
                 @include button();
                 &:before {
@@ -257,6 +247,23 @@
     footer {
         .work-with-us {
             display: none;
+        }
+    }
+}
+
+.page-template-page-lpfr-php {
+    .text {
+        @media #{$large-up} {
+            @include grid-column($columns: 6, $collapse: false);
+            text-align: right;
+            margin-bottom: 0;
+            line-height: 55px;
+        }
+    }
+    .cta {
+        @media #{$large-up} {
+            @include grid-column($columns: 6, $collapse: false);
+            text-align: left;
         }
     }
 }
