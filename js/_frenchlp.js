@@ -11,10 +11,12 @@ jQuery(document).ready(function($) {
             'email': $('[name="email"]').val(),  
             'company': $('[name="company"]').val(),  
             'website': $('[name="website"]').val(),  
+            'url': $('#contact').data('page')
         }
 
        $.post(ajaxurl, data, function(response) {
             if (response) {
+                _gaq.push(['_trackEvent', 'lp-form-success', 'submit-contact', data.url]);
                 $('.spinner').remove();
                 $('#send').text('Votre message a bien été envoyé').addClass('sent');
             }
