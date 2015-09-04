@@ -8,6 +8,27 @@
         echo '<meta name="robots" content="noindex">';
     });
 
+    add_action('wp_footer', function() {
+        echo '<!-- Google Code for Contact Form FR LP Conversion Page --> <script type="text/javascript">
+            /* <![CDATA[ */
+            var google_conversion_id = 945914834;
+            var google_conversion_language = "en";
+            var google_conversion_format = "3";
+            var google_conversion_color = "ffffff";
+            var google_conversion_label = "vzgUCMbizV8Q0oeGwwM"; var google_remarketing_only = false;
+            /* ]]> */
+            </script>
+            <script type="text/javascript"  
+            src="//www.googleadservices.com/pagead/conversion.js">
+            </script>
+            <noscript>
+            <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt=""  
+            src="//www.googleadservices.com/pagead/conversion/945914834/?label=vzgUCMbizV8Q0oeGwwM&amp;guid=ON&amp;script=0"/>
+            </div>
+            </noscript>';
+    });
+
     get_header();
 ?>
     <section class="introduction">
