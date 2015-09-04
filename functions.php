@@ -576,8 +576,9 @@ function quanFrSendEmail()
     $name = isset($_POST['name']) ? filter_var($_POST['name'], FILTER_SANITIZE_STRING) : 'false';
     $company = isset($_POST['company']) ? filter_var($_POST['company'], FILTER_SANITIZE_STRING) : 'false';
     $website = isset($_POST['website']) ? filter_var($_POST['website'], FILTER_SANITIZE_STRING) : 'false';
+    $url = isset($_POST['url']) ? filter_var($_POST['url'], FILTER_SANITIZE_STRING) : 'false';
 
-    $body = '<div class="emailbody"><table><tr><td>Name:</td><td>'.$name.'</td></tr><tr><td>Email:</td><td>'.$email.'</td></tr><tr><td>Phone:</td><td>'.$phone.'</td></tr><tr><td>Company:</td><td>'.$company.'</td></tr><tr><td>Website:</td><td>'.$website.'</td></tr></table></div>';
+    $body = '<div class="emailbody"><table><tr><td>Name:</td><td>'.$name.'</td></tr><tr><td>Email:</td><td>'.$email.'</td></tr><tr><td>Phone:</td><td>'.$phone.'</td></tr><tr><td>Company:</td><td>'.$company.'</td></tr><tr><td>Website:</td><td>'.$website.'</td></tr><tr><td>Sent from:</td><td>'.$url.'</td></tr></table></div>';
 
     echo wp_mail( 
         'fr@quandigital.com', 
