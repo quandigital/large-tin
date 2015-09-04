@@ -252,18 +252,20 @@
 }
 
 .page-template-page-lpfr-php {
-    .text {
-        @media #{$large-up} {
-            @include grid-column($columns: 6, $collapse: false);
-            text-align: right;
-            margin-bottom: 0;
-            line-height: 55px;
+    .callout {
+        .text {
+            @media #{$large-up} {
+                @include grid-column($columns: 6, $collapse: false);
+                text-align: right;
+                margin-bottom: 0;
+                line-height: 55px;
+            }
         }
-    }
-    .cta {
-        @media #{$large-up} {
-            @include grid-column($columns: 6, $collapse: false);
-            text-align: left;
+        .cta {
+            @media #{$large-up} {
+                @include grid-column($columns: 6, $collapse: false);
+                text-align: left;
+            }
         }
     }
 }
