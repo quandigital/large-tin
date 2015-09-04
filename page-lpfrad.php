@@ -37,7 +37,7 @@
             <h2>Rencontrons-nous au salon de l’e-commerce et discutons-en</h2>
             <p>Notre équipe internationale est déterminée à débloquer votre potentiel sur internet. Demandez dès maintenant un RDV avec un expert en web marketing de notre équipe en précisant  l’URL de votre site. Nous prendrons soin de l’analyser et de vous proposer un RDV le 21, 22 ou 23 Septembre à Paris Expo afin de vous livrer les opportunités de trafic non exploitées autour d’un café.</p>
         </div>
-        <form id="contact">
+        <form id="contact" data-page="<?= get_permalink(); ?>">
             <input type="text" name="name" placeholder="Nom" required>
             <input type="tel" name="phone" placeholder="Téléphone" required>
             <input type="email" name="email" placeholder="Mail" required>

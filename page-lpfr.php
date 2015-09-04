@@ -12,7 +12,7 @@
             <h2>Notre équipe est déterminée à débloquer votre potentiel sur internet</h2>
             <p>Nous aidons des marques françaises et internationales à développer leur visibilité et leurs revenus sur internet depuis près de 10 ans. Notre double expertise en SEO et Marketing nous permet de concevoir et exécuter des campagnes à fort ROI. Demandez dès maintenant une consultation gratuite avec l'un de nos spécialistes afin qu'il vous livre les clés pour optimiser votre trafic et vos revenus sur le web.</p>
         </div>
-        <form id="contact">
+        <form id="contact" data-page="<?= get_permalink(); ?>">
             <input type="text" name="name" placeholder="Nom" required>
             <input type="tel" name="phone" placeholder="Téléphone" required>
             <input type="email" name="email" placeholder="Mail" required>
