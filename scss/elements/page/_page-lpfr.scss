@@ -1,5 +1,6 @@
 .page-template-page-lpfr-php,
-.page-template-page-lpfrad-php {
+.page-template-page-lpfrad-php,
+.page-template-page-lpfrcw-php {
     .contents {
         @include grid-column($columns: 12, $center: true);
         @media #{$large-up} {
@@ -166,10 +167,26 @@
         }
     }
 
+    .visibilite {
+        h3 {
+            &:before {
+                content: "\f133";
+            }
+        }    
+    }
+
     .trafic {
         h3 {
             &:before {
                 content: "\f262";
+            }
+        }
+    }
+
+    .conseille {
+        h3 {
+            &:before {
+                content: "\f47c";
             }
         }
     }
