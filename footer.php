@@ -2,7 +2,7 @@
         </div> <?php //main container ?>
 
         <?php 
-            if( !is_page_template( 'page-lpfr.php' ) && !is_page_template( 'page-lpfrad.php' ) ) {
+            if(!is_page_template( 'page-lpfr.php' ) && !is_page_template('page-lpfrad.php') && !is_page_template('page-lpfrcw.php')) {
                 get_template_part( 'main', 'menu' ); 
             }
         ?>
