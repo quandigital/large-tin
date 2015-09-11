@@ -18,7 +18,7 @@
         <div class="contents">
             <h1>Agence de communication web</h1>
             <h2>Nous concevons et exécutons des stratégies de communication intégrées pour des clients internationaux.</h2>
-            <p>Notre double compétence en digital (SEO &amp; publicité payante) et en communication (création de contenus &amp; relations presse) nous permet de concevoir des campagnes qui non seulement renforcent votre image de marque mais aussi votre chiffre d’affaires. En plus de développer votre présence sur internet, notre travail vous apporte à nos clients un flot continu de trafic vers leur site internet en provenance des moteurs de recherches, blogs &amp; réseaux sociaux. Vous souhaitez la même chose pour votre entreprise&thinsp;? Alors contactez-nous dès aujourd’hui.</p>
+            <p>Notre double compétence en digital (SEO &amp; publicité payante) et en communication (création de contenus &amp; relations presse) nous permet de concevoir des campagnes qui non seulement renforcent votre image de marque mais aussi votre chiffre d’affaires. En plus de développer votre présence sur internet, notre travail apporte à nos clients un flot continu de trafic vers leur site internet en provenance des moteurs de recherches, blogs &amp; réseaux sociaux. Vous souhaitez la même chose pour votre entreprise&thinsp;? Alors contactez-nous dès aujourd’hui.</p>
         </div>
         <form id="contact" data-page="<?= get_permalink(); ?>">
             <input type="text" name="name" placeholder="Nom" required>
