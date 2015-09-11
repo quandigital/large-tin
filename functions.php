@@ -91,7 +91,7 @@ function quan_add_scripts() {
         wp_enqueue_script('contact');
     }
 
-    if(is_page_template('page-lpfr.php') || is_page_template('page-lpfrad.php')) {
+    if(is_page_template('page-lpfr.php') || is_page_template('page-lpfrad.php') || is_page_template('page-lpfrcw.php')) {
         wp_enqueue_script('lpfr');
     }
 
