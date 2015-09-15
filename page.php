@@ -11,7 +11,7 @@
 				the_post(); 
 			?>
 
-			<h1><?= get_title(); ?></h1>
+			<h1><?= get_the_title(); ?></h1>
 
 			<article>
 				<?php the_content(); ?>

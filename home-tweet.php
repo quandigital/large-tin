@@ -1,5 +1,6 @@
-
 <?php
+
+use QuanDigital\UserData\UserData;
 
     /**
      * Twitter "Cards" on Blog Index
@@ -13,7 +14,7 @@
 
     if (is_array($tweetauthor) && !empty($tweetauthor)) {
         $author = $tweetauthor[0];
-        $userData = new \Quan\UserData\UserData($author);
+        $userData = new UserData($author);
     }
     
     // get the author image; either our image or the one from twitter

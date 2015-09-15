@@ -1,9 +1,5 @@
 <?php 
-    require_once( __DIR__ . '/resolution.php' );
-
-    // get the number of open jobs
-    $jobs = wp_count_posts( 'quan_jobs' );
-    $GLOBALS['jobs_open'] = $jobs->publish;
+require_once( __DIR__ . '/resolution.php' );
 ?>
 	
 <!DOCTYPE html>

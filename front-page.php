@@ -5,9 +5,9 @@
 	get_header( 'front' );
 
     if (function_exists('is_ios')) {
-        $url = is_ios() ? 'mailto:mail@quandigital.com' : get_bloginfo('wpurl') . '/contact';
+        $url = is_ios() ? 'mailto:mail@quandigital.com' : get_bloginfo('url') . '/contact';
     } else {
-        $url = get_bloginfo('wpurl') . '/contact';
+        $url = get_bloginfo('url') . '/contact';
     }	
 ?>
     <div class="intro-layout">

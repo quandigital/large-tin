@@ -22,9 +22,9 @@
             
             <?php
                 if (function_exists('is_ios')) {
-                    $url = is_ios() ? 'mailto:mail@quandigital.com' : get_bloginfo('wpurl') . '/kontakt';
+                    $url = is_ios() ? 'mailto:mail@quandigital.com' : get_bloginfo('url') . '/kontakt';
                 } else {
-                    $url = get_bloginfo('wpurl') . '/kontakt';
+                    $url = get_bloginfo('url') . '/kontakt';
                 }
             ?>
             <a href="<?= $url; ?>" class="work-with-us">Work with us</a>

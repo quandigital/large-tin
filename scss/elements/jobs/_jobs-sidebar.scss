@@ -19,14 +19,6 @@
         left: 0;
         border-top: 1px solid $purple-dark;
     }
-
-    h3 {
-        font: {
-            family: Georgia, serif;
-            weight: normal;
-            size: 1.2em;
-        }
-    }
     
     .c-card {
         @include grid-column();
@@ -56,9 +48,8 @@
         .phone {
             @include grid-column(12);
             a {
-                font-size:1.2em;
-                border-bottom:none;
-                word-break:break-all;
+                word-break: break-all;
+                margin-left: -4px;
             }
             &:before {
                 font: {
@@ -84,4 +75,12 @@
                 content:"\f2c3";
             }
         }
+}
+
+.job-share {
+    @include grid-column(12);
+    .share {
+        font-size: 1.2em;
+        margin-bottom: .5em;
+    }
 }
