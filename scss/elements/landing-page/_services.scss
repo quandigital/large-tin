@@ -1,0 +1,39 @@
+.lp-services {
+    background-color: #fff;
+    @media #{$large-up} {
+        padding-top: 5vh;
+    }
+    .service {
+        @include grid-column(12);
+        padding: .9375em;
+        margin-bottom: .9375em;
+        background-color: #fff;
+        @media #{$large-up} {
+            background-color: transparent;
+            @include grid-column($columns: 4, $collapse: false);
+        }
+    }
+    h2 {
+        text-align: center;
+        color: $green;
+    }
+    h3 {
+        text-align: center;
+        margin-top: 0;
+        &:before {
+            content: attr(data-icon);
+            @include grid-column(12);
+            font: {
+                family: Ionicons;
+                size: 3em;
+                weight: normal;
+            }
+        }
+    }
+    p {
+        font-size: 1.4em;
+        @media #{$large-up} {
+            font-size: 1.2em;
+        }
+    }
+}

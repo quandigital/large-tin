@@ -1,0 +1,17 @@
+.single-landing-page {
+    .contents {
+        @include grid-column($columns: 12, $center: true);
+        @media #{$large-up} {
+            max-width: 800px;   
+        }
+        @media #{$xxlarge-up} {
+            max-width: 960px;
+        }
+    }   
+
+    footer {
+        .work-with-us {
+            display: none;
+        }
+    }
+}

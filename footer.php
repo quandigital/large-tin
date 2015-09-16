@@ -2,7 +2,7 @@
         </div> <?php //main container ?>
 
         <?php 
-            if( !is_page_template( 'page-lpfr.php' ) ) {
+            if(get_post_type() !== 'landing-page') {
                 get_template_part( 'main', 'menu' ); 
             }
         ?>
