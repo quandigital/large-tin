@@ -70,11 +70,7 @@
         @include grid-column(12);
         height: auto;
         min-height: 100vh;
-        margin-top: -70px;
         font-size: 2em;
-        @media #{$large-up} {
-            margin-top: 0;
-        }
         .contents {
             @include transform(translate(0, 0));
             @media #{$large-up} {

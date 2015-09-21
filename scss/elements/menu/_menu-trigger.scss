@@ -32,6 +32,12 @@ body {
             display: none;
         }
     }
+    &.home {
+        &:before,
+        &:after {
+            display: none;
+        }   
+    }
 }
 
 .menu-trigger {
