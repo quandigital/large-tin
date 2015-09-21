@@ -14,7 +14,7 @@ use QuanDigital\Jobs\Job;
         <?php if($jobs = (new Job())->getAll()) : ?>
             <li class="menu-jobs"><a href="<?= get_bloginfo('url'); ?>/jobs"><?= __( 'Jobs', 'quan' ); ?><span class="job-count" data-jobcount="<?= $jobs; ?>"></span></a></li>   
         <?php endif; ?>
-        <li><a href="<?= get_bloginfo('url'); ?>/kontakt"><?= __( 'Contact', 'quan' ); ?></a></li>
+        <li><a href="<?= getContact(); ?></a></li>
     </ul>
 
     <div class="social-menu">

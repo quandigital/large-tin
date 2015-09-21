@@ -20,14 +20,7 @@
                 Klosterstraße 62 &middot; 10179 Berlin &middot; 030&#8239;206&#8239;13&#8239;79&#8239;232
             </div>
             
-            <?php
-                if (function_exists('is_ios')) {
-                    $url = is_ios() ? 'mailto:mail@quandigital.com' : get_bloginfo('url') . '/kontakt';
-                } else {
-                    $url = get_bloginfo('url') . '/kontakt';
-                }
-            ?>
-            <a href="<?= $url; ?>" class="work-with-us">Work with us</a>
+            <a href="<?= getContact(); ?>" class="work-with-us">Work with us</a>
 
 		</footer>
 

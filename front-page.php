@@ -3,12 +3,6 @@
 	/* Front Page Template */
 
 	get_header( 'front' );
-
-    if (function_exists('is_ios')) {
-        $url = is_ios() ? 'mailto:mail@quandigital.com' : get_bloginfo('url') . '/contact';
-    } else {
-        $url = get_bloginfo('url') . '/contact';
-    }	
 ?>
     <div class="intro-layout">
         <div class="dark-corner"></div>
@@ -47,7 +41,7 @@
                 </section>
                 <div class="cta-container">
                     <div class="cta">
-                        <a href="<?= $url; ?>" class="button">Work with us</a>
+                        <a href="<?= getContact(); ?>" class="button">Work with us</a>
                     </div>
                 </div>
             </div>
@@ -71,7 +65,7 @@
                 </section>
                 <div class="cta-container">
                     <div class="cta">
-                        <a href="<?= $url; ?>" class="button">Work with us</a>
+                        <a href="<?= getContact(); ?>" class="button">Work with us</a>
                     </div>
                 </div>
             </div>
@@ -95,7 +89,7 @@
                 </section>
                 <div class="cta-container">
                     <div class="cta">
-                        <a href="<?= $url; ?>" class="button">Work with us</a>
+                        <a href="<?= getContact(); ?>" class="button">Work with us</a>
                     </div>
                 </div>
             </div>

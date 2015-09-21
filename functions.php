@@ -623,3 +623,14 @@ function escape_code_fragments($source) {
   else
     return $source;
 }
+
+function getContact()
+{
+    $url = get_bloginfo('url') . '/kontact';
+
+    if (function_exists('is_ios') && is_ios()) {
+        $url = 'mailto:mail@quandigital.com';
+    }
+
+    return $url;   
+}
