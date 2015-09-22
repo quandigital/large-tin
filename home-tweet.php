@@ -18,7 +18,7 @@ use QuanDigital\UserData\UserData;
     }
     
     // get the author image; either our image or the one from twitter
-    $twitImg = isset($userData) ? $userData->image : get_post_meta( $post->ID, 'quan_tweet_avatar_url', true );
+    $twitImg = isset($userData) ? $userData->tweetImage : get_post_meta( $post->ID, 'quan_tweet_avatar_url', true );
 
     //if this still does not return an author, get the tweet author
     if( empty( $tweetauthor ) ) {
