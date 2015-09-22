@@ -626,7 +626,7 @@ function escape_code_fragments($source) {
 
 function getContact()
 {
-    $url = get_bloginfo('url') . '/kontact';
+    $url = get_bloginfo('url') . '/kontakt';
 
     if (function_exists('is_ios') && is_ios()) {
         $url = 'mailto:mail@quandigital.com';
