@@ -7,8 +7,7 @@
 }
 
     .user-image-container {
-        @include grid-column(12);
-        padding-right: .9375em;        
+        @include grid-column(12);      
         overflow: hidden;
         @media #{$medium-up} {
             @include grid-column(4);
