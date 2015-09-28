@@ -1,6 +1,7 @@
 <?php
 
 use QuanDigital\Jobs\Job;
+use QuanDigital\WpLib\Helpers;
 
 ?>
 
@@ -19,7 +20,7 @@ use QuanDigital\Jobs\Job;
 
     <div class="social-menu">
         <div class="mail">
-            <a href="mailto:info@quandigital.com"><?= __( 'Write us an e-mail', 'quan' ); ?></a>
+            <a href="mailto:mail@quandigital.com"><?= __( 'Write us an e-mail', 'quan' ); ?></a>
         </div>
         <div class="phone">
             <a href="<?= _x( 'tel:+123456789', 'public phone number for your country', 'quan' ); ?>"><?= __( 'Talk to us', 'quan' ); ?></a>
