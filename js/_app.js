@@ -45,7 +45,7 @@ $(document).ready(function() {
 
         var thisA = $(this);
         setTimeout(function() {
-            if (thisA.attr('href').match(new RegExp('^'+location.origin))) {
+            if (thisA.attr('href').match(new RegExp('^'+location.origin)) || thisA.attr('href').substr(0, 7) == 'mailto:') {
                 var link = thisA.attr('href');
             } else {
                 var link = location.origin + thisA.attr('href');
