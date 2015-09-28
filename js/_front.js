@@ -122,6 +122,9 @@ function singleAction()
      */
 
         $('html').on('mousewheel DOMMouseScroll onmousewheel touchmove scroll', function(e) {
+            if ($(e.target).parents('#menu').length > 0) {
+                return false;
+            }
             // don't animate when viewed on a small screen
             if (breakpoints() == 'large' && !$('body').hasClass('overflowing')) {
                 $('#main').removeAttr('style');
