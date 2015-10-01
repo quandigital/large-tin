@@ -17,7 +17,7 @@
 			</div>
 
             <div class="address">
-                Klosterstraße 62 &middot; 10179 Berlin &middot; 030&#8239;206&#8239;13&#8239;79&#8239;232
+                Brandenburgische Straße 39 &middot; 10707 Berlin &middot; 030&#8239;206&#8239;13&#8239;79&#8239;232
             </div>
             
             <?php
