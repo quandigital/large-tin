@@ -15,7 +15,7 @@
 
             $posttype = $quan_query->post->post_type;
             $postlang = wp_get_post_terms($quan_query->post->ID, 'language');
-            $postlang = $postlang[0];
+            $postlang = is_array($postlang) ? $postlang[0] : 'de';
 
             ?>
                 <article id="post-<?= get_the_ID(); ?>" class="index-<?= $posttype == 'quan_tweets' ? 'tweet' : 'post'; ?> lang-<?= $postlang->slug; ?>">
