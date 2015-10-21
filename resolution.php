@@ -35,6 +35,7 @@
 
     //else use the largest we have
     } else {
-        $GLOBALS['thumb_size'] = 'large';
+        $GLOBALS['height']     = 1080/3;
+        $GLOBALS['width']      = 1920/3;
         $GLOBALS['dummy_size'] = '1920x1080';
     }
