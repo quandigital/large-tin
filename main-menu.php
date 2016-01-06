@@ -15,6 +15,16 @@ use QuanDigital\WpLib\Helpers;
         <?php if($jobs = (new Job())->getAll()) : ?>
             <li class="menu-jobs"><a href="<?= get_bloginfo('url'); ?>/jobs"><?= __( 'Jobs', 'quan' ); ?><span class="job-count" data-jobcount="<?= $jobs; ?>"></span></a></li>   
         <?php endif; ?>
+        <?php 
+            wp_nav_menu([
+                'theme_location' => 'main',
+                'container' => false,
+                'echo' => true,
+                'fallback_cb' => false,
+                'items_wrap' => '%3$s',
+                'depth' => 1,
+            ]);
+        ?>
         <li><a href="<?= getContact(); ?>"><?= __('Contact', 'quan'); ?></a></li>
     </ul>
 
