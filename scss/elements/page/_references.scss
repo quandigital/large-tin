@@ -1,0 +1,93 @@
+.page-template-reference-page {
+    @extend .page-template-default;
+    .content {
+        @include grid-column(12);
+        padding: {
+            top: 5vh;
+            bottom: 5vh;
+        }
+        p {
+            margin-top: rem-calc(20px);
+        }
+    }
+}
+
+    .references-container {
+        @include grid-column(12);
+    }
+        .reference-row {
+            @include grid-row();
+            position: relative;
+            max-width: rem-calc(800px + 2 * 15px);
+            padding: {
+                top: 5vh;
+                bottom: 5vh;
+            }
+        }
+            .ref-row-dummy {
+                @include grid-column(12);
+                background-color: #fff;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                &:before,
+                &:after {
+                    content: "";
+                    position: absolute;
+                    display: inline-block;
+                    width: 1000%;
+                    background-color: #fff;
+                    top: 0;
+                    bottom: 0;
+                }
+                &:before {
+                    margin-left: -1000%;               
+                }
+                &:after {
+                    left: 100%;
+                }
+            }
+
+    .single-reference {
+        @include grid-column(12);
+        @media #{$w800-up} {
+            @include grid-column($columns: 4, $collapse: false);
+        }
+    }
+
+        .ref-logo-container {
+            width: 100%;
+            max-width: 250px;
+            padding: rem-calc(15px);
+            margin: 0 auto;
+        }
+            .ref-logo {
+                width: 100%;
+                padding-bottom: 100%;
+                background: {
+                    repeat: no-repeat;
+                    size: contain;
+                    position: center center;
+                }
+
+            }
+
+        .ref-period {
+            @include grid-column(12);
+            font-size: rem-calc(14px);
+            padding: {
+                top: rem-calc(7px);
+                bottom: rem-calc(7px);
+            }
+            @media #{$medium-up} {
+                text-align: center;
+                font-family: $light;
+            }
+        }
+
+        .ref-description {
+            @include grid-column(12);
+            font-size: rem-calc(14px);
+        }
