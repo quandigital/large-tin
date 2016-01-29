@@ -1,5 +1,8 @@
 .page-template-reference-page {
     @extend .page-template-default;
+    p {
+        font-size: 1em;
+    }
     .content {
         @include grid-column(12);
         padding: {
@@ -43,7 +46,7 @@
                     bottom: 0;
                 }
                 &:before {
-                    margin-left: -1000%;               
+                    margin-left: -1000%;
                 }
                 &:after {
                     left: 100%;
@@ -74,20 +77,47 @@
 
             }
 
-        .ref-period {
+
+        .ref-client-name,
+        .ref-period,
+        .ref-url,
+        .ref-langs,
+        .ref-type,
+        .ref-description {
             @include grid-column(12);
-            font-size: rem-calc(14px);
-            padding: {
-                top: rem-calc(7px);
-                bottom: rem-calc(7px);
-            }
-            @media #{$medium-up} {
+            font-size: rem-calc(16);
+            padding-top: rem-calc(7px);
+        }
+
+            .ref-client-name,
+            .ref-period,
+            .ref-url {
                 text-align: center;
-                font-family: $light;
+            }
+
+                .ref-client-name {
+                    font-size: rem-calc(24);
+                }
+
+                .ref-url {
+                    padding-top: 0;
+                    padding-bottom: rem-calc(15);
+                }
+
+        .ref-langs,
+        .ref-type {
+            text-align: right;
+            label {
+                float: left;
+                font: {
+                    family: nexa_boldregular, sans-serif;
+                    weight: bold;
+                }
             }
         }
 
         .ref-description {
-            @include grid-column(12);
-            font-size: rem-calc(14px);
+            // font-size: ;
+            padding-top: rem-calc(15);
         }
+
